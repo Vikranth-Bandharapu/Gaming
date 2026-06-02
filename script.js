@@ -52,3 +52,20 @@ document.querySelectorAll('a').forEach(link => {
 
 });
 
+document.querySelectorAll(
+'.service-card, .tech-card, .process-card'
+).forEach(card => {
+
+    card.style.cursor = 'pointer';
+
+    card.addEventListener('click', () => {
+        window.location.href = '404.html';
+    });
+
+});
+
+document.querySelectorAll('.service-card').forEach(card => {
+    card.onclick = () => {
+        window.location.href = '404.html';
+    };
+});
