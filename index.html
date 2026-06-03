@@ -12,10 +12,19 @@
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
 
 <body>
-
+<div id="loader">
+   <div class="loader-content">
+      <h1>STACKLY</h1>
+      <div class="loading-bar">
+         <span></span>
+      </div>
+   </div>
+</div>
     <!-- HEADER -->
     <header class="header">
 
@@ -242,37 +251,37 @@
 
     <div class="services-container">
 
-        <div class="service-card">
+       <div class="service-card" data-aos="fade-up">
             <i class="fas fa-gamepad"></i>
             <h3>Game Development</h3>
             <p>Custom game development for mobile, PC, and console platforms.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" data-aos="fade-up">
             <i class="fas fa-mobile-screen"></i>
             <h3>Mobile Games</h3>
             <p>High-performance Android and iOS games with engaging gameplay.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" data-aos="fade-up">
             <i class="fas fa-vr-cardboard"></i>
             <h3>AR / VR Games</h3>
             <p>Immersive augmented and virtual reality experiences.</p>
         </div>
 
-        <div class="service-card">
+       <div class="service-card" data-aos="fade-up">
             <i class="fas fa-globe"></i>
             <h3>Multiplayer Systems</h3>
             <p>Real-time multiplayer solutions with scalable architecture.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" data-aos="fade-up">
             <i class="fas fa-palette"></i>
             <h3>Game Art & UI/UX</h3>
             <p>Modern game interfaces, character design, and animations.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" data-aos="fade-up">
             <i class="fas fa-headset"></i>
             <h3>Maintenance & Support</h3>
             <p>Continuous updates, monitoring, and post-launch support.</p>
@@ -364,8 +373,7 @@
     </div>
 
     <div class="portfolio-grid">
-
-        <div class="portfolio-card">
+<div class="portfolio-card" data-aos="zoom-in">
             <img src="./Assests/multiplayer shooter.webp" alt="">
             <div class="portfolio-overlay">
                 <h3>Cyber Arena</h3>
@@ -373,8 +381,7 @@
                 <a href="#">View Project</a>
             </div>
         </div>
-
-        <div class="portfolio-card">
+<div class="portfolio-card" data-aos="zoom-in">
             <img src="./Assests/Racing games.webp" alt="">
             <div class="portfolio-overlay">
                 <h3>Speed Rush</h3>
@@ -382,8 +389,7 @@
                 <a href="#">View Project</a>
             </div>
         </div>
-
-        <div class="portfolio-card">
+<div class="portfolio-card" data-aos="zoom-in">
             <img src="./Assests/adventures.webp" alt="">
             <div class="portfolio-overlay">
                 <h3>Fantasy Quest</h3>
@@ -391,8 +397,7 @@
                 <a href="#">View Project</a>
             </div>
         </div>
-
-        <div class="portfolio-card">
+<div class="portfolio-card" data-aos="zoom-in">
             <img src="./Assests/virtual reality.webp" alt="">
             <div class="portfolio-overlay">
                 <h3>VR Universe</h3>
@@ -400,8 +405,7 @@
                 <a href="#">View Project</a>
             </div>
         </div>
-
-        <div class="portfolio-card">
+<div class="portfolio-card" data-aos="zoom-in">
             <img src="./Assests/bottle royal.webp" alt="">
             <div class="portfolio-overlay">
                 <h3>Battle Zone</h3>
@@ -409,8 +413,7 @@
                 <a href="#">View Project</a>
             </div>
         </div>
-
-        <div class="portfolio-card">
+<div class="portfolio-card" data-aos="zoom-in">
             <img src="./Assests/galaxy wars.webp" alt="">
             <div class="portfolio-overlay">
                 <h3>Galaxy Wars</h3>
@@ -433,43 +436,39 @@
     </div>
 
     <div class="tech-container">
-
-        <div class="tech-card">
+<div class="tech-card" data-aos="flip-left">
             <i class="fab fa-unity"></i>
             <h3>Unity</h3>
         </div>
 
-        <div class="tech-card">
+        <div class="tech-card" data-aos="flip-left">
             <i class="fas fa-cube"></i>
             <h3>Unreal Engine</h3>
         </div>
 
-        <div class="tech-card">
+        <div class="tech-card" data-aos="flip-left">
             <i class="fas fa-draw-polygon"></i>
             <h3>Blender</h3>
         </div>
 
-        <div class="tech-card">
+        <div class="tech-card" data-aos="flip-left">
             <i class="fas fa-fire"></i>
             <h3>Firebase</h3>
         </div>
-
-        <div class="tech-card">
+<div class="tech-card" data-aos="flip-left">
             <i class="fab fa-aws"></i>
             <h3>AWS</h3>
         </div>
 
-        <div class="tech-card">
+        <div class="tech-card" data-aos="flip-left">
             <i class="fas fa-server"></i>
             <h3>Node.js</h3>
         </div>
-
-        <div class="tech-card">
+<div class="tech-card" data-aos="flip-left">
             <i class="fab fa-react"></i>
             <h3>React</h3>
         </div>
-
-        <div class="tech-card">
+<div class="tech-card" data-aos="flip-left">
             <i class="fas fa-database"></i>
             <h3>MongoDB</h3>
         </div>
@@ -478,6 +477,230 @@
 
 </section>
 
+<section class="testimonials">
+
+    <div class="section-title" data-aos="fade-up">
+        <span>CLIENT FEEDBACK</span>
+        <h2>Trusted By Gaming Innovators</h2>
+    </div>
+
+    <div class="testimonials-grid">
+
+        <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
+
+            <div class="quote-icon">❝</div>
+
+            <p>
+                Stackly transformed our vision into an immersive gaming experience.
+                The quality and attention to detail exceeded expectations.
+            </p>
+
+            <div class="client-info">
+                <h4>Alex Johnson</h4>
+                <span>Game Publisher</span>
+            </div>
+
+        </div>
+
+        <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
+
+            <div class="quote-icon">❝</div>
+
+            <p>
+                Their team delivered a high-performance multiplayer game
+                with exceptional graphics and smooth gameplay.
+            </p>
+
+            <div class="client-info">
+                <h4>Michael Chen</h4>
+                <span>Studio Director</span>
+            </div>
+
+        </div>
+
+        <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="300">
+
+            <div class="quote-icon">❝</div>
+
+            <p>
+                Outstanding communication, creativity and technical expertise.
+                Highly recommended for gaming projects.
+            </p>
+
+            <div class="client-info">
+                <h4>Sarah Williams</h4>
+                <span>Product Manager</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="faq-section">
+
+    <div class="section-title" data-aos="fade-up">
+        <span>FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>What platforms do you develop games for?</span>
+                <i>+</i>
+            </div>
+
+            <div class="faq-answer">
+                <p>
+                    We develop games for Android, iOS, PC,
+                    Console, WebGL and VR platforms.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Do you provide multiplayer solutions?</span>
+                <i>+</i>
+            </div>
+
+            <div class="faq-answer">
+                <p>
+                    Yes. We build scalable multiplayer
+                    systems using modern cloud technologies.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How long does development take?</span>
+                <i>+</i>
+            </div>
+
+            <div class="faq-answer">
+                <p>
+                    Depending on project scope,
+                    development can range from weeks
+                    to several months.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Do you provide post-launch support?</span>
+                <i>+</i>
+            </div>
+
+            <div class="faq-answer">
+                <p>
+                    Yes. We offer maintenance,
+                    updates and performance optimization.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="premium-cta">
+
+    <div class="cta-glow glow-1"></div>
+    <div class="cta-glow glow-2"></div>
+
+    <div class="cta-content" data-aos="zoom-in">
+
+        <span>LET'S BUILD SOMETHING AMAZING</span>
+
+        <h2>
+            Ready To Create The Next
+            Gaming Revolution?
+        </h2>
+
+        <p>
+            From mobile games to immersive multiplayer worlds,
+            Stackly transforms ideas into unforgettable experiences.
+        </p>
+
+        <a href="404.html" class="cta-btn">
+            Start Your Project
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<section class="contact-section">
+
+    <div class="section-title" data-aos="fade-up">
+        <span>CONTACT US</span>
+        <h2>Let's Build Something Great</h2>
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-info" data-aos="fade-right">
+
+            <h3>Get In Touch</h3>
+
+            <p>
+                Have a game idea or project in mind?
+                We'd love to hear from you.
+            </p>
+
+            <div class="contact-box">
+                <i class="fas fa-envelope"></i>
+                <span>hello@stackly.com</span>
+            </div>
+
+            <div class="contact-box">
+                <i class="fas fa-phone"></i>
+                <span>+91 98765 43210</span>
+            </div>
+
+            <div class="contact-box">
+                <i class="fas fa-location-dot"></i>
+                <span>Hyderabad, India</span>
+            </div>
+
+        </div>
+
+       <form class="contact-form" id="contactForm">
+
+            <div class="input-group">
+                <input type="text" required>
+                <label>Your Name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" required>
+                <label>Email Address</label>
+            </div>
+
+            <div class="input-group">
+                <textarea rows="6" required></textarea>
+                <label>Your Message</label>
+            </div>
+
+            <button type="submit">
+                Send Message
+ 
+        </form>
+  
+    </div>
+
+</section>
 <!-- FOOTER -->
 
 <footer class="footer">
@@ -564,6 +787,50 @@
     <i class="fas fa-arrow-up"></i>
 </a>
     <script src="script.js"></script>
+    <link rel="stylesheet"
+href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+  duration:1000,
+  once:true
+});
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+  duration:1000,
+  once:true
+});
+</script>
+
+<script>const faqItems =
+document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+
+    const question =
+    item.querySelector(".faq-question");
+
+    question.addEventListener("click", () => {
+
+        item.classList.toggle("active");
+
+    });
+
+});</script>
+<script>
+    document.getElementById("contactForm")
+.addEventListener("submit",(e)=>{
+
+    e.preventDefault();
+
+    window.location.href="404.html";
+
+});
+</script>
 </body>
 </html>

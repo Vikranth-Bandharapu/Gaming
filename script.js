@@ -69,3 +69,14 @@ document.querySelectorAll('.service-card').forEach(card => {
         window.location.href = '404.html';
     };
 });
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        document.getElementById("loader")
+        .style.display="none";
+
+    },1500);
+
+});
