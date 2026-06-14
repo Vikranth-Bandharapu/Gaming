@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Stackly Gaming Support - Submit technical help tickets and view operational FAQs.">
+    <title>STACKLY PLAY // Tactical Support Comms</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cyber-dark-theme">
+    
+    <div class="main-layout revealed" id="main-content">
+        
+        <!-- SECTION 1: HEADER & NAVIGATION -->
+        <header class="tactical-header">
+            <nav class="tactical-navbar">
+                <div class="container navbar-content">
+                     <a href="contact.html" class="nav-logo">
+    <img src="Assests/logo.webp" alt="Stackly Play Logo">
+</a>
+                    
+                    <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                        <span class="hamburger"></span>
+                    </button>
+                    
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                        <li><a href="login.html" class="nav-link">Login</a></li>
+                        <li><a href="signup.html" class="nav-link">Sign Up</a></li>
+                        <li>
+                            <button class="cart-trigger-btn" id="cart-btn" aria-label="View Cart">
+                                <span class="cart-icon">🛒</span>
+                                <span class="cart-badge" id="cart-count">0</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="hero-section subpage-hero">
+                <div class="hero-overlay"></div>
+                <div class="container hero-content text-center">
+                    <div class="hero-text-area" style="grid-column: span 2; max-width: 800px; margin: 0 auto;">
+                        <span class="cyber-badge"><span class="pulse-dot red"></span> SUPPORT GATEWAY OPEN</span>
+                        <h1 class="glitch-title" data-text="TRANSMIT COMMS TICKET">TRANSMIT COMMS TICKET</h1>
+                        <p class="hero-desc">Spot a latency leak or need account credentials reset? Log a support ticket directly with our system developers.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- SECTION 2: TACTICAL COMMS FORM & TICKET LOOKUP -->
+        <section class="engagement-section" id="support-comms">
+            <div class="container">
+                <div class="engagement-layout">
+                    <!-- Left: Form -->
+                    <div class="report-box">
+                        <h3>Transmit Communications</h3>
+                        <p class="box-desc">Input your operational signature and query category below.</p>
+                        
+                        <form id="issue-report-form">
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="issue-type">Query Category *</label>
+                                    <select id="issue-type" required>
+                                        <option value="" disabled selected>Select category...</option>
+                                        <option value="Server Latency Spike">Server Latency / Ping Spike</option>
+                                        <option value="Hardware Peripheral Issue">Hardware Peripheral Config</option>
+                                        <option value="Account Recovery">Account / Credentials Recovery</option>
+                                        <option value="Esports Registration">Esports Tournament Slot</option>
+                                        <option value="Item Transaction Failed">Token Transaction Fail</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="issue-sector">Nearest Node Sector *</label>
+                                    <select id="issue-sector" required>
+                                        <option value="" disabled selected>Select node location...</option>
+                                        <option value="Sector 1 North America">STK-NODE-01 (NA Core)</option>
+                                        <option value="Sector 2 Europe">STK-NODE-02 (EU Central)</option>
+                                        <option value="Sector 3 Asia">STK-NODE-03 (Asia Array)</option>
+                                        <option value="Sector 4 Australia">STK-NODE-04 (AU Grid)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="issue-desc">Neural Comms Description *</label>
+                                <textarea id="issue-desc" rows="4" placeholder="Detail the query parameters (e.g. Server Node 3 dropping packets during space strategies...)" required></textarea>
+                            </div>
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="reporter-email">Your Neural Net Email *</label>
+                                    <input type="email" id="reporter-email" placeholder="agent@neural.net" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reporter-phone">Agent Codename (Optional)</label>
+                                    <input type="text" id="reporter-phone" placeholder="e.g. AGENT_SHADOW">
+                                </div>
+                            </div>
+                            <button type="submit" class="submit-form-btn" style="background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan)); color:#010206; font-weight:800; border:none; clip-path:var(--clip-angle-sm);">TRANSMIT SIGNAL</button>
+                        </form>
+                        <!-- Success Alert -->
+                        <div class="form-success-alert hidden" id="report-success">
+                            <div class="success-icon">✓</div>
+                            <div class="success-info">
+                                <h4 style="color:var(--accent-emerald)">SIGNAL SECURELY TRANSMITTED</h4>
+                                <p>Neural query logged. Operational ticket reference key generated:</p>
+                                <div class="ticket-badge">
+                                    <code id="generated-ticket-id">STK-00000</code>
+                                    <button class="copy-ticket-btn" id="copy-ticket-btn">COPY</button>
+                                </div>
+                                <p class="ticket-note">Paste this code in the tracker HUD to verify response pipeline status.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right: Ticket tracker -->
+                    <div class="sidebar-engagement">
+                        <div class="tracker-box">
+                            <h3>COMMS STATUS TRACKER</h3>
+                            <p class="box-desc">Enter your generated ticket key to verify response queue metrics.</p>
+                            
+                            <div class="tracker-input-row">
+                                <input type="text" id="tracker-input" placeholder="e.g. STK-99812" aria-label="Ticket Key">
+                                <button id="tracker-submit-btn" class="tracker-btn">RESOLVE</button>
+                            </div>
+                            <div class="tracker-results-panel" id="tracker-results">
+                                <div class="tracker-placeholder-msg">
+                                    Enter active ticket key (try: <code>STK-99812</code> or <code>STK-44512</code>).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 3: FAQ ACCORDION -->
+        <section class="faq-section" id="faqs" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>SYSTEM FAQS</h2>
+                    <p>Declassified operational protocols for common grid problems.</p>
+                </div>
+                <div class="faq-list" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item" style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; cursor: pointer;" onclick="const p = this.querySelector('p'); p.classList.toggle('hidden');">
+                        <h4 style="font-size: 1rem; color: #ffffff; display: flex; justify-content: space-between; align-items: center;">
+                            <span> (HOW DO I OPTIMIZE GRID LATENCY?)</span>
+                            <span style="color: var(--accent-cyan)">+</span>
+                        </h4>
+                        <p class="hidden" style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
+                            Navigate to the "Server Intel" Telemetry section. Identify the regional edge node with the lowest milliseconds (MS) latency score. Update your Stackly Launcher configuration to connect directly to that node's destination key.
+                        </p>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div class="faq-item" style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; cursor: pointer;" onclick="const p = this.querySelector('p'); p.classList.toggle('hidden');">
+                        <h4 style="font-size: 1rem; color: #ffffff; display: flex; justify-content: space-between; align-items: center;">
+                            <span>(WHAT IS 128-TICK PRECISION RATE?)</span>
+                            <span style="color: var(--accent-cyan)">+</span>
+                        </h4>
+                        <p class="hidden" style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
+                            128-tick rate means the gaming server updates user and map coordinate locations 128 times every single second. This ensures double the precision of standard 64-tick servers, resulting in highly accurate hit registration and zero input delay.
+                        </p>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div class="faq-item" style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; cursor: pointer;" onclick="const p = this.querySelector('p'); p.classList.toggle('hidden');">
+                        <h4 style="font-size: 1rem; color: #ffffff; display: flex; justify-content: space-between; align-items: center;">
+                            <span> (HOW DO I SECURE TOURNAMENT ENTRY KEYS?)</span>
+                            <span style="color: var(--accent-cyan)">+</span>
+                        </h4>
+                        <p class="hidden" style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
+                            Register an account key in our "Sign Up" portal. Earn at least 1,500 Neural LP ratings in our game simulators (Void Runner or Quantum Clash) to automatically trigger an operational bracket invite directly to your registered email.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 4: TACTICAL FOOTER -->
+        <footer class="tactical-footer">
+            <div class="footer-top">
+                <div class="container footer-grid">
+                    <div class="footer-col about-col">
+                        <div class="footer-logo">
+    <img src="Assests/logo.webp" alt="Stackly Play">
+</div>
+                        <p>Stackly Nexus is the official cybernetic gaming portal. Access distributed multiplayer arenas, real-time telemetry diagnostics, and neural client software.</p>
+                        <div class="social-links">
+                            <a href="404.html" aria-label="Join Discord">💬 Discord</a>
+                            <a href="404.html" aria-label="Twitch channel">🎮 Twitch</a>
+                            <a href="404.html" aria-label="YouTube Channel">📺 YouTube</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>MEMBER HUD</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html#games">Games Arsenal</a></li>
+                            <li><a href="about.html">About Operations</a></li>
+                            <li><a href="blog.html">Tactical Blog</a></li>
+                            <li><a href="contact.html">Contact Hub</a></li>
+                            <li><a href="signup.html">Sign Up Cadet</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>TACTICAL LINKS</h4>
+                        <ul class="footer-links">
+                            <li><a href="contact.html">Developer API Docs</a></li>
+                            <li><a href="contact.html">Hardware Calibrations</a></li>
+                            <li><a href="contact.html">Fair Play Standards</a></li>
+                            <li><a href="contact.html">Privacy Protocols</a></li>
+                            <li><a href="contact.html">System Accessibility</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col matrix-col">
+                        <h4>COMM SECURE SUBSCRIPTION</h4>
+                        <p class="sub-desc">Subscribe to acquire alpha deployment codes and item drop alerts.</p>
+                        <form class="footer-sub-form" onsubmit="event.preventDefault(); alert('Subscribed to operations newsletter (Simulation)'); this.reset();">
+                            <input type="email" placeholder="agent@neural.net" required aria-label="Email Address">
+                            <button type="submit">SUBSCRIBE</button>
+                        </form>
+                        
+                        <div class="footer-accessibility-row">
+                            <span class="acc-title">HUD SCALE:</span>
+                            <button class="scale-btn" id="hud-scale-down">A-</button>
+                            <button class="scale-btn" id="hud-scale-reset">A</button>
+                            <button class="scale-btn" id="hud-scale-up">A+</button>
+                            <button class="contrast-btn" id="hud-contrast-toggle" title="Toggle High Contrast HUD">🌓</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container footer-bottom-content">
+                    <p>&copy; 2026 Stackly Systems Corporation. All operational systems online. Neural encryption active.</p>
+                    <div class="bottom-links">
+                        <a href="contact.html">OPERATIONS POLICY</a>
+                        <a href="contact.html">EULA CODES</a>
+                        <a href="contact.html">ZONING COMPLIANCE</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Main JavaScript Logic -->
+    <script src="app.js"></script>
+</body>
+</html>

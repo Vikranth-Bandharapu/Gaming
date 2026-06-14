@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to Stackly Gaming Nexus - Establish secure connection to your gaming HUD.">
+    <title>STACKLY PLAY // Access Decryption Terminal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cyber-dark-theme" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background-color:#02050a; padding: 2rem;">
+    <!-- Background Particles -->
+    <div class="preloader-particles" style="pointer-events: none; opacity: 0.25;"></div>
+    <div class="login-card-container" style="position: relative; width: 100%; max-width: 450px; z-index: 10;">
+        <div class="card-glow-border" style="background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));"></div>
+        <div class="card-inner" style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: 3rem; box-shadow: var(--shadow-lg);">
+            
+            <div class="login-header" style="text-align: center; margin-bottom: 2.5rem;">
+                <a href="index.html" class="nav-logo" style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">
+                  <img src="Assests/logo.webp" alt="Stackly Play Logo">
+                </a>
+                <span class="panel-tag" style="color: var(--accent-cyan)">SECURE CREDENTIALS ENCRYPTION</span>
+            </div>
+            <!-- Form -->
+            <form id="cyber-login-form" onsubmit="event.preventDefault(); const btn = this.querySelector('button'); btn.textContent='DECRYPTING KEY...'; btn.style.color='var(--accent-gold)'; setTimeout(() => { alert('Neural link established! Welcome back Agent.'); window.location.href='index.html'; }, 1800);">
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="agent-id" style="font-family: var(--font-cyber-console); font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: block;">AGENT EMAIL / SIGNATURE</label>
+                    <input type="email" id="agent-id" placeholder="agent@neural.net" required style="width: 100%; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.8rem 1rem; border-radius: var(--radius-sm); font-size: 0.95rem;">
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <label for="agent-key" style="font-family: var(--font-cyber-console); font-size: 0.8rem; color: var(--text-secondary);">SECRET DECRYPTION KEY</label>
+                        <a href="login.html" onclick="alert('Sending credentials retrieval signal (Simulation)')" style="font-family: var(--font-cyber-console); font-size: 0.75rem; color: var(--accent-purple);">FORGOT KEY?</a>
+                    </div>
+                    <input type="password" id="agent-key" placeholder="••••••••••••" required style="width: 100%; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.8rem 1rem; border-radius: var(--radius-sm); font-size: 0.95rem;">
+                </div>
+                <div class="remember-row" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; font-size: 0.85rem; color: var(--text-secondary);">
+                    <input type="checkbox" id="remember-terminal" style="accent-color: var(--accent-cyan);">
+                    <label for="remember-terminal" style="cursor: pointer;">Remember this neural terminal</label>
+                </div>
+                <button type="submit" class="btn-primary-neon" style="width: 100%; text-align: center; border: none; padding: 1rem; font-size: 0.9rem; letter-spacing: 0.08em; cursor: pointer; display: block;">ESTABLISH LINK</button>
+            </form>
+            <div class="login-footer" style="text-align: center; margin-top: 2.5rem; font-size: 0.875rem; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.03); padding-top: 1.5rem;">
+                New operative to the sector? <a href="signup.html" style="color: var(--accent-cyan); font-weight: 700;">Register Cadet &rarr;</a>
+                <br><br>
+                <a href="index.html" style="font-family: var(--font-cyber-console); font-size: 0.75rem; color: var(--text-muted);">&larr; Return to Node Core</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

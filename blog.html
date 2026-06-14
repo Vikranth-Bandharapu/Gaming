@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stackly Gaming Blog - Read dev logs, patch updates, and esports newsletters.">
+    <title>STACKLY PLAY // Tactical Dev Blog</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cyber-dark-theme">
+    
+    <div class="main-layout revealed" id="main-content">
+        
+        <!-- SECTION 1: HEADER & NAVIGATION -->
+        <header class="tactical-header">
+            <nav class="tactical-navbar">
+                <div class="container navbar-content">
+                    <a href="blog.html" class="nav-logo">
+                       <img src="Assests/logo.webp" alt="Stackly Play Logo">
+                    </a>
+                    
+                    <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                        <span class="hamburger"></span>
+                    </button>
+                    
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="login.html" class="nav-link">Login</a></li>
+                        <li><a href="signup.html" class="nav-link">Sign Up</a></li>
+                        <li>
+                            <button class="cart-trigger-btn" id="cart-btn" aria-label="View Cart">
+                                <span class="cart-icon">🛒</span>
+                                <span class="cart-badge" id="cart-count">0</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="hero-section subpage-hero">
+                <div class="hero-overlay"></div>
+                <div class="container hero-content text-center">
+                    <div class="hero-text-area" style="grid-column: span 2; max-width: 800px; margin: 0 auto;">
+                        <span class="cyber-badge"><span class="pulse-dot green"></span> DEV LOG FEED ONLINE</span>
+                        <h1 class="glitch-title" data-text="TACTICAL INTEL LOGS">TACTICAL INTEL LOGS</h1>
+                        <p class="hero-desc">Access patch logs, hardware calibrations, and official esports reports directly from the Stackly operations deck.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- SECTION 2: BLOG POSTS GRID & FILTERING -->
+        <section class="blog-section" id="blog-catalog">
+            <div class="container">
+                <div class="section-header">
+                    <h2>INTEL BULLETINS</h2>
+                    <p>Filter announcements by operational categories.</p>
+                    <div class="filter-controls">
+                        <button class="filter-btn active" data-filter="all">ALL DECLASSIFIED</button>
+                        <button class="filter-btn" data-filter="patches">PATCH LOGS</button>
+                        <button class="filter-btn" data-filter="esports">ESPORTS NEWS</button>
+                        <button class="filter-btn" data-filter="hardware">HARDWARE INTEL</button>
+                    </div>
+                </div>
+                <div class="news-cards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
+                    <!-- Post 1 -->
+                    <article class="news-card" data-category="patches">
+                        <div class="news-img-box">
+                            <img src="Assests/OIP.webp" alt="Void Runner Visor">
+                            <span class="news-category">PATCH LOGS</span>
+                        </div>
+                        <div class="news-card-content">
+                            <span class="news-date">June 12, 2026</span>
+                            <h3>Void Runner // Patch 1.04 Calibration Logs</h3>
+                            <p>Introducing sector zoning overrides, neural shield balancing modifications, and server-side tickrate optimizations reducing network latency by 1.2ms.</p>
+                            <a href="#blog-catalog" class="news-btn-link" onclick="alert('Intel log opened (Simulation)')">READ PROTOCOL &rarr;</a>
+                        </div>
+                    </article>
+                    <!-- Post 2 -->
+                    <article class="news-card" data-category="esports">
+                        <div class="news-img-box">
+                            <img src="Assests/gam3.webp" alt="Quantum Clash space battleships">
+                            <span class="news-category">ESPORTS NEWS</span>
+                        </div>
+                        <div class="news-card-content">
+                            <span class="news-date">June 09, 2026</span>
+                            <h3>Apex Championship Group Brackets Declared</h3>
+                            <p>The operational grid lineups for the upcoming $250,000 Stackly Apex Pro championship have been synchronized. Check match seeds and starting hours.</p>
+                            <a href="#blog-catalog" class="news-btn-link" onclick="alert('Intel log opened (Simulation)')">READ PROTOCOL &rarr;</a>
+                        </div>
+                    </article>
+                    <!-- Post 3 -->
+                    <article class="news-card" data-category="hardware">
+                        <div class="news-img-box">
+                            <img src="Assests/game 2.webp" alt="Neon Grid arcade car racing" class="hue-shifted-racer">
+                            <span class="news-category">HARDWARE INTEL</span>
+                        </div>
+                        <div class="news-card-content">
+                            <span class="news-date">June 05, 2026</span>
+                            <h3>Calibrating your Reflex Mouse to 8,000Hz polling</h3>
+                            <p>Optimize your USB registry channels and calibrate the high-precision 32,000 DPI sensor for flawless operational responses on high-refresh-rate monitors.</p>
+                            <a href="#blog-catalog" class="news-btn-link" onclick="alert('Intel log opened (Simulation)')">READ PROTOCOL &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 3: TACTICAL FOOTER -->
+        <footer class="tactical-footer">
+            <div class="footer-top">
+                <div class="container footer-grid">
+                    <div class="footer-col about-col">
+                          <div class="footer-logo">
+    <img src="Assests/logo.webp" alt="Stackly Play">
+</div>
+                        <p>Stackly Nexus is the official cybernetic gaming portal. Access distributed multiplayer arenas, real-time telemetry diagnostics, and neural client software.</p>
+                        <div class="social-links">
+                            <a href="#contact" aria-label="Join Discord">💬 Discord</a>
+                            <a href="#contact" aria-label="Twitch channel">🎮 Twitch</a>
+                            <a href="#contact" aria-label="YouTube Channel">📺 YouTube</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>MEMBER HUD</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html#games">Games Arsenal</a></li>
+                            <li><a href="about.html">About Operations</a></li>
+                            <li><a href="blog.html">Tactical Blog</a></li>
+                            <li><a href="contact.html">Contact Hub</a></li>
+                            <li><a href="signup.html">Sign Up Cadet</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>TACTICAL LINKS</h4>
+                        <ul class="footer-links">
+                            <li><a href="blog.html">Developer API Docs</a></li>
+                            <li><a href="blog.html">Hardware Calibrations</a></li>
+                            <li><a href="blog.html">Fair Play Standards</a></li>
+                            <li><a href="blog.html">Privacy Protocols</a></li>
+                            <li><a href="blog.html">System Accessibility</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col matrix-col">
+                        <h4>COMM SECURE SUBSCRIPTION</h4>
+                        <p class="sub-desc">Subscribe to acquire alpha deployment codes and item drop alerts.</p>
+                        <form class="footer-sub-form" onsubmit="event.preventDefault(); alert('Subscribed to operations newsletter (Simulation)'); this.reset();">
+                            <input type="email" placeholder="agent@neural.net" required aria-label="Email Address">
+                            <button type="submit">SUBSCRIBE</button>
+                        </form>
+                        
+                        <div class="footer-accessibility-row">
+                            <span class="acc-title">HUD SCALE:</span>
+                            <button class="scale-btn" id="hud-scale-down">A-</button>
+                            <button class="scale-btn" id="hud-scale-reset">A</button>
+                            <button class="scale-btn" id="hud-scale-up">A+</button>
+                            <button class="contrast-btn" id="hud-contrast-toggle" title="Toggle High Contrast HUD">🌓</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container footer-bottom-content">
+                    <p>&copy; 2026 Stackly Systems Corporation. All operational systems online. Neural encryption active.</p>
+                    <div class="bottom-links">
+                        <a href="blog.html">OPERATIONS POLICY</a>
+                        <a href="blog.html">EULA CODES</a>
+                        <a href="blog.html">ZONING COMPLIANCE</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Main JavaScript Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
