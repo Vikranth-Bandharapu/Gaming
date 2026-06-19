@@ -163,21 +163,21 @@
                             <div class="form-row-2">
                                 <div class="form-group">
                                     <label>FULL NAME</label>
-                                    <input type="text" id="prof-fullname" value="Cadet Agent Signature" required>
+                                    <input type="text" id="prof-fullname" placeholder="Cadet Agent Signature" required>
                                 </div>
                                 <div class="form-group">
                                     <label>AGENT CODENAME</label>
-                                    <input type="text" id="prof-codename" value="CADET_AGENT" required>
+                                    <input type="text" id="prof-codename" placeholder="CADET_AGENT" required>
                                 </div>
                             </div>
                             <div class="form-row-2">
                                 <div class="form-group">
                                     <label>EMAIL SIGNATURE</label>
-                                    <input type="email" id="prof-email" value="agent@neural.net" required>
+                                    <input type="email" id="prof-email" placeholder="agent@neural.net" required>
                                 </div>
                                 <div class="form-group">
                                     <label>CONTACT PHONE</label>
-                                    <input type="tel" id="prof-phone" value="+1 (555) 0199" required>
+                                    <input type="tel" id="prof-phone" placeholder="+1 (555) 0199" required>
                                 </div>
                             </div>
                             <button type="submit" class="btn-primary-neon" style="border:none; padding:1rem; cursor:pointer; background:linear-gradient(135deg, var(--accent-purple), var(--accent-cyan)); color:#010206; font-weight:800; font-size:0.9rem; letter-spacing:0.08em; clip-path:var(--clip-angle-sm)">SAVE CHANGES</button>
@@ -413,58 +413,5 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="app.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const profileForm = document.getElementById('edit-profile-form');
-            if (profileForm) {
-                profileForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    
-                    // Clear previous errors
-                    profileForm.querySelectorAll('.form-error-msg').forEach(el => el.remove());
-                    profileForm.querySelectorAll('input').forEach(el => el.style.borderColor = '');
-                    
-                    const name = document.getElementById('prof-fullname');
-                    const code = document.getElementById('prof-codename');
-                    const email = document.getElementById('prof-email');
-                    const phone = document.getElementById('prof-phone');
-                    
-                    let hasError = false;
-                    
-                    function showError(el, msg) {
-                        const parent = el.parentNode;
-                        const err = document.createElement('span');
-                        err.className = 'form-error-msg';
-                        err.style.color = 'var(--accent-red)';
-                        err.style.fontSize = '0.75rem';
-                        err.textContent = msg;
-                        parent.appendChild(err);
-                        el.style.borderColor = 'var(--accent-red)';
-                        hasError = true;
-                    }
-                    
-                    if (!name.value.trim()) showError(name, 'Full Name is required.');
-                    if (!code.value.trim()) showError(code, 'Codename is required.');
-                    if (!email.value.trim()) {
-                        showError(email, 'Email is required.');
-                    } else {
-                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (!emailRegex.test(email.value.trim())) showError(email, 'Invalid email format.');
-                    }
-                    if (!phone.value.trim()) {
-                        showError(phone, 'Phone is required.');
-                    } else {
-                        const phoneRegex = /^\+?[0-9\s\-()]{7,18}$/;
-                        if (!phoneRegex.test(phone.value.trim())) showError(phone, 'Invalid phone number.');
-                    }
-                    
-                    if (hasError) return;
-                    
-                    // Success, redirect to 404
-                    window.location.href = '404.html';
-                });
-            }
-        });
-    </script>
 </body>
 </html>

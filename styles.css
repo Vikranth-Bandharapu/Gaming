@@ -1688,9 +1688,14 @@ section::after {
 }
 /* Mobile Breakpoint (768px) */
 @media (max-width: 768px) {
+    .nav-logo {
+        position: relative;
+        z-index: 1010;
+    }
     .mobile-nav-toggle {
         display: block;
-        z-index: 1001; /* Ensure button sits above overlay menu */
+        position: relative;
+        z-index: 1010; /* Ensure button sits above overlay menu */
     }
     
     .nav-menu {
@@ -1703,13 +1708,14 @@ section::after {
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        padding: 2rem;
-        gap: 2rem;
+        padding: 7.5rem 2rem 2rem 2rem;
+        gap: 1.75rem;
         display: none;
         z-index: 1000;
         box-shadow: none;
+        overflow-y: auto;
     }
     
     .nav-menu.active {
@@ -1825,6 +1831,23 @@ section::after {
         flex-wrap: wrap;
         width: 100%;
     }
+    
+    /* Responsive Esports Layout & Panels */
+    .schedule-panel, .leaderboard-panel {
+        padding: 1.5rem;
+    }
+    .match-teams {
+        flex-direction: column;
+        gap: 0.6rem;
+        align-items: center;
+    }
+    .team {
+        width: 100%;
+        justify-content: center !important;
+    }
+    .team:last-child {
+        justify-content: center !important;
+    }
 }
 /* Small Mobile screens (480px) */
 @media (max-width: 480px) {
@@ -1861,6 +1884,26 @@ section::after {
     
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Small mobile tweaks for match logs and leaderboard */
+    .schedule-panel, .leaderboard-panel {
+        padding: 1.25rem 1rem;
+    }
+    .match-item {
+        padding: 1rem;
+    }
+    .leader-item {
+        padding: 0.75rem 1rem;
+    }
+    .leader-meta {
+        gap: 0.5rem;
+    }
+    .leader-codename {
+        font-size: 0.85rem;
+    }
+    .leader-rating {
+        font-size: 0.9rem;
     }
 }
 /* ==========================================================================
