@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Esports Tournaments - Stackly Cybernetic Gaming Portal. View live brackets and rankings.">
+    <title>STACKLY PLAY // Esports Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- AOS Stylesheet -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cyber-dark-theme">
+    
+    <div class="main-layout revealed" id="main-content">
+        
+        <!-- SECTION 1: HEADER & NAVIGATION -->
+        <header class="tactical-header">
+            <nav class="tactical-navbar">
+                <div class="container navbar-content">
+                    <a href="index.html" class="nav-logo">
+                        <img src="Assests/logo.webp" alt="Stackly Play Logo">
+                    </a>
+                    
+                    <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                        <span class="hamburger"></span>
+                    </button>
+                    
+                    
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="games.html" class="nav-link">Games</a></li>
+                        <li><a href="esports.html" class="nav-link active">Esports</a></li>
+                        <li><a href="community.html" class="nav-link">Community</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="login.html" class="nav-link">Login</a></li>
+                        <li><a href="signup.html" class="nav-link">Sign Up</a></li>
+                        <li>
+                            <button class="cart-trigger-btn" id="cart-btn" aria-label="View Cart">
+                                <span class="cart-icon">🛒</span>
+                                <span class="cart-badge" id="cart-count">0</span>
+                            </button>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+            
+            <!-- SECTION 2: HERO / TOURNAMENT HIGHLIGHTS -->
+            <div class="hero-section subpage-hero">
+                <div class="hero-overlay"></div>
+                <div class="container hero-content text-center">
+                    <div class="hero-text-area" style="grid-column: span 2; max-width: 800px; margin: 0 auto;">
+                        <span class="cyber-badge"><span class="pulse-dot red"></span> ESPORTS NETWORK ACTIVE</span>
+                        <h1 class="glitch-title" data-text="TACTICAL BRACKETS HUD">TACTICAL BRACKETS HUD</h1>
+                        <p class="hero-desc">View live team rankings, regional brackets, and active prize pools.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SECTION 3: UPCOMING MATCHES -->
+        <section class="store-section" id="upcoming-matches">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>UPCOMING CORE CONFLICTS</h2>
+                    <p>Synchronized server matchups launching next.</p>
+                </div>
+                <div class="faq-list" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="faq-item" style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display:flex; justify-content:space-between; align-items:center;" data-aos="fade-up">
+                        <div>
+                            <span class="cyber-badge" style="color:var(--accent-cyan)">PRO BRACKET</span>
+                            <h4 style="font-size: 1.1rem; color: #ffffff; margin-top:0.5rem">SHADOW CLAN vs NEON RIDERS</h4>
+                        </div>
+                        <span style="font-family:var(--font-cyber-console); color:var(--accent-purple)">14:00 UTC</span>
+                    </div>
+                    <div class="faq-item" style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display:flex; justify-content:space-between; align-items:center;" data-aos="fade-up" data-aos-delay="100">
+                        <div>
+                            <span class="cyber-badge" style="color:var(--accent-emerald)">CADET CUP</span>
+                            <h4 style="font-size: 1.1rem; color: #ffffff; margin-top:0.5rem">VOID SURFERS vs ECHO SQUAD</h4>
+                        </div>
+                        <span style="font-family:var(--font-cyber-console); color:var(--accent-purple)">16:30 UTC</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: TEAM RANKINGS -->
+        <section class="telemetry-section" id="rankings" style="background-color: var(--bg-secondary); border-top:1px solid var(--border-color)">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>SECTOR LEAGUE TABLE</h2>
+                    <p>Current standing parameters for regional squads.</p>
+                </div>
+                <div class="faq-list" style="max-width: 800px; margin: 0 auto; background:rgba(12,18,32,0.8); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:2rem;" data-aos="fade-up">
+                    <table style="width:100%; border-collapse:collapse; color:#fff; text-align:left;">
+                        <thead>
+                            <tr style="border-bottom:1px solid var(--border-color); font-family:var(--font-cyber-heading)">
+                                <th style="padding:1rem;">RANK</th>
+                                <th style="padding:1rem;">SQUAD SIGNATURE</th>
+                                <th style="padding:1rem;">NEURAL RATINGS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05)">
+                                <td style="padding:1rem; font-family:var(--font-cyber-console)">01</td>
+                                <td style="padding:1rem;">SHADOW CLAN</td>
+                                <td style="padding:1rem; color:var(--accent-cyan)">2,850 LP</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05)">
+                                <td style="padding:1rem; font-family:var(--font-cyber-console)">02</td>
+                                <td style="padding:1rem;">NEON RIDERS</td>
+                                <td style="padding:1rem; color:var(--accent-cyan)">2,610 LP</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:1rem; font-family:var(--font-cyber-console)">03</td>
+                                <td style="padding:1rem;">VOID SURFERS</td>
+                                <td style="padding:1rem; color:var(--accent-cyan)">2,440 LP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: PLAYER PROFILES & PRIZE POOLS -->
+        <section class="store-section" id="prize-pools">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>TOURNAMENT VALUATION PROTOCOLS</h2>
+                    <p>Secured credit allocations for tournament champions.</p>
+                </div>
+                <div class="store-grid">
+                    <div class="store-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="store-img-box">
+                            <img src="Assests/OIP.webp" alt="Prize Pool Pro">
+                            <span class="price-badge">$100,000</span>
+                        </div>
+                        <div class="store-card-content">
+                            <h4>APEX CHAMPIONSHIP 2026</h4>
+                            <p>Global pro tournament bracket for elite squads. Sync starts July 20.</p>
+                            <button class="btn-buy-now">REGISTER SQUAD</button>
+                        </div>
+                    </div>
+                    <div class="store-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="store-img-box">
+                            <img src="Assests/gam3.webp" alt="Prize Pool Cadet">
+                            <span class="price-badge">$25,000</span>
+                        </div>
+                        <div class="store-card-content">
+                            <h4>CADET CONFLICTS CUP</h4>
+                            <p>Intermediate matches designed for level 02+ cadet squads.</p>
+                            <button class="btn-buy-now">REGISTER SQUAD</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: EVENT CALENDAR -->
+        <section class="about-overview-section" id="calendar" style="background-color: var(--bg-secondary); border-top:1px solid var(--border-color)">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-details" data-aos="fade-right">
+                        <span class="panel-tag">CHRONOLOGICAL GRID</span>
+                        <h3>SECTOR CALENDAR PROTOCOLS</h3>
+                        <p>Locate upcoming online arena championships within your core coordinates zone.</p>
+                        <ul class="pane-stats" style="margin-top:1.5rem">
+                            <li><strong>June 24</strong> - Regional Node-02 Qualifier</li>
+                            <li><strong>July 12</strong> - Space Strategy Coordinate Grid Matches</li>
+                        </ul>
+                    </div>
+                    <div class="about-visual" data-aos="fade-left">
+                        <div class="grid-simulator">
+                            <div class="sim-header">
+                                <span>Matches Countdown</span>
+                            </div>
+                            <div style="font-size:2rem; font-family:var(--font-cyber-heading); text-align:center; margin-top:1.5rem; color:var(--accent-cyan)">
+                                04d : 12h : 30m : 15s
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: LIVE EVENTS (TWITCH SIMULATOR) -->
+        <section class="telemetry-section" id="live-stream-simulation" style="border-top:1px solid var(--border-color)">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>TACTICAL LIVE FEED</h2>
+                    <p>Live streams from ongoing pro tournament arenas.</p>
+                </div>
+                <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:2rem;" class="responsive-stream-grid">
+                    <div class="store-card" style="padding:0; overflow:hidden;" data-aos="fade-right">
+                        <img src="Assests/gam3.webp" style="width:100%; height:320px; object-fit:cover;" alt="Live Gameplay Stream">
+                        <div style="padding:1.5rem">
+                            <h4>STREAM FEED: APEX FINAL BRACKET</h4>
+                            <p>Commentary stream by Node Commander Shadow.</p>
+                        </div>
+                    </div>
+                    <div class="tracker-box" style="padding:1.5rem;" data-aos="fade-left">
+                        <h4>TELEMETRY CHAT STREAM</h4>
+                        <div style="height:250px; overflow-y:auto; font-family:var(--font-cyber-console); font-size:0.8rem; line-height:1.6; margin-top:1rem; color:var(--text-secondary)">
+                            <div>[SHADOW] Nice tracking on the sector gates!</div>
+                            <div>[NEON_X] Lag sync adjustments feel excellent.</div>
+                            <div>[ECHO] Overclocking Node 2 reduced ping to 8ms.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: ESPORTS NEWS -->
+        <section class="blog-section" id="news" style="background-color: var(--bg-secondary); border-top:1px solid var(--border-color); padding: 3rem 0;">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>ESPORTS BULLETINS</h2>
+                    <p>Declassified reports from esports championship nodes.</p>
+                </div>
+                <div class="news-cards-container">
+                    <article class="news-card" data-category="esports" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="news-img-box">
+                            <img src="Assests/OIP.webp" alt="Championship Brackets">
+                            <span class="news-category">ESPORTS NEWS</span>
+                        </div>
+                        <div class="news-card-content">
+                            <span class="news-date">June 09, 2026</span>
+                            <h3>Apex Championship Group Brackets Declared</h3>
+                            <p>The operational grid lineups for the upcoming $250,000 Stackly Apex Pro championship have been synchronized.</p>
+                            <a href="404.html" class="news-btn-link">READ PROTOCOL &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: TACTICAL FOOTER -->
+        <footer class="tactical-footer">
+            <div class="footer-top">
+                <div class="container footer-grid">
+                    <div class="footer-col about-col">
+                        <div class="footer-logo">
+                            <img src="Assests/logo.webp" alt="Stackly Play">
+                        </div>
+                        <p>Stackly Nexus is the official cybernetic gaming portal. Access distributed multiplayer arenas, real-time telemetry diagnostics, and neural client software.</p>
+                        <div class="social-links">
+
+    <!-- LinkedIn -->
+    <a href="404.html" class="social-svg-link" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.1c.67-1.27 2.3-2.6 4.74-2.6 5.06 0 5.99 3.33 5.99 7.66V24h-5v-7.1c0-1.7-.03-3.89-2.37-3.89-2.37 0-2.73 1.85-2.73 3.76V24h-5V8z"/>
+        </svg>
+    </a>
+
+    <!-- Facebook -->
+    <a href="404.html" class="social-svg-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22 12A10 10 0 1 0 10.44 21.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/>
+        </svg>
+    </a>
+
+    <!-- Instagram -->
+    <a href="404.html" class="social-svg-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7A2.5 2.5 0 1 1 14.5 12 2.5 2.5 0 0 1 12 14.5zM17.8 6.2a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/>
+        </svg>
+    </a>
+
+</div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>MEMBER HUD</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html#games">Games Arsenal</a></li>
+                            <li><a href="games.html">Games Deck</a></li>
+                            <li><a href="esports.html">Esports Deck</a></li>
+                            <li><a href="contact.html">Contact Hub</a></li>
+                            <li><a href="signup.html">Sign Up Cadet</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>TACTICAL LINKS</h4>
+                        <ul class="footer-links">
+                            <li><a href="games.html">Developer API Docs</a></li>
+                            <li><a href="games.html">Hardware Calibrations</a></li>
+                            <li><a href="games.html">Fair Play Standards</a></li>
+                            <li><a href="games.html">Privacy Protocols</a></li>
+                            <li><a href="games.html">System Accessibility</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>CONTACT INFO</h4>
+                        <ul class="contact-info-list">
+                            <li>
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                <span>100 Technology Parkway, Suite 400, Stackly Innovation District, Hyderabad</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                                <span>9876543210</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                <span>support@stackly.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container footer-bottom-content">
+                    <p>&copy; 2026 stackly All rights reserved.</p>
+                    <div class="bottom-links">
+                        <a href="404.html">Terms of Service</a>
+                        <a href="404.html">Privacy Policy</a>
+                        <a href="404.html">GDPR Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Main JavaScript Logic -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="app.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    lucide.createIcons();
+</script>
+</body>
+</html>

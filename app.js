@@ -2,6 +2,183 @@
    Stackly Gaming Portal - App Script (Multi-Page & Page-Safe)
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Initialize AOS Scroll Animations
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+    }
+
+    // 2. Sticky Scrolled Navbar Transition
+    const navbar = document.querySelector('.tactical-navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        }
+    }
+
+    // 3. Password Toggle Visibilities
+    document.querySelectorAll('.password-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const input = btn.parentNode.querySelector('input');
+            if (!input) return;
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            if (isPassword) {
+                btn.innerHTML = `<svg class="eye-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`;
+            } else {
+                btn.innerHTML = `<svg class="eye-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+            }
+        });
+    });
+
+    // 4. Inline Validation Form Helpers
+    function showInlineError(inputEl, msg) {
+        const parent = inputEl.closest('.form-group') || inputEl.parentNode;
+        if (!parent) return;
+        let err = parent.querySelector('.form-error-msg');
+        if (!err) {
+            err = document.createElement('span');
+            err.className = 'form-error-msg';
+            parent.appendChild(err);
+        }
+        err.textContent = msg;
+        inputEl.style.borderColor = 'var(--accent-red)';
+    }
+
+    function clearInlineErrors(form) {
+        form.querySelectorAll('.form-error-msg').forEach(el => el.remove());
+        form.querySelectorAll('input, select, textarea').forEach(el => {
+            el.style.borderColor = '';
+        });
+    }
+
+    function setupAutoClear(inputEl) {
+        if (!inputEl) return;
+        if (!inputEl.dataset.hasErrorListener) {
+            const clearError = () => {
+                inputEl.style.borderColor = '';
+                const parent = inputEl.closest('.form-group') || inputEl.parentNode;
+                if (parent) {
+                    const err = parent.querySelector('.form-error-msg');
+                    if (err) err.remove();
+                }
+            };
+            inputEl.addEventListener('input', clearError);
+            inputEl.addEventListener('change', clearError);
+            inputEl.dataset.hasErrorListener = 'true';
+        }
+    }
+
+    // 5. Intercept Newsletter subscriptions
+    document.querySelectorAll('.footer-sub-form').forEach(form => {
+        form.removeAttribute('onsubmit'); // Remove standard onsubmit actions
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearInlineErrors(form);
+            const emailInput = form.querySelector('input[type="email"]');
+            if (emailInput) {
+                setupAutoClear(emailInput);
+                const emailValue = emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailValue || !emailRegex.test(emailValue)) {
+                    showInlineError(emailInput, 'Enter a valid email signature.');
+                    return;
+                }
+            }
+            window.location.href = '404.html';
+        });
+    });
+
+    // 6. Global click redirection interceptor
+    document.addEventListener('click', (e) => {
+        const target = e.target.closest('a, button, input[type="submit"]');
+        if (!target) return;
+
+        // Exemptions check:
+        // 1. Navbar links & Logo
+        const isLogo = target.classList.contains('nav-logo') || target.closest('.nav-logo') || target.classList.contains('footer-logo') || target.closest('.footer-logo');
+        const isNavbarLink = target.closest('#nav-menu') && target.tagName === 'A';
+
+        // 2. Auth Page submits & links
+        const isAuthSubmit = target.closest('#cyber-login-form') || target.closest('#cyber-signup-form');
+        const isAuthToggle = target.closest('.login-footer') && target.tagName === 'A';
+        const isSubscribeSubmit = target.closest('.footer-sub-form');
+
+        // 3. Password Toggle Button
+        const isPasswordBtn = target.classList.contains('password-toggle-btn') || target.closest('.password-toggle-btn');
+
+        // 4. Accessibility HUD Buttons
+        const isHudBtn = target.classList.contains('scale-btn') || target.classList.contains('contrast-btn') || target.closest('.scale-btn') || target.closest('.contrast-btn');
+
+        // 5. Ticket Lookup inputs and buttons
+        const isTrackerBtn = target.id === 'tracker-submit-btn' || target.id === 'tracker-input' || target.closest('#tracker-results');
+
+        // 6. Chat form buttons/inputs
+        const isChatBtn = target.closest('#chat-form') || target.id === 'chat-input' || target.classList.contains('btn-send-chat');
+
+        // 7. Go to Home on 404
+        const isGoHome = target.id === 'home-btn' || target.classList.contains('go-home-btn');
+
+        // 8. Mobile hamburger toggle
+        const isHamburger = target.classList.contains('mobile-nav-toggle') || target.closest('.mobile-nav-toggle') || target.classList.contains('hamburger') || target.closest('.hamburger');
+
+        // 9. Category filter buttons
+        const isFilterBtn = target.classList.contains('filter-btn') || target.closest('.filter-btn');
+
+        // 10. Dashboard specific exemptions
+        const isDashTab = target.classList.contains('side-tab') || target.closest('.side-tab');
+        const isLogoutBtn = target.id === 'logout-btn' || target.classList.contains('btn-logout');
+        const isDashHamburger = target.classList.contains('dash-hamburger') || target.closest('.dash-hamburger');
+        const isColorBtn = target.classList.contains('color-btn') || target.closest('.color-btn');
+        const isCalibratorCell = target.classList.contains('calibrator-cell') || target.closest('.calibrator-cell');
+        const isDashChatSubmit = target.closest('#dash-chat-form') || target.id === 'dash-chat-input';
+        const isDashFormSubmit = target.closest('#edit-profile-form') || target.closest('#bracket-register-form') || target.closest('#gear-config-form');
+
+        if (
+            isLogo ||
+            isNavbarLink ||
+            isAuthSubmit ||
+            isAuthToggle ||
+            isSubscribeSubmit ||
+            isPasswordBtn ||
+            isHudBtn ||
+            isTrackerBtn ||
+            isChatBtn ||
+            isGoHome ||
+            isHamburger ||
+            isFilterBtn ||
+            isDashTab ||
+            isLogoutBtn ||
+            isDashHamburger ||
+            isColorBtn ||
+            isCalibratorCell ||
+            isDashChatSubmit ||
+            isDashFormSubmit
+        ) {
+            return; // Allow native action
+        }
+
+        // Redirect all other clicks to 404
+        e.preventDefault();
+        window.location.href = '404.html';
+    });
+
+    // 7. Re-export validation functions for other handlers
+    window.showInlineError = showInlineError;
+    window.clearInlineErrors = clearInlineErrors;
+    window.setupAutoClear = setupAutoClear;
     /* ==========================================================================
        1. Preloader Screen & Entrance Transition
        ========================================================================== */
@@ -20,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "> STACKLY NEURAL SYSTEM ALIGNED."
         ];
         let pct = 0;
-        const loadDuration = 3200; // 3.2 seconds
+        const loadDuration = 2400; // Runs for 2.4s + 0.6s exit transition = exactly 3 seconds total
         const tickInterval = 30; // Milliseconds per progress update
         const totalTicks = loadDuration / tickInterval;
         const pctStep = 100 / totalTicks;
@@ -391,16 +568,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 2800);
         if (chatForm && chatInput) {
+            chatForm.removeAttribute('onsubmit');
             chatForm.addEventListener('submit', (e) => {
                 e.preventDefault();
+                if (typeof window.clearInlineErrors === 'function') {
+                    window.clearInlineErrors(chatForm);
+                }
+                if (typeof window.setupAutoClear === 'function') {
+                    window.setupAutoClear(chatInput);
+                }
                 const msg = chatInput.value.trim();
-                if (!msg) return;
-                appendChatMessage({
-                    sender: '[GUEST] AGENT_YOU',
-                    msg: msg,
-                    role: 'clan-mod'
-                });
-                chatInput.value = '';
+                if (!msg) {
+                    if (typeof window.showInlineError === 'function') {
+                        window.showInlineError(chatInput, 'Message signature required.');
+                    }
+                    return;
+                }
+                window.location.href = '404.html';
             });
         }
     }
@@ -439,30 +623,54 @@ document.addEventListener('DOMContentLoaded', () => {
     if (issueForm) {
         issueForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const type = document.getElementById('issue-type').value;
-            const sectorVal = document.getElementById('issue-sector').value;
-            const desc = document.getElementById('issue-desc').value;
-            // Generate Random Ticket
-            const randNum = Math.floor(10000 + Math.random() * 90000);
-            const ticketId = `STK-${randNum}`;
-            const now = new Date();
-            const formattedDate = now.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
-            const formattedTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
             
-            ticketDatabase[ticketId] = {
-                type: type,
-                sector: sectorVal,
-                status: 'Assigned',
-                workflow: [
-                    { step: 'Service Request Created', time: `${formattedDate} - ${formattedTime}`, state: 'completed' },
-                    { step: 'Department Routing', time: 'Assigned to Municipal Support', state: 'current' },
-                    { step: 'Technician Dispatched', time: 'Pending Scheduling', state: 'pending' }
-                ]
-            };
-            if (generatedTicketIdEl) generatedTicketIdEl.textContent = ticketId;
-            issueForm.reset();
-            issueForm.classList.add('hidden');
-            if (successAlert) successAlert.classList.remove('hidden');
+            // Clear existing errors
+            if (typeof window.clearInlineErrors === 'function') {
+                window.clearInlineErrors(issueForm);
+            }
+            
+            const typeSelect = document.getElementById('issue-type');
+            const sectorSelect = document.getElementById('issue-sector');
+            const descArea = document.getElementById('issue-desc');
+            const emailInput = document.getElementById('reporter-email');
+
+            let hasError = false;
+
+            if (typeSelect) {
+                if (typeof window.setupAutoClear === 'function') window.setupAutoClear(typeSelect);
+                if (!typeSelect.value) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(typeSelect, 'Select a query category.');
+                    hasError = true;
+                }
+            }
+            if (sectorSelect) {
+                if (typeof window.setupAutoClear === 'function') window.setupAutoClear(sectorSelect);
+                if (!sectorSelect.value) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(sectorSelect, 'Select node sector.');
+                    hasError = true;
+                }
+            }
+            if (descArea) {
+                if (typeof window.setupAutoClear === 'function') window.setupAutoClear(descArea);
+                if (!descArea.value.trim()) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(descArea, 'Description cannot be empty.');
+                    hasError = true;
+                }
+            }
+            if (emailInput) {
+                if (typeof window.setupAutoClear === 'function') window.setupAutoClear(emailInput);
+                const emailValue = emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailValue || !emailRegex.test(emailValue)) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(emailInput, 'Enter a valid neural email.');
+                    hasError = true;
+                }
+            }
+
+            if (hasError) return;
+
+            // Success redirect to 404
+            window.location.href = '404.html';
         });
     }
     if (copyTicketBtn && generatedTicketIdEl) {
@@ -531,6 +739,552 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 executeTrackerLookup();
             }
+        });
+    }
+    // 12. Dashboard Common Controllers (Shifting Tabs, Sidebars, Logout)
+    const tabs = document.querySelectorAll('.side-tab[data-target]');
+    const panels = document.querySelectorAll('.dash-panel');
+    if (tabs.length > 0 && panels.length > 0) {
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const targetPanel = document.getElementById(tab.dataset.target);
+                if (targetPanel) {
+                    panels.forEach(p => p.classList.remove('active'));
+                    targetPanel.classList.add('active');
+                }
+                // Auto collapse sidebar drawer on mobile after clicking tabs
+                const dashSidebar = document.getElementById('dash-sidebar');
+                const sidebarOverlay = document.getElementById('sidebar-overlay');
+                const dashHamburger = document.getElementById('dash-hamburger');
+                if (dashSidebar && dashSidebar.classList.contains('active')) {
+                    dashSidebar.classList.remove('active');
+                    if (sidebarOverlay) sidebarOverlay.classList.remove('active');
+                    if (dashHamburger) dashHamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    }
+
+    const dashHamburger = document.getElementById('dash-hamburger');
+    const dashSidebar = document.getElementById('dash-sidebar');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    if (dashHamburger && dashSidebar && sidebarOverlay) {
+        dashHamburger.addEventListener('click', () => {
+            const isExpanded = dashHamburger.getAttribute('aria-expanded') === 'true';
+            dashHamburger.setAttribute('aria-expanded', !isExpanded);
+            dashSidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        });
+        sidebarOverlay.addEventListener('click', () => {
+            dashHamburger.setAttribute('aria-expanded', 'false');
+            dashSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        });
+    }
+
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('currentAgentEmail');
+            window.location.href = 'index.html';
+        });
+    }
+
+    const userDisplayNameEl = document.getElementById('user-display-name');
+    const userDisplayEmailEl = document.getElementById('user-display-email');
+    const savedEmail = localStorage.getItem('currentAgentEmail');
+    if (savedEmail) {
+        if (userDisplayNameEl) {
+            const parts = savedEmail.split('@');
+            userDisplayNameEl.textContent = parts[0].toUpperCase();
+        }
+        if (userDisplayEmailEl) {
+            userDisplayEmailEl.textContent = savedEmail;
+        }
+    }
+
+    // 13. Interactive User Calibrator Coordinates Grid
+    const matrix = document.getElementById('latency-matrix');
+    if (matrix) {
+        matrix.innerHTML = '';
+        for (let i = 1; i <= 64; i++) {
+            const cell = document.createElement('div');
+            cell.className = 'calibrator-cell';
+            cell.dataset.sector = `SEC-${i.toString().padStart(2, '0')}`;
+            cell.addEventListener('click', (e) => {
+                e.stopPropagation();
+                cell.classList.remove('pulse');
+                void cell.offsetWidth;
+                cell.classList.add('pulse');
+
+                const sectorLbl = document.getElementById('calibrator-sector-lbl');
+                const statusLbl = document.getElementById('calibrator-status-lbl');
+                const pingVal = document.getElementById('calibration-ping-val');
+                const calibratorTerminal = document.getElementById('calibrator-terminal');
+
+                if (sectorLbl) sectorLbl.textContent = cell.dataset.sector;
+
+                const randomPing = Math.floor(Math.random() * 15) + 5;
+                if (pingVal) pingVal.textContent = `${randomPing} ms`;
+
+                if (statusLbl) {
+                    if (randomPing > 15) {
+                        statusLbl.textContent = 'LAG DETECTED';
+                        statusLbl.style.color = 'var(--accent-red)';
+                    } else {
+                        statusLbl.textContent = 'STABLE';
+                        statusLbl.style.color = 'var(--accent-emerald)';
+                    }
+                }
+
+                if (calibratorTerminal) {
+                    const line = document.createElement('div');
+                    line.className = 'console-line';
+                    line.textContent = `> Diagnostic query on ${cell.dataset.sector} completed in ${randomPing}ms [Status: ${randomPing > 15 ? 'DEVIATED' : 'SYNCED'}]`;
+                    calibratorTerminal.appendChild(line);
+                    calibratorTerminal.scrollTop = calibratorTerminal.scrollHeight;
+                }
+            });
+            matrix.appendChild(cell);
+        }
+    }
+
+    // 14. DPI & Polling Rate Sliders (User)
+    const dpiSlider = document.getElementById('dpi-slider');
+    const pollingSlider = document.getElementById('polling-slider');
+    const crosshairSlider = document.getElementById('crosshair-slider');
+
+    if (dpiSlider) {
+        dpiSlider.addEventListener('input', () => {
+            const dpiVal = document.getElementById('dpi-value');
+            if (dpiVal) dpiVal.textContent = `${Number(dpiSlider.value).toLocaleString()} DPI`;
+        });
+    }
+    if (pollingSlider) {
+        pollingSlider.addEventListener('input', () => {
+            const pollingVal = document.getElementById('polling-value');
+            if (pollingVal) pollingVal.textContent = `${pollingSlider.value} Hz`;
+        });
+    }
+    if (crosshairSlider) {
+        crosshairSlider.addEventListener('input', () => {
+            const crosshairVal = document.getElementById('crosshair-value');
+            const dot = document.getElementById('crosshair-preview-dot');
+            if (crosshairVal) crosshairVal.textContent = `${crosshairSlider.value} px`;
+            if (dot) {
+                const val = parseFloat(crosshairSlider.value) * 2;
+                dot.style.width = `${val}px`;
+                dot.style.height = `${val}px`;
+            }
+        });
+    }
+
+    const colorBtns = document.querySelectorAll('.color-btn');
+    if (colorBtns.length > 0) {
+        colorBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                colorBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const color = btn.dataset.color;
+                const dot = document.getElementById('crosshair-preview-dot');
+                if (dot) {
+                    dot.style.backgroundColor = `var(--accent-${color})`;
+                    dot.style.boxShadow = `0 0 8px var(--accent-${color})`;
+                }
+            });
+        });
+    }
+
+    // 15. User Dashboard Clan Chat Scroller
+    const dashChatScroller = document.getElementById('dash-chat-scroller');
+    const dashChatForm = document.getElementById('dash-chat-form');
+    const dashChatInput = document.getElementById('dash-chat-input');
+    if (dashChatScroller) {
+        const mockClanMessages = [
+            { sender: 'SHADOW_REAPER', msg: 'Apex team is securing Sector 4 nodes right now!', role: 'clan-mod' },
+            { sender: 'CYBER_PAWN', msg: 'That EMP blast on the shield generators was perfect.', role: 'clan-member' },
+            { sender: 'ALPHA_PILOT', msg: 'Gear store drop codes are about to reset, check HUD.', role: 'clan-member' },
+            { sender: 'VECTOR_X', msg: 'Are we hosting the Void Runner custom server tonight?', role: 'clan-member' }
+        ];
+        function appendDashChatMessage(data) {
+            const div = document.createElement('div');
+            div.className = 'chat-msg';
+            div.innerHTML = `
+                <span class="chat-sender ${data.role}">${data.sender}:</span>
+                <span class="chat-text">${data.msg}</span>
+            `;
+            dashChatScroller.appendChild(div);
+            dashChatScroller.scrollTop = dashChatScroller.scrollHeight;
+        }
+        mockClanMessages.forEach(appendDashChatMessage);
+
+        if (dashChatForm && dashChatInput) {
+            dashChatForm.removeAttribute('onsubmit');
+            dashChatForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (typeof window.clearInlineErrors === 'function') {
+                    window.clearInlineErrors(dashChatForm);
+                }
+                if (typeof window.setupAutoClear === 'function') {
+                    window.setupAutoClear(dashChatInput);
+                }
+                const msg = dashChatInput.value.trim();
+                if (!msg) {
+                    if (typeof window.showInlineError === 'function') {
+                        window.showInlineError(dashChatInput, 'Message signature required.');
+                    }
+                    return;
+                }
+                window.location.href = '404.html';
+            });
+        }
+    }
+
+    // 16. Admin Overclock Controls Console Output
+    const adminConsole = document.getElementById('admin-console');
+    const ddosToggle = document.getElementById('ddos-toggle');
+    const tickrateToggle = document.getElementById('tickrate-toggle');
+    const latencyToggle = document.getElementById('latency-toggle');
+
+    function appendAdminLog(text) {
+        if (adminConsole) {
+            const line = document.createElement('div');
+            line.className = 'console-line';
+            const time = new Date().toLocaleTimeString();
+            line.textContent = `[${time}] > ${text}`;
+            adminConsole.appendChild(line);
+            adminConsole.scrollTop = adminConsole.scrollHeight;
+        }
+    }
+    if (ddosToggle) {
+        ddosToggle.addEventListener('change', () => {
+            appendAdminLog(`DDoS Mitigation Shield: ${ddosToggle.checked ? 'ENABLED' : 'DISABLED'}`);
+        });
+    }
+    if (tickrateToggle) {
+        tickrateToggle.addEventListener('change', () => {
+            appendAdminLog(`Neural Tickrate Overclock: ${tickrateToggle.checked ? 'ACTIVE (256Hz)' : 'INACTIVE (128Hz)'}`);
+        });
+    }
+    if (latencyToggle) {
+        latencyToggle.addEventListener('change', () => {
+            appendAdminLog(`Low-Latency Edge Sync Routing: ${latencyToggle.checked ? 'ACTIVE' : 'BYPASS'}`);
+        });
+    }
+
+    /* ==========================================================================
+       12. Additional Authentication Validations & Theme Toggle
+       ========================================================================== */
+    // Admin dashboard theme toggle
+    const themeToggleBtn = document.getElementById('hud-theme-toggle');
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const body = document.body;
+            if (body.classList.contains('cyber-light-theme')) {
+                body.classList.remove('cyber-light-theme');
+                body.classList.add('cyber-dark-theme');
+            } else {
+                body.classList.remove('cyber-dark-theme');
+                body.classList.add('cyber-light-theme');
+            }
+        });
+    }
+
+    // Login Form Validation and Auto Routing
+    const loginForm = document.getElementById('cyber-login-form');
+    if (loginForm) {
+        loginForm.removeAttribute('onsubmit');
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearInlineErrors(loginForm);
+            
+            const emailInput = document.getElementById('agent-id');
+            const roleSelect = document.getElementById('agent-role');
+            const passwordInput = document.getElementById('agent-key');
+            let hasError = false;
+            
+            if (!emailInput) return;
+            setupAutoClear(emailInput);
+            const emailValue = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailValue) {
+                showInlineError(emailInput, 'Agent email is required.');
+                hasError = true;
+            } else if (!emailRegex.test(emailValue)) {
+                showInlineError(emailInput, 'Invalid email address.');
+                hasError = true;
+            }
+            
+            let roleValue = '';
+            if (roleSelect) {
+                setupAutoClear(roleSelect);
+                roleValue = roleSelect.value;
+                if (!roleValue) {
+                    showInlineError(roleSelect, 'Clearance level selection is required.');
+                    hasError = true;
+                }
+            }
+            
+            if (passwordInput) {
+                setupAutoClear(passwordInput);
+                if (!passwordInput.value) {
+                    showInlineError(passwordInput, 'Decryption key is required.');
+                    hasError = true;
+                }
+            }
+            
+            if (hasError) return;
+            
+            const submitBtn = loginForm.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.textContent = 'DECRYPTING KEY...';
+                submitBtn.style.color = 'var(--accent-gold)';
+            }
+            
+            localStorage.setItem('currentAgentEmail', emailValue);
+            if (roleValue) {
+                localStorage.setItem('currentAgentRole', roleValue);
+            }
+            
+            setTimeout(() => {
+                if (roleValue === 'Admin') {
+                    window.location.href = 'dashboard-admin.html';
+                } else if (roleValue === 'Gamer') {
+                    window.location.href = 'dashboard-user.html';
+                } else {
+                    window.location.href = '404.html';
+                }
+            }, 1500);
+        });
+    }
+
+    // Signup Form Validation
+    const signupForm = document.getElementById('cyber-signup-form');
+    if (signupForm) {
+        signupForm.removeAttribute('onsubmit');
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearInlineErrors(signupForm);
+            
+            const fullNameInput = document.getElementById('cadet-fullname');
+            const usernameInput = document.getElementById('cadet-username');
+            const emailInput = document.getElementById('cadet-email');
+            const phoneInput = document.getElementById('cadet-phone');
+            const passwordInput = document.getElementById('cadet-key');
+            const confirmPasswordInput = document.getElementById('cadet-key-confirm');
+            
+            let hasError = false;
+            
+            if (fullNameInput) {
+                setupAutoClear(fullNameInput);
+                if (!fullNameInput.value.trim()) {
+                    showInlineError(fullNameInput, 'Full Name is required.');
+                    hasError = true;
+                }
+            }
+            if (usernameInput) {
+                setupAutoClear(usernameInput);
+                if (!usernameInput.value.trim()) {
+                    showInlineError(usernameInput, 'Username is required.');
+                    hasError = true;
+                }
+            }
+            if (emailInput) {
+                setupAutoClear(emailInput);
+                const emailValue = emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailValue) {
+                    showInlineError(emailInput, 'Email address is required.');
+                    hasError = true;
+                } else if (!emailRegex.test(emailValue)) {
+                    showInlineError(emailInput, 'Invalid email address.');
+                    hasError = true;
+                }
+            }
+            if (phoneInput) {
+                setupAutoClear(phoneInput);
+                const phoneValue = phoneInput.value.trim();
+                const phoneRegex = /^\+?[0-9\s\-()]{7,18}$/;
+                if (!phoneValue) {
+                    showInlineError(phoneInput, 'Phone number is required.');
+                    hasError = true;
+                } else if (!phoneRegex.test(phoneValue)) {
+                    showInlineError(phoneInput, 'Phone number is invalid.');
+                    hasError = true;
+                }
+            }
+            if (passwordInput) {
+                setupAutoClear(passwordInput);
+                if (!passwordInput.value) {
+                    showInlineError(passwordInput, 'Password is required.');
+                    hasError = true;
+                } else if (passwordInput.value.length < 8) {
+                    showInlineError(passwordInput, 'Password must contain at least 8 characters.');
+                    hasError = true;
+                }
+            }
+            if (confirmPasswordInput) {
+                setupAutoClear(confirmPasswordInput);
+                if (!confirmPasswordInput.value) {
+                    showInlineError(confirmPasswordInput, 'Confirm password is required.');
+                    hasError = true;
+                } else if (passwordInput && passwordInput.value !== confirmPasswordInput.value) {
+                    showInlineError(confirmPasswordInput, 'Passwords do not match.');
+                    hasError = true;
+                }
+            }
+            
+            if (hasError) return;
+            
+            const submitBtn = signupForm.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.textContent = 'TRANSMITTING PROFILE...';
+                submitBtn.style.color = 'var(--accent-gold)';
+            }
+            
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1500);
+        });
+    }
+
+    // 17. User Dashboard Edit Profile Form Validation
+    const editProfileForm = document.getElementById('edit-profile-form');
+    if (editProfileForm) {
+        editProfileForm.removeAttribute('onsubmit');
+        editProfileForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (typeof window.clearInlineErrors === 'function') {
+                window.clearInlineErrors(editProfileForm);
+            }
+
+            const fullNameInput = document.getElementById('prof-fullname');
+            const usernameInput = document.getElementById('prof-codename');
+            const emailInput = document.getElementById('prof-email');
+            const phoneInput = document.getElementById('prof-phone');
+
+            let hasError = false;
+
+            if (fullNameInput) {
+                if (typeof window.setupAutoClear === 'function') window.setupAutoClear(fullNameInput);
+                if (!fullNameInput.value.trim()) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(fullNameInput, 'Full Name is required.');
+                    hasError = true;
+                }
+            }
+            if (usernameInput) {
+                if (typeof window.setupAutoClear === 'function') window.setupAutoClear(usernameInput);
+                if (!usernameInput.value.trim()) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(usernameInput, 'Username is required.');
+                    hasError = true;
+                }
+            }
+            if (emailInput) {
+                if (typeof window.setupAutoClear === 'function') window.setupAutoClear(emailInput);
+                const emailValue = emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailValue) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(emailInput, 'Email address is required.');
+                    hasError = true;
+                } else if (!emailRegex.test(emailValue)) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(emailInput, 'Invalid email address.');
+                    hasError = true;
+                }
+            }
+            if (phoneInput) {
+                if (typeof window.setupAutoClear === 'function') window.setupAutoClear(phoneInput);
+                const phoneValue = phoneInput.value.trim();
+                const phoneRegex = /^\+?[0-9\s\-()]{7,18}$/;
+                if (!phoneValue) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(phoneInput, 'Phone number is required.');
+                    hasError = true;
+                } else if (!phoneRegex.test(phoneValue)) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(phoneInput, 'Phone number is invalid.');
+                    hasError = true;
+                }
+            }
+
+            if (hasError) return;
+
+            const submitBtn = editProfileForm.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.textContent = 'SAVING PROTOCOLS...';
+                submitBtn.style.color = 'var(--accent-gold)';
+            }
+
+            if (emailInput) {
+                localStorage.setItem('currentAgentEmail', emailInput.value.trim());
+            }
+
+            setTimeout(() => {
+                window.location.href = '404.html';
+            }, 1000);
+        });
+    }
+
+    // 18. Admin Dashboard Bracket Register Form Validation
+    const bracketRegisterForm = document.getElementById('bracket-register-form');
+    if (bracketRegisterForm) {
+        bracketRegisterForm.removeAttribute('onsubmit');
+        bracketRegisterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (typeof window.clearInlineErrors === 'function') {
+                window.clearInlineErrors(bracketRegisterForm);
+            }
+
+            const squadNameInput = document.getElementById('squad-name');
+            const leaderInput = document.getElementById('squad-division');
+            const tierSelect = document.getElementById('squad-tier');
+
+            let hasError = false;
+
+            if (squadNameInput) {
+                if (typeof window.setupAutoClear === 'function') window.setupAutoClear(squadNameInput);
+                if (!squadNameInput.value.trim()) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(squadNameInput, 'Squad Name Signature is required.');
+                    hasError = true;
+                }
+            }
+            if (leaderInput) {
+                if (typeof window.setupAutoClear === 'function') window.setupAutoClear(leaderInput);
+                if (!leaderInput.value.trim()) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(leaderInput, 'Squad Leader Agent ID is required.');
+                    hasError = true;
+                }
+            }
+            if (tierSelect) {
+                if (typeof window.setupAutoClear === 'function') window.setupAutoClear(tierSelect);
+                if (!tierSelect.value) {
+                    if (typeof window.showInlineError === 'function') window.showInlineError(tierSelect, 'Select bracket level.');
+                    hasError = true;
+                }
+            }
+
+            if (hasError) return;
+
+            const submitBtn = bracketRegisterForm.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.textContent = 'PROPOSING BRACKET SLATE...';
+                submitBtn.style.color = 'var(--accent-gold)';
+            }
+
+            setTimeout(() => {
+                window.location.href = '404.html';
+            }, 1000);
+        });
+    }
+
+    // 19. User Dashboard Gear Config Form Validation
+    const gearConfigForm = document.getElementById('gear-config-form');
+    if (gearConfigForm) {
+        gearConfigForm.removeAttribute('onsubmit');
+        gearConfigForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            window.location.href = '404.html';
         });
     }
 });

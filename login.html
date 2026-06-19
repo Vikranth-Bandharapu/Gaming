@@ -3,71 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Log in to the UrbanNexus smart city telemetry dashboards.">
-    <title>Login | smartciity Municipal Console</title>
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Lucide Icons Library -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta name="description" content="Login to Stackly Gaming Nexus - Establish secure connection to your gaming HUD.">
+    <title>STACKLY PLAY // Access Decryption Terminal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- AOS Stylesheet -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="auth-page">
-
-    <!-- Back to Home Button floating -->
-   
-
-    <div class="auth-card glass-card">
-        <div class="auth-header">
-            <img src="Assests/logo.webp" alt="UrbanNexus Logo">
-            <h2>Console Login</h2>
-            <p>Access your municipal services board</p>
-        </div>
-
-        <!-- Alert messages box -->
-        <div class="auth-message" id="auth-message"></div>
-
-        <!-- Hint for easy grading -->
-        <!-- <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); padding: 0.75rem; border-radius: 6px; font-size: 0.8rem; margin-bottom: 1.5rem; text-align: center; color: var(--text-muted);">
-            <strong>Demo Admin Login:</strong> admin@urbannexus.com / admin123<br>
-            <em>Or sign up a user to test User Dashboard!</em>
-        </div> -->
-
-        <form id="login-form">
-            <div class="form-group">
-                <label for="email">Console Email</label>
-                <input type="email" id="email" placeholder="email@address.com" required>
+<body class="cyber-dark-theme auth-page-body">
+    <!-- Background Particles -->
+    <div class="preloader-particles"></div>
+    
+    <div class="login-card-container" data-aos="zoom-in">
+        <div class="card-glow-border"></div>
+        <div class="card-inner">
+            
+            <div class="login-header" style="text-align: center; margin-bottom: 2.5rem;">
+                <a href="index.html" class="nav-logo" style="font-size: 2rem; display: flex; justify-content: center; margin-bottom: 0.5rem;">
+                    <img src="Assests/logo.webp" alt="Stackly Play Logo">
+                </a>
+                <span class="panel-tag" style="color: var(--accent-cyan)">SECURE CREDENTIALS ENCRYPTION</span>
             </div>
-
-            <div class="form-group">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <label for="password" style="margin-bottom: 0.5rem;">Password</label>
-                    <a href="404.html" class="forgot-password-link" style="font-size: 0.8rem; color: var(--primary); text-decoration: none; margin-bottom: 0.5rem;">Forgot Password?</a>
+            
+            <!-- Form -->
+            <form id="cyber-login-form">
+                
+                
+                <div class="form-group">
+                    <label for="agent-id">AGENT EMAIL / SIGNATURE</label>
+                    <input type="email" id="agent-id" placeholder="agent@neural.net" required>
                 </div>
-                <div style="position: relative;">
-                    <input type="password" id="password" placeholder="••••••••" required style="padding-right: 2.75rem;">
-                    <button type="button" class="password-toggle" aria-label="Toggle Password Visibility" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; outline: none; z-index: 10;">
-                        <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
-                    </button>
+                
+                <div class="form-group">
+                    <label for="agent-role">HUD DIRECTORY ROLE</label>
+                    <select id="agent-role" required>
+                        <option value="" disabled selected>Select clearance level...</option>
+                        <option value="Admin">Admin // Executive Operator</option>
+                        <option value="Gamer">Gamer // Tactical Operative</option>
+                    </select>
                 </div>
+                
+                <div class="form-group">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <label for="agent-key" style="margin-bottom: 0;">SECRET DECRYPTION KEY</label>
+                        <a href="404.html" style="font-family: var(--font-cyber-console); font-size: 0.75rem; color: var(--accent-purple);">FORGOT KEY?</a>
+                    </div>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="agent-key" placeholder="••••••••••••" required>
+                        <button type="button" class="password-toggle-btn" aria-label="Toggle Password Visibility">
+                            <svg class="eye-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="remember-row" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; font-size: 0.85rem; color: var(--text-secondary);">
+                    <input type="checkbox" id="remember-terminal" style="accent-color: var(--accent-cyan);">
+                    <label for="remember-terminal" style="cursor: pointer;">Remember this neural terminal</label>
+                </div>
+                
+                <button type="submit" class="btn-primary-neon" style="width: 100%; text-align: center; border: none; padding: 1rem; font-size: 0.9rem; letter-spacing: 0.08em; cursor: pointer; display: block;">ESTABLISH LINK</button>
+            </form>
+            
+            <div class="login-footer" style="text-align: center; margin-top: 2.5rem; font-size: 0.875rem; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.03); padding-top: 1.5rem;">
+                New operative to the sector? <a href="signup.html" class="auth-link-nowrap" style="color: var(--accent-cyan); font-weight: 700;">Register Cadet &rarr;</a>
+                <br><br>
+                <a href="index.html" style="font-family: var(--font-cyber-console); font-size: 0.75rem; color: var(--text-muted);">&larr; Return to Node Core</a>
             </div>
-
-            <div class="form-group">
-                <label for="role">Assign Console Role</label>
-                <select id="role">
-                    <option value="user">User Console</option>
-                    <option value="admin">Admin Console</option>
-                </select>
-            </div>
-
-            <button type="submit" class="btn btn-primary" id="auth-login-submit" style="width: 100%; margin-top: 1rem;">Login</button>
-        </form>
-
-        <div class="auth-footer">
-            Don't have a console account yet? <a href="signup.html">Register here</a>
         </div>
     </div>
-
-    <!-- Scripts -->
-    <script src="main.js"></script>
-    <script src="auth.js"></script>
+    
+    <!-- Main JavaScript Logic -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

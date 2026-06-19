@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stackly Commander Core - Operational server controls, anti-cheat logs, and tournament bracket planners.">
+    <title>STACKLY PLAY // Commander Core</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- AOS Stylesheet -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <!-- Main & Dashboard Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="cyber-dark-theme commander-theme">
+    
+    <!-- Mobile Sidebar Blur Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <div class="dashboard-container">
+        <!-- Sidebar Drawer Navigation -->
+        <aside class="dash-sidebar" id="dash-sidebar">
+            <div class="dash-brand">
+                <a href="index.html"><img src="Assests/logo.webp" alt="Stackly Play"></a>
+            </div>
+            
+            <div class="dash-user-card">
+                <div class="dash-user-avatar">💀</div>
+                <div class="dash-user-info">
+                    <div class="dash-user-name" id="user-display-name">COMMANDER_YOU</div>
+                    <div class="dash-user-role">SECTOR 4 OVERLORD</div>
+                </div>
+            </div>
+            
+            <ul class="dash-menu">
+                <li class="side-tab active" data-target="panel-ops">🖥️ Dashboard</li>
+                <li class="side-tab" data-target="panel-anticheat">👥 Users</li>
+                <li class="side-tab" data-target="panel-games">🎮 Games</li>
+                <li class="side-tab" data-target="panel-brackets">⚔️ Tournaments</li>
+                <li class="side-tab" data-target="panel-reports">📊 Reports</li>
+                <li class="side-tab" data-target="panel-notifs">🔔 Notifications</li>
+                <li class="side-tab" data-target="panel-server">⚙️ Settings</li>
+                <li><button class="side-tab btn-logout" id="logout-btn">🚪 Logout</button></li>
+            </ul>
+        </aside>
+        
+        <!-- Main Panel Frame -->
+        <main class="dash-main">
+            <!-- Topbar HUD Header -->
+            <header class="dash-topbar">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <button class="dash-hamburger" id="dash-hamburger" aria-expanded="false" aria-label="Toggle navigation sidebar">
+                        <span class="hamburger"></span>
+                    </button>
+                    <h2>COMMANDER TERMINAL LEVEL // <span>ADMIN DECK</span></h2>
+                </div>
+                <div class="topbar-actions">
+                    <button class="contrast-btn" id="hud-theme-toggle" title="Toggle Light/Dark Theme" style="background:none; border:1px solid var(--border-color); color:var(--text-primary); font-size:1.1rem; padding:0.4rem 0.6rem; border-radius:var(--radius-sm); cursor:pointer; margin-right:1rem;">🌓</button>
+                    <div class="terminal-status" style="border-color:var(--accent-purple)">
+                        <span class="pulse-dot purple"></span> NODE ENCRYPTIONS SECURE
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Content Panels -->
+            <section class="dash-content">
+                
+                <!-- PANEL 1: OPERATIONS DECK -->
+                <div class="dash-panel active" id="panel-ops">
+                    <div class="welcome-banner" style="margin-bottom: 2rem; padding: 1.5rem; background: rgba(162, 0, 255, 0.03); border: 1px solid rgba(162, 0, 255, 0.1); border-radius: var(--radius-md); font-family: var(--font-cyber-display); color: #ffffff;" data-aos="fade-down">
+                        <span>Welcome, </span><strong id="user-display-email" style="color: var(--accent-purple)">admin@example.com</strong>
+                    </div>
+                    <div class="panel-grid-3">
+                        <!-- Stat Card 1 -->
+                        <div class="dash-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="dash-card-header">
+                                <h3>CONCURRENT PILOTS</h3>
+                                <span style="color:var(--accent-purple)">👥</span>
+                            </div>
+                            <h2 style="font-size:2.25rem; font-family:var(--font-cyber-heading); text-shadow:0 0 10px rgba(162, 0, 255, 0.4)">14,832</h2>
+                            <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.5rem">Distributed across 4 regional edge nodes</p>
+                        </div>
+                        
+                        <!-- Stat Card 2 -->
+                        <div class="dash-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="dash-card-header">
+                                <h3>ACTIVE CHAMPIONSHIPS</h3>
+                                <span style="color:var(--accent-purple)">🏆</span>
+                            </div>
+                            <h2 style="font-size:2.25rem; font-family:var(--font-cyber-heading); text-shadow:0 0 10px rgba(162, 0, 255, 0.4)">12 Arenas</h2>
+                            <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.5rem">Ongoing Void Runner squad brackets</p>
+                        </div>
+                        
+                        <!-- Stat Card 3 -->
+                        <div class="dash-card" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="dash-card-header">
+                                <h3>DDoS MITIGATION LOGS</h3>
+                                <span style="color:var(--accent-red)">🛡️</span>
+                            </div>
+                            <h2 style="font-size:2.25rem; font-family:var(--font-cyber-heading); color:var(--accent-red)">4,212 Blocks</h2>
+                            <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.5rem">Attacks filtered in the last 24 hours</p>
+                        </div>
+                    </div>
+                    
+                    <!-- SVG Live Telemetry graph -->
+                    <div class="dash-card" style="margin-top:2rem" data-aos="fade-up">
+                        <div class="dash-card-header">
+                            <h3>LIVE SECTOR LOAD TELEMETRY</h3>
+                            <span style="font-family:var(--font-cyber-console); font-size:0.8rem; color:var(--accent-purple)">NODE-02 SYNC RATE</span>
+                        </div>
+                        <div style="width:100%; height:200px; display:flex; align-items:flex-end;">
+                            <svg viewBox="0 0 500 150" width="100%" height="100%" preserveAspectRatio="none" style="overflow:visible;">
+                                <defs>
+                                    <linearGradient id="purpleGlow" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="var(--accent-purple)" stop-opacity="0.3"></stop>
+                                        <stop offset="100%" stop-color="var(--accent-purple)" stop-opacity="0.0"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M 0 100 Q 50 60 100 120 T 200 40 T 300 80 T 400 30 T 500 90 L 500 150 L 0 150 Z" fill="url(#purpleGlow)"></path>
+                                <path d="M 0 100 Q 50 60 100 120 T 200 40 T 300 80 T 400 30 T 500 90" fill="none" stroke="var(--accent-purple)" stroke-width="3" style="filter: drop-shadow(0 0 4px var(--accent-purple));"></path>
+                                <circle cx="400" cy="30" r="5" fill="var(--accent-purple)"></circle>
+                            </svg>
+                        </div>
+                        <p style="font-size:0.75rem; color:var(--text-muted); text-align:right; margin-top:0.5rem">Simulation data updating dynamically</p>
+                    </div>
+                </div>
+                
+                <!-- PANEL 2: ANTI-CHEAT LOGS -->
+                <div class="dash-panel" id="panel-anticheat">
+                    <div class="dash-card" data-aos="fade-up">
+                        <div class="dash-card-header">
+                            <h3>BUFFER SHIELD: DANGER AGENT REGISTRY</h3>
+                        </div>
+                        <p class="box-desc" style="margin-bottom:1.5rem">Accounts flagged by anti-cheat parameters. Commander authorization required to establish sector bans.</p>
+                        <div class="registry-table-box">
+                            <table class="registry-table">
+                                <thead>
+                                    <tr>
+                                        <th>AGENT SIGNATURE</th>
+                                        <th>NODE LOCATION</th>
+                                        <th>HACK CONCORDANCE</th>
+                                        <th>SIGNATURE FLAG</th>
+                                        <th>MITIGATION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-weight:700">AIM_BOTTER_99</td>
+                                        <td style="font-family:var(--font-cyber-console)">STK-NODE-01</td>
+                                        <td style="color:var(--accent-red); font-family:var(--font-cyber-console); font-weight:700">99.4%</td>
+                                        <td class="flag-hack">WALLHACK DETECT</td>
+                                        <td><button class="ban-btn">BAN AGENT</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:700">RECOIL_MACRO_X</td>
+                                        <td style="font-family:var(--font-cyber-console)">STK-NODE-03</td>
+                                        <td style="color:var(--accent-red); font-family:var(--font-cyber-console); font-weight:700">92.1%</td>
+                                        <td class="flag-hack">RECOIL MACRO</td>
+                                        <td><button class="ban-btn">BAN AGENT</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:700">SPEED_RUN_CADET</td>
+                                        <td style="font-family:var(--font-cyber-console)">STK-NODE-02</td>
+                                        <td style="color:var(--accent-red); font-family:var(--font-cyber-console); font-weight:700">89.5%</td>
+                                        <td class="flag-hack">SPEED OFFSET DETECT</td>
+                                        <td><button class="ban-btn">BAN AGENT</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PANEL 3: BRACKET PLANNER -->
+                <div class="dash-panel" id="panel-brackets">
+                    <div class="panel-grid-2">
+                        <!-- Left Panel: Brackets visualizer -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3>TACTICAL BRACKET SCHEDULER</h3>
+                            </div>
+                            <div class="bracket-box">
+                                <span class="panel-tag" style="color:var(--accent-purple)">SECTOR 4 CHAMPIONSHIPS</span>
+                                <!-- Match 1 -->
+                                <div class="bracket-match">
+                                    <div class="bracket-team-row winner">
+                                        <span>SHADOW_REAPER</span>
+                                        <span class="bracket-score">3</span>
+                                    </div>
+                                    <div class="bracket-team-row">
+                                        <span>CYBER_PAWN</span>
+                                        <span class="bracket-score">1</span>
+                                    </div>
+                                </div>
+                                <!-- Match 2 -->
+                                <div class="bracket-match">
+                                    <div class="bracket-team-row">
+                                        <span>ALPHA_PILOT</span>
+                                        <span class="bracket-score">0</span>
+                                    </div>
+                                    <div class="bracket-team-row winner">
+                                        <span>VECTOR_X</span>
+                                        <span class="bracket-score">3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Panel: Registration Form -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3>REGISTER NEW OPERATIONAL SQUAD</h3>
+                            </div>
+                            <form id="bracket-register-form" style="display:flex; flex-direction:column; gap:1.25rem;">
+                                <div class="form-group">
+                                    <label for="squad-name" style="font-family:var(--font-cyber-console); font-size:0.8rem;">SQUAD NAME SIGNATURE</label>
+                                    <input type="text" id="squad-name" placeholder="e.g. VOID_RUNNERS_CLAN" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="squad-division" style="font-family:var(--font-cyber-console); font-size:0.8rem;">SQUAD LEADER AGENT ID</label>
+                                    <input type="text" id="squad-division" placeholder="e.g. COMMANDER_ALPHA" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="squad-tier" style="font-family:var(--font-cyber-console); font-size:0.8rem;">TACTICAL SECTOR BRACKET</label>
+                                    <select id="squad-tier" required>
+                                        <option value="" disabled selected>Select bracket level...</option>
+                                        <option value="Pro Division">PRO DIVISION (LP 1500+)</option>
+                                        <option value="Cadet Challenger">CADET CHALLENGER (LP 1000+)</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-primary-neon" style="border:none; padding:1rem; cursor:pointer; background:linear-gradient(135deg, var(--accent-purple), var(--accent-cyan)); color:#010206; font-weight:800; font-size:0.9rem; letter-spacing:0.08em; clip-path:var(--clip-angle-sm)">PROPOSE BRACKET SLATE</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PANEL: GAMES -->
+                <div class="dash-panel" id="panel-games">
+                    <div class="dash-card">
+                        <div class="dash-card-header">
+                            <h3>OPERATIONAL INSTALLED GAMES</h3>
+                        </div>
+                        <table style="width:100%; border-collapse:collapse; color:#fff; text-align:left; margin-top:1rem;">
+                            <thead>
+                                <tr style="border-bottom:1px solid var(--border-color); font-family:var(--font-cyber-heading)">
+                                    <th style="padding:1rem;">GAME ID</th>
+                                    <th style="padding:1rem;">MATCHES</th>
+                                    <th style="padding:1rem;">PILOT CAPACITY</th>
+                                    <th style="padding:1rem;">STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05)">
+                                    <td style="padding:1rem;">VOID RUNNER</td>
+                                    <td style="padding:1rem;">24 active</td>
+                                    <td style="padding:1rem;">12,504 pilots</td>
+                                    <td style="padding:1rem; color:var(--accent-emerald)">ONLINE</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:1rem;">QUANTUM CLASH</td>
+                                    <td style="padding:1rem;">12 active</td>
+                                    <td style="padding:1rem;">8,210 pilots</td>
+                                    <td style="padding:1rem; color:var(--accent-emerald)">ONLINE</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- PANEL: REPORTS -->
+                <div class="dash-panel" id="panel-reports">
+                    <div class="dash-card">
+                        <div class="dash-card-header">
+                            <h3>GRID PACKET LOSS DIAGNOSTICS</h3>
+                        </div>
+                        <p style="margin-top:1rem; line-height:1.6; color:var(--text-secondary)">All node diagnostic channels report 0% packet loss. Edge synchronizations are locked at 12ms average latency rating.</p>
+                    </div>
+                </div>
+
+                <!-- PANEL: NOTIFICATIONS -->
+                <div class="dash-panel" id="panel-notifs">
+                    <div class="dash-card">
+                        <div class="dash-card-header">
+                            <h3>HUD BROADCAST MESSAGES</h3>
+                        </div>
+                        <div class="console-box" style="height:200px; margin-top:1rem;">
+                            <div class="console-line">> [ALERT] Sector 4 low-gravity grid maintenance at 04:00 UTC.</div>
+                            <div class="console-line">> [SECURE] System developer firewall tests: COMPLETED.</div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <!-- PANEL 4: SERVER OVERCLOCK -->
+                <div class="dash-panel" id="panel-server">
+                    <div class="panel-grid-2">
+                        <!-- Left Panel: Controls switches -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3>OPERATIONAL SWITCH CONTROL DECK</h3>
+                            </div>
+                            <div class="switches-deck">
+                                <div class="switch-item">
+                                    <div class="switch-info">
+                                        <h4>HUD SYSTEM LIGHT THEME</h4>
+                                        <p>Toggle high-contrast white operations terminal</p>
+                                    </div>
+                                    <label class="switch-control" for="theme-slider-switch">
+                                        <input type="checkbox" id="theme-slider-switch">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="switch-item">
+                                    <div class="switch-info">
+                                        <h4>DDoS SHIELD MITIGATION</h4>
+                                        <p>Activate high-priority firewalls on Node 2</p>
+                                    </div>
+                                    <label class="switch-control" for="ddos-toggle">
+                                        <input type="checkbox" id="ddos-toggle" checked>
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="switch-item">
+                                    <div class="switch-info">
+                                        <h4>NEURAL TICKRATE OVERCLOCK</h4>
+                                        <p>Expand tick precision from 128Hz to 256Hz</p>
+                                    </div>
+                                    <label class="switch-control" for="tickrate-toggle">
+                                        <input type="checkbox" id="tickrate-toggle">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="switch-item">
+                                    <div class="switch-info">
+                                        <h4>LOW-LATENCY EDGE ROUTING</h4>
+                                        <p>Direct low-gravity traffic along bypass grids</p>
+                                    </div>
+                                    <label class="switch-control" for="latency-toggle" checked>
+                                        <input type="checkbox" id="latency-toggle" checked>
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Panel: Diagnostics stream -->
+                        <div class="dash-card" style="display:flex; flex-direction:column; justify-content:space-between">
+                            <div class="dash-card-header">
+                                <h3>COMMANDER COMMAND LINE LOGS</h3>
+                            </div>
+                            
+                            <div class="console-box" id="admin-console" style="height:280px">
+                                <div class="console-line">> Securing administrative credentials link...</div>
+                                <div class="console-line">> STK-NODE-02 core synchronizations aligned.</div>
+                                <div class="console-line">> DDoS Shielding is currently: ACTIVE</div>
+                                <div class="console-line">> Latency Edge sync routing: ENABLED</div>
+                                <div class="console-line">> Neural Tickrate overclock: DISABLED (Standard 128Hz active)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+        </main>
+    </div>
+    
+    <!-- Main JavaScript Logic -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const toggleSwitch = document.getElementById('theme-slider-switch');
+            const themeBtn = document.getElementById('hud-theme-toggle');
+            
+            function updateTheme(isLight) {
+                if (isLight) {
+                    body.classList.remove('cyber-dark-theme');
+                    body.classList.add('cyber-light-theme');
+                    if(toggleSwitch) toggleSwitch.checked = true;
+                } else {
+                    body.classList.remove('cyber-light-theme');
+                    body.classList.add('cyber-dark-theme');
+                    if(toggleSwitch) toggleSwitch.checked = false;
+                }
+            }
+            
+            if(toggleSwitch) {
+                toggleSwitch.addEventListener('change', () => {
+                    updateTheme(toggleSwitch.checked);
+                });
+            }
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const isLightNow = body.classList.contains('cyber-light-theme');
+                    updateTheme(!isLightNow);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

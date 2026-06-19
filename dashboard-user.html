@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stackly Cadet Hub - Manage your esports career statistics, gear calibrations, and low-latency network diagnostic tests.">
+    <title>STACKLY PLAY // Cadet Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- AOS Stylesheet -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <!-- Main & Dashboard Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="cyber-dark-theme">
+    
+    <!-- Mobile Sidebar Blur Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <div class="dashboard-container">
+        <!-- Sidebar Drawer Navigation -->
+        <aside class="dash-sidebar" id="dash-sidebar">
+            <div class="dash-brand">
+                <a href="index.html"><img src="Assests/logo.webp" alt="Stackly Play"></a>
+            </div>
+            
+            <div class="dash-user-card">
+                <div class="dash-user-avatar">👤</div>
+                <div class="dash-user-info">
+                    <div class="dash-user-name" id="user-display-name">CADET_AGENT</div>
+                    <div class="dash-user-role">SECTOR 4 CADET</div>
+                </div>
+            </div>
+            
+            <ul class="dash-menu">
+                <li class="side-tab active" data-target="panel-career">🏆 Dashboard</li>
+                <li class="side-tab" data-target="panel-profile">👤 Profile</li>
+                <li class="side-tab" data-target="panel-games">🎮 My Games</li>
+                <li class="side-tab" data-target="panel-latency">⚡ Match History</li>
+                <li class="side-tab" data-target="panel-achievements">🏅 Achievements</li>
+                <li class="side-tab" data-target="panel-notifs">🔔 Notifications</li>
+                <li class="side-tab" data-target="panel-calibration">⚙️ Settings</li>
+                <li><button class="side-tab btn-logout" id="logout-btn">🚪 Logout</button></li>
+            </ul>
+        </aside>
+        
+        <!-- Main Panel Frame -->
+        <main class="dash-main">
+            <!-- Topbar HUD Header -->
+            <header class="dash-topbar">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <button class="dash-hamburger" id="dash-hamburger" aria-expanded="false" aria-label="Toggle navigation sidebar">
+                        <span class="hamburger"></span>
+                    </button>
+                    <h2>CADET OPERATIONS HUD // <span>TACTICAL PROFILE</span></h2>
+                </div>
+                <div class="topbar-actions">
+                    <div class="terminal-status">
+                        <span class="pulse-dot green"></span> GRID CONNECTION ACTIVE
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Content Panels -->
+            <section class="dash-content">
+                
+                <!-- PANEL 1: CAREER METRICS -->
+                <div class="dash-panel active" id="panel-career">
+                    <div class="welcome-banner" style="margin-bottom: 2rem; padding: 1.5rem; background: rgba(0, 242, 254, 0.03); border: 1px solid rgba(0, 242, 254, 0.1); border-radius: var(--radius-md); font-family: var(--font-cyber-display); color: #ffffff;" data-aos="fade-down">
+                        <span>Welcome, </span><strong id="user-display-email" style="color: var(--accent-cyan)">gamer@example.com</strong>
+                    </div>
+                    <div class="panel-grid-3">
+                        <!-- Stat Card 1 -->
+                        <div class="dash-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="dash-card-header">
+                                <h3>NEURAL RATING</h3>
+                                <span style="color:var(--accent-cyan); font-family:var(--font-cyber-console)">LEVEL 04</span>
+                            </div>
+                            <h2 style="font-size:2.25rem; font-family:var(--font-cyber-heading); text-shadow:0 0 10px rgba(0, 242, 254, 0.4)">1,540 LP</h2>
+                            <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.5rem">Top 8.2% of deployed cadets in Sector 4</p>
+                        </div>
+                        
+                        <!-- Stat Card 2 -->
+                        <div class="dash-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="dash-card-header">
+                                <h3>COMBAT WIN RATE</h3>
+                                <span style="color:var(--accent-cyan)">⚡</span>
+                            </div>
+                            <div class="stat-circle-box">
+                                <svg class="stat-circle-svg" width="130" height="130">
+                                    <circle class="stat-circle-bg" cx="65" cy="65" r="54"/>
+                                    <circle class="stat-circle-fill" cx="65" cy="65" r="54"/>
+                                </svg>
+                                <div class="stat-circle-value">75%</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Stat Card 3 -->
+                        <div class="dash-card" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="dash-card-header">
+                                <h3>OPERATIONAL PING</h3>
+                                <span style="color:var(--accent-cyan); font-family:var(--font-cyber-console)">LOW-LATENCY</span>
+                            </div>
+                            <h2 style="font-size:2.25rem; font-family:var(--font-cyber-heading); color:var(--accent-emerald)">12 ms</h2>
+                            <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.5rem">Edge connection to STK-NODE-01 (NA Core)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Matches Log -->
+                    <div class="dash-card" style="margin-top:2rem" data-aos="fade-up">
+                        <div class="dash-card-header">
+                            <h3>OPERATIONAL DEPLOYMENT RECORD</h3>
+                        </div>
+                        <div class="registry-table-box">
+                            <table class="registry-table">
+                                <thead>
+                                    <tr>
+                                        <th>SIMULATOR ZONE</th>
+                                        <th>PING RATE</th>
+                                        <th>MATCH DURATION</th>
+                                        <th>COMBAT STATUS</th>
+                                        <th>RATING CHANGE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-weight:700">VOID RUNNER</td>
+                                        <td style="font-family:var(--font-cyber-console)">11ms</td>
+                                        <td style="font-family:var(--font-cyber-console)">14:22</td>
+                                        <td style="color:var(--accent-emerald); font-weight:700">VICTORY</td>
+                                        <td style="color:var(--accent-emerald); font-family:var(--font-cyber-console)">+22 LP</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:700">QUANTUM CLASH</td>
+                                        <td style="font-family:var(--font-cyber-console)">22ms</td>
+                                        <td style="font-family:var(--font-cyber-console)">32:45</td>
+                                        <td style="color:var(--accent-emerald); font-weight:700">VICTORY</td>
+                                        <td style="color:var(--accent-emerald); font-family:var(--font-cyber-console)">+15 LP</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:700">VOID RUNNER</td>
+                                        <td style="font-family:var(--font-cyber-console)">12ms</td>
+                                        <td style="font-family:var(--font-cyber-console)">18:10</td>
+                                        <td style="color:var(--accent-red); font-weight:700">DEFEAT</td>
+                                        <td style="color:var(--accent-red); font-family:var(--font-cyber-console)">-18 LP</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PANEL: PROFILE -->
+                <div class="dash-panel" id="panel-profile">
+                    <div class="dash-card">
+                        <div class="dash-card-header">
+                            <h3>EDIT CADET PROFILE</h3>
+                        </div>
+                        <form id="edit-profile-form" style="display:flex; flex-direction:column; gap:1.25rem; margin-top:1.5rem;">
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label>FULL NAME</label>
+                                    <input type="text" id="prof-fullname" value="Cadet Agent Signature" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>AGENT CODENAME</label>
+                                    <input type="text" id="prof-codename" value="CADET_AGENT" required>
+                                </div>
+                            </div>
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label>EMAIL SIGNATURE</label>
+                                    <input type="email" id="prof-email" value="agent@neural.net" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>CONTACT PHONE</label>
+                                    <input type="tel" id="prof-phone" value="+1 (555) 0199" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary-neon" style="border:none; padding:1rem; cursor:pointer; background:linear-gradient(135deg, var(--accent-purple), var(--accent-cyan)); color:#010206; font-weight:800; font-size:0.9rem; letter-spacing:0.08em; clip-path:var(--clip-angle-sm)">SAVE CHANGES</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- PANEL: MY GAMES -->
+                <div class="dash-panel" id="panel-games">
+                    <div class="dash-card">
+                        <div class="dash-card-header">
+                            <h3>MY DEPLOYED STATIONS</h3>
+                        </div>
+                        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
+                            <div class="dash-card" style="text-align:center;">
+                                <h4 style="color:var(--accent-cyan)">VOID RUNNER</h4>
+                                <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.5rem">Status: Active</p>
+                            </div>
+                            <div class="dash-card" style="text-align:center;">
+                                <h4 style="color:var(--accent-cyan)">QUANTUM CLASH</h4>
+                                <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.5rem">Status: Active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL: ACHIEVEMENTS -->
+                <div class="dash-panel" id="panel-achievements">
+                    <div class="dash-card">
+                        <div class="dash-card-header">
+                            <h3>MY MILITARY INSIGNIAS</h3>
+                        </div>
+                        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
+                            <div class="dash-card" style="border-color:var(--accent-emerald)">
+                                <h4>🛡️ GATEWAY ALIGNED</h4>
+                                <p style="font-size:0.75rem; color:var(--text-secondary)">Connected Node 2 successfully.</p>
+                            </div>
+                            <div class="dash-card">
+                                <h4>⚡ OVERCLOCK CADET</h4>
+                                <p style="font-size:0.75rem; color:var(--text-secondary)">Calibrated mouse to 8000Hz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL: NOTIFICATIONS -->
+                <div class="dash-panel" id="panel-notifs">
+                    <div class="dash-card">
+                        <div class="dash-card-header">
+                            <h3>HUD INBOX NOTIFICATIONS</h3>
+                        </div>
+                        <div class="console-box" style="height:150px; margin-top:1.5rem;">
+                            <div class="console-line">> [ALERT] Sector 4 low-gravity grid maintenance soon.</div>
+                            <div class="console-line">> [SECURE] System developer firewall tests: COMPLETED.</div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <!-- PANEL 2: GEAR CALIBRATION -->
+                <div class="dash-panel" id="panel-calibration">
+                    <div class="panel-grid-2">
+                        <!-- Left Panel: Sliders -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3>PERIPHERAL SIGNAL MODIFIERS</h3>
+                            </div>
+                            <form id="gear-config-form" class="gear-sliders">
+                                <div class="slider-group">
+                                    <div class="slider-label-row">
+                                        <span>REFLEX MOUSE SENSITIVITY (DPI)</span>
+                                        <span id="dpi-value" style="color:var(--accent-cyan); font-weight:700">1,600 DPI</span>
+                                    </div>
+                                    <input type="range" class="slider-control" id="dpi-slider" min="400" max="32000" step="100" value="1600">
+                                </div>
+                                
+                                <div class="slider-group">
+                                    <div class="slider-label-row">
+                                        <span>USB POLLING Precision RATE</span>
+                                        <span id="polling-value" style="color:var(--accent-cyan); font-weight:700">1,000 Hz</span>
+                                    </div>
+                                    <input type="range" class="slider-control" id="polling-slider" min="125" max="8000" step="125" value="1000">
+                                </div>
+                                
+                                <div class="slider-group">
+                                    <div class="slider-label-row">
+                                        <span>HUD CROSSHAIR RADIUS SCALE</span>
+                                        <span id="crosshair-value" style="color:var(--accent-cyan); font-weight:700">2.0 px</span>
+                                    </div>
+                                    <input type="range" class="slider-control" id="crosshair-slider" min="0.5" max="10" step="0.5" value="2.0">
+                                </div>
+                                
+                                <div class="slider-group">
+                                    <span style="font-family:var(--font-cyber-console); font-size:0.8rem; color:var(--text-secondary)">HUD NEON TARGET SIGNATURE</span>
+                                    <div class="color-picker-grid">
+                                        <button type="button" class="color-btn active" style="background-color: var(--accent-cyan);" data-color="cyan"></button>
+                                        <button type="button" class="color-btn" style="background-color: var(--accent-purple);" data-color="purple"></button>
+                                        <button type="button" class="color-btn" style="background-color: var(--accent-emerald);" data-color="emerald"></button>
+                                        <button type="button" class="color-btn" style="background-color: var(--accent-gold);" data-color="gold"></button>
+                                        <button type="button" class="color-btn" style="background-color: var(--accent-red);" data-color="red"></button>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn-primary-neon" style="border:none; padding:0.8rem; cursor:pointer; width:100%; margin-top:1rem;">SAVE HARDWARE PROFILE</button>
+                            </form>
+                        </div>
+                        
+                        <!-- Right Panel: Visual HUD preview -->
+                        <div class="dash-card" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                            <div class="dash-card-header" style="width:100%">
+                                <h3>HUD CROSSHAIR SIMULATOR</h3>
+                            </div>
+                            <div class="hud-crosshair-preview-box" style="position:relative; width:220px; height:220px; background-color:#010206; border:1px dashed var(--border-color); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                                <div class="crosshair-preview-dot" id="crosshair-preview-dot" style="position:absolute; width:4px; height:4px; background-color:var(--accent-cyan); border-radius:var(--radius-full); box-shadow: 0 0 8px var(--accent-cyan); transition: transform 0.2s;"></div>
+                                <div style="position:absolute; width:100%; height:1px; background:rgba(255,255,255,0.03)"></div>
+                                <div style="position:absolute; height:100%; width:1px; background:rgba(255,255,255,0.03)"></div>
+                            </div>
+                            <p style="font-size:0.75rem; color:var(--text-muted); text-align:center; margin-top:1rem">Interactive HUD calibrates as modifiers adjust</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PANEL 3: LATENCY SIMULATOR -->
+                <div class="dash-panel" id="panel-latency">
+                    <div class="panel-grid-2">
+                        <!-- Left Panel: Grid -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3>INTERACTIVE NEURAL LATENCY COMS GRID</h3>
+                            </div>
+                            <p class="box-desc" style="margin-bottom: 1rem">Click coordinate sectors on the grid matrix to calibrate input sync rates and measure responses.</p>
+                            <div class="calibrator-container">
+                                <div class="calibrator-header">
+                                    <span>SECTOR: <code id="calibrator-sector-lbl">SEC-00</code></span>
+                                    <span>STATUS: <code id="calibrator-status-lbl" style="color:var(--accent-emerald)">STABLE</code></span>
+                                </div>
+                                <div class="calibrator-grid" id="latency-matrix">
+                                    <!-- 64 cells generated by JS -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Panel: Telemetry readings -->
+                        <div class="dash-card" style="display:flex; flex-direction:column; justify-content:space-between">
+                            <div class="dash-card-header">
+                                <h3>CALIBRATION TELEMETRY DATA</h3>
+                            </div>
+                            
+                            <div style="margin:2rem 0; text-align:center">
+                                <span class="panel-tag" style="color:var(--accent-cyan)">CALIBRATING MILLISECOND MATRIX</span>
+                                <h2 style="font-size:3.5rem; font-family:var(--font-cyber-heading); text-shadow:0 0 15px rgba(0,242,254,0.3); margin-top:0.5rem" id="calibration-ping-val">12 ms</h2>
+                            </div>
+                            
+                            <div class="console-box" id="calibrator-terminal" style="height:150px">
+                                <div class="console-line">> Neural calibrator diagnostic ready...</div>
+                                <div class="console-line">> Click grid coordinate sectors to send telemetry diagnostics.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PANEL 4: SQUAD ROSTER -->
+                <div class="dash-panel" id="panel-squad">
+                    <div class="panel-grid-2">
+                        <!-- Left: Squad List -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3>SECTOR 4 CO-CADET ROSTER</h3>
+                            </div>
+                            <div class="registry-table-box">
+                                <table class="registry-table">
+                                    <thead>
+                                        <tr>
+                                            <th>AGENT CODENAME</th>
+                                            <th>DEPLOYMENT FIELD</th>
+                                            <th>ROSTER STATUS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-weight:700">SHADOW_REAPER</td>
+                                            <td style="font-family:var(--font-cyber-console)">VOID RUNNER</td>
+                                            <td><span class="sec-ok">🔴 IN-GAME</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:700">CYBER_PAWN</td>
+                                            <td style="font-family:var(--font-cyber-console)">QUANTUM CLASH</td>
+                                            <td><span class="sec-ok" style="color:var(--accent-emerald)">🟢 ONLINE</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:700">ALPHA_PILOT</td>
+                                            <td style="font-family:var(--font-cyber-console)">UNASSIGNED</td>
+                                            <td><span class="sec-ok" style="color:var(--accent-emerald)">🟢 ONLINE</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:700">VECTOR_X</td>
+                                            <td style="font-family:var(--font-cyber-console)">GRID RACING</td>
+                                            <td><span class="sec-ok">🔴 IN-GAME</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:700">PHOENIX_GRID</td>
+                                            <td style="font-family:var(--font-cyber-console)">UNASSIGNED</td>
+                                            <td><span class="sec-warn" style="color:var(--text-muted)">⚪ OFFLINE</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Right: Clan Chat -->
+                        <div class="dash-card" style="display:flex; flex-direction:column; height:450px;">
+                            <div class="dash-card-header">
+                                <h3>SQUAD COMS MATRIX</h3>
+                            </div>
+                            
+                            <div class="chat-scroller" id="dash-chat-scroller" style="flex-grow:1; overflow-y:auto; padding:0.5rem; display:flex; flex-direction:column; gap:0.75rem; border:1px solid var(--border-color); background-color:#010206; border-radius:var(--radius-sm); margin-bottom:1rem;">
+                                <!-- Chat comments -->
+                            </div>
+                            
+                            <form id="dash-chat-form" class="chat-input-bar">
+                                <input type="text" id="dash-chat-input" placeholder="Transmit comms signature..." required autocomplete="off" aria-label="Clan Chat Message">
+                                <button type="submit" class="btn-send-chat">SEND</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+        </main>
+    </div>
+    
+    <!-- Main JavaScript Logic -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileForm = document.getElementById('edit-profile-form');
+            if (profileForm) {
+                profileForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Clear previous errors
+                    profileForm.querySelectorAll('.form-error-msg').forEach(el => el.remove());
+                    profileForm.querySelectorAll('input').forEach(el => el.style.borderColor = '');
+                    
+                    const name = document.getElementById('prof-fullname');
+                    const code = document.getElementById('prof-codename');
+                    const email = document.getElementById('prof-email');
+                    const phone = document.getElementById('prof-phone');
+                    
+                    let hasError = false;
+                    
+                    function showError(el, msg) {
+                        const parent = el.parentNode;
+                        const err = document.createElement('span');
+                        err.className = 'form-error-msg';
+                        err.style.color = 'var(--accent-red)';
+                        err.style.fontSize = '0.75rem';
+                        err.textContent = msg;
+                        parent.appendChild(err);
+                        el.style.borderColor = 'var(--accent-red)';
+                        hasError = true;
+                    }
+                    
+                    if (!name.value.trim()) showError(name, 'Full Name is required.');
+                    if (!code.value.trim()) showError(code, 'Codename is required.');
+                    if (!email.value.trim()) {
+                        showError(email, 'Email is required.');
+                    } else {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(email.value.trim())) showError(email, 'Invalid email format.');
+                    }
+                    if (!phone.value.trim()) {
+                        showError(phone, 'Phone is required.');
+                    } else {
+                        const phoneRegex = /^\+?[0-9\s\-()]{7,18}$/;
+                        if (!phoneRegex.test(phone.value.trim())) showError(phone, 'Invalid phone number.');
+                    }
+                    
+                    if (hasError) return;
+                    
+                    // Success, redirect to 404
+                    window.location.href = '404.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
