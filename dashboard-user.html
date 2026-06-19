@@ -159,7 +159,7 @@
                         <div class="dash-card-header">
                             <h3>EDIT CADET PROFILE</h3>
                         </div>
-                        <form id="edit-profile-form" style="display:flex; flex-direction:column; gap:1.25rem; margin-top:1.5rem;">
+                        <form id="edit-profile-form" novalidate style="display:flex; flex-direction:column; gap:1.25rem; margin-top:1.5rem;">
                             <div class="form-row-2">
                                 <div class="form-group">
                                     <label>FULL NAME</label>
@@ -245,7 +245,7 @@
                             <div class="dash-card-header">
                                 <h3>PERIPHERAL SIGNAL MODIFIERS</h3>
                             </div>
-                            <form id="gear-config-form" class="gear-sliders">
+                            <form id="gear-config-form" novalidate class="gear-sliders">
                                 <div class="slider-group">
                                     <div class="slider-label-row">
                                         <span>REFLEX MOUSE SENSITIVITY (DPI)</span>
@@ -397,7 +397,7 @@
                                 <!-- Chat comments -->
                             </div>
                             
-                            <form id="dash-chat-form" class="chat-input-bar">
+                            <form id="dash-chat-form" novalidate class="chat-input-bar">
                                 <input type="text" id="dash-chat-input" placeholder="Transmit comms signature..." required autocomplete="off" aria-label="Clan Chat Message">
                                 <button type="submit" class="btn-send-chat">SEND</button>
                             </form>

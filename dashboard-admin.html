@@ -214,7 +214,7 @@
                             <div class="dash-card-header">
                                 <h3>REGISTER NEW OPERATIONAL SQUAD</h3>
                             </div>
-                            <form id="bracket-register-form" style="display:flex; flex-direction:column; gap:1.25rem;">
+                            <form id="bracket-register-form" novalidate style="display:flex; flex-direction:column; gap:1.25rem;">
                                 <div class="form-group">
                                     <label for="squad-name" style="font-family:var(--font-cyber-console); font-size:0.8rem;">SQUAD NAME SIGNATURE</label>
                                     <input type="text" id="squad-name" placeholder="e.g. VOID_RUNNERS_CLAN" required>
@@ -243,30 +243,32 @@
                         <div class="dash-card-header">
                             <h3>OPERATIONAL INSTALLED GAMES</h3>
                         </div>
-                        <table style="width:100%; border-collapse:collapse; color:#fff; text-align:left; margin-top:1rem;">
-                            <thead>
-                                <tr style="border-bottom:1px solid var(--border-color); font-family:var(--font-cyber-heading)">
-                                    <th style="padding:1rem;">GAME ID</th>
-                                    <th style="padding:1rem;">MATCHES</th>
-                                    <th style="padding:1rem;">PILOT CAPACITY</th>
-                                    <th style="padding:1rem;">STATUS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05)">
-                                    <td style="padding:1rem;">VOID RUNNER</td>
-                                    <td style="padding:1rem;">24 active</td>
-                                    <td style="padding:1rem;">12,504 pilots</td>
-                                    <td style="padding:1rem; color:var(--accent-emerald)">ONLINE</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:1rem;">QUANTUM CLASH</td>
-                                    <td style="padding:1rem;">12 active</td>
-                                    <td style="padding:1rem;">8,210 pilots</td>
-                                    <td style="padding:1rem; color:var(--accent-emerald)">ONLINE</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="registry-table-box">
+                            <table style="width:100%; border-collapse:collapse; color:#fff; text-align:left;">
+                                <thead>
+                                    <tr style="border-bottom:1px solid var(--border-color); font-family:var(--font-cyber-heading)">
+                                        <th style="padding:1rem;">GAME ID</th>
+                                        <th style="padding:1rem;">MATCHES</th>
+                                        <th style="padding:1rem;">PILOT CAPACITY</th>
+                                        <th style="padding:1rem;">STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom:1px solid rgba(255,255,255,0.05)">
+                                        <td style="padding:1rem;">VOID RUNNER</td>
+                                        <td style="padding:1rem;">24 active</td>
+                                        <td style="padding:1rem;">12,504 pilots</td>
+                                        <td style="padding:1rem; color:var(--accent-emerald)">ONLINE</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:1rem;">QUANTUM CLASH</td>
+                                        <td style="padding:1rem;">12 active</td>
+                                        <td style="padding:1rem;">8,210 pilots</td>
+                                        <td style="padding:1rem; color:var(--accent-emerald)">ONLINE</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 

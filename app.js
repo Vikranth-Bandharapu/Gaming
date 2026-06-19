@@ -145,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isCalibratorCell = target.classList.contains('calibrator-cell') || target.closest('.calibrator-cell');
         const isDashChatSubmit = target.closest('#dash-chat-form') || target.id === 'dash-chat-input';
         const isDashFormSubmit = target.closest('#edit-profile-form') || target.closest('#bracket-register-form') || target.closest('#gear-config-form');
+        const isIssueFormSubmit = target.closest('#issue-report-form');
 
         if (
             isLogo ||
@@ -165,7 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
             isColorBtn ||
             isCalibratorCell ||
             isDashChatSubmit ||
-            isDashFormSubmit
+            isDashFormSubmit ||
+            isIssueFormSubmit
         ) {
             return; // Allow native action
         }
