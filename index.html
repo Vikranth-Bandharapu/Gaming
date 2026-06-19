@@ -3,583 +3,489 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Stackly Gaming Portal - The ultimate cyberpunk gaming nexus. Play next-gen games, view live esport telemetry, track server health, and chat with clans.">
-    <title>STACKLY PLAY // Next-Gen Gaming Nexus</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="UrbanNexus - Shaping the future of urban infrastructure with AI-driven, sustainable Smart City technologies. Explore green grids, connected mobility, and municipal IoT.">
+    <meta name="keywords" content="smart city, urban technology, green energy grid, intelligent traffic, IoT infrastructure, municipal software">
+    <meta name="author" content="UrbanNexus Team">
+    <title>SmartCity stackly </title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="cyber-dark-theme">
-    
-    <!-- SECTION 1: INTRO CYBER PRELOADER (Full-Screen Overlay) -->
-    <div class="preloader-overlay" id="preloader">
-        <div class="preloader-particles" id="preloader-particles"></div>
+<body>
+
+    <!-- 3-Second Page Loader Overlay -->
+    <div id="loader-container" aria-label="Loading page">
         <div class="loader-content">
-            <!-- Glowing Cyber Sigil -->
-            <div class="cyber-emblem-box">
-                <svg class="cyber-svg" viewBox="0 0 100 100" width="100" height="100">
-                    <circle cx="50" cy="50" r="45" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-dasharray="10 5"/>
-                    <circle cx="50" cy="50" r="38" fill="none" stroke="var(--accent-purple)" stroke-width="1.5" stroke-dasharray="250" stroke-dashoffset="0" class="rotate-circle"/>
-                    <path d="M30 40 L50 20 L70 40 L50 80 Z" fill="none" stroke="var(--accent-cyan)" stroke-width="3" stroke-linejoin="round"/>
-                    <polygon points="50,32 58,48 42,48" fill="var(--accent-purple)" class="glow-pulse"/>
-                </svg>
-            </div>
-            
-            <div class="loader-text-area">
-                <h2 class="glitch-text" data-text="STACKLY PLAY">STACKLY PLAY</h2>
-                <div class="console-text" id="loader-console">> ACCESSING SECURE NEURAL LINK...</div>
-                
-                <div class="load-bar-container">
-                    <div class="load-bar-fill" id="loader-bar"></div>
-                </div>
-                <div class="load-percentage" id="loader-pct">00%</div>
+            <div class="loader-logo-wrapper">
+                <div class="loader-ring"></div>
+                <img src="Assests/logo.webp" alt="stackly Logo" class="loader-logo">
             </div>
         </div>
     </div>
-    <!-- MAIN APP CONTENT (Initially Hidden/Opacity 0 until preloader completes) -->
-    <div class="main-layout hidden" id="main-content">
+
+    <!-- Sticky Header & Navbar -->
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="index.html" class="logo" aria-label="UrbanNexus Home">
+                <img src="Assests/logo.webp" alt="UrbanNexus Logo">
+                
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Mobile only links -->
+                <li class="mobile-only-btn"><a href="login.html" class="btn btn-secondary" id="nav-login-btn-mobile">Login</a></li>
+                <li class="mobile-only-btn"><a href="signup.html" class="btn btn-primary" id="nav-signup-btn-mobile">Sign Up</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-link" id="nav-login-btn">Login</a>
+                <a href="signup.html" class="btn btn-primary" id="nav-signup-btn">Sign Up</a>
+            </div>
+
+            <button class="hamburger" aria-expanded="false" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main>
         
-        <!-- SECTION 2: DYNAMIC TACTICAL HEADER & HERO BANNER -->
-        <header class="tactical-header">
-            <nav class="tactical-navbar">
-                <div class="container navbar-content">
-                   <a href="index.html" class="nav-logo">
-    <img src="Assests/logo.webp" alt="Stackly Play Logo">
-</a>
-                    
-                    <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
-                        <span class="hamburger"></span>
-                    </button>
-                    
-                    <ul class="nav-menu" id="nav-menu">
-                        <li><a href="index.html" class="nav-link active">Home</a></li>
-                        <li><a href="about.html" class="nav-link">About</a></li>
-                        <li><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li><a href="login.html" class="nav-link">Login</a></li>
-                        <li><a href="signup.html" class="nav-link">Sign Up</a></li>
-                        <li>
-                            <button class="cart-trigger-btn" id="cart-btn" aria-label="View Cart">
-                                <span class="cart-icon">🛒</span>
-                                <span class="cart-badge" id="cart-count">0</span>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="hero-section">
-                <div class="hero-overlay"></div>
-                <div class="container hero-content">
-                    <div class="hero-text-area">
-                        <span class="cyber-badge"><span class="pulse-dot red"></span> NEURAL GRID STABLE</span>
-                        <h1 class="glitch-title" data-text="THE NEXT EVOLUTION OF PLAY">THE NEXT EVOLUTION OF PLAY</h1>
-                        <p class="hero-desc">Deploy into competitive esports arenas, track low-latency telemetry matrices, customize high-performance peripheral gear, and unite with global squads.</p>
-                        
-                        <div class="hero-cta-group">
-                            <a href="404.html" class="btn-primary-neon">ENTER ARENA</a>
-                            <a href="404.html" class="btn-secondary-cyber">EXPLORE INTEL</a>
-                        </div>
+        <!-- 1. Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-content animate-on-scroll">
+                    <div class="hero-badge">
+                        <i data-lucide="zap"></i> Future-Proofing Urban Environments
                     </div>
-                    <!-- Live Tournament Counter -->
-                    <div class="countdown-panel">
-                        <span class="panel-tag">LIVE CHAMPIONSHIP COUNTDOWN</span>
-                        <div class="timer-grid">
-                            <div class="timer-slot"><span class="timer-val" id="days">02</span><span class="timer-lbl">DAYS</span></div>
-                            <div class="timer-slot"><span class="timer-val" id="hours">14</span><span class="timer-lbl">HRS</span></div>
-                            <div class="timer-slot"><span class="timer-val" id="minutes">45</span><span class="timer-lbl">MIN</span></div>
-                            <div class="timer-slot"><span class="timer-val" id="seconds">18</span><span class="timer-lbl">SEC</span></div>
-                        </div>
-                        <div class="tournament-info">
-                            🏆 **Stackly Apex Pro Tournament** &bull; Prize: $250,000 &bull; Sector 4 Grid
-                        </div>
+                    <h1 class="hero-title">Shaping Tomorrow's <span>Smart Cities</span> Today</h1>
+                    <p class="hero-subtitle">UrbanNexus integrates advanced IoT networks, AI-driven traffic systems, and clean energy grids to create sustainable, liveable, and highly resilient civic environments.</p>
+                    <div class="hero-actions">
+                        <a href="#intro" class="btn btn-primary">Explore Solutions</a>
+                        <a href="404.html" class="btn btn-secondary">Our Story</a>
                     </div>
                 </div>
-            </div>
-        </header>
-        <!-- SECTION 3: GAMES ARSENAL (TACTICAL CARD GRID) -->
-        <section class="games-section" id="games">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Games Arsenal</h2>
-                    <p>Select your operational zone. Experience immersive 3D simulations with zero input delay.</p>
-                    <div class="filter-controls">
-                        <button class="filter-btn active" data-filter="all">ALL ZONES</button>
-                        <button class="filter-btn" data-filter="fps">ACTION FPS</button>
-                        <button class="filter-btn" data-filter="rts">STRATEGY RTS</button>
-                        <button class="filter-btn" data-filter="racing">GRID RACING</button>
-                    </div>
-                </div>
-                <div class="games-grid">
-                    <!-- Game Card 1: Void Runner -->
-                    <div class="game-card" data-category="fps" id="card-void-runner">
-                        <div class="card-glow-border"></div>
-                        <div class="card-inner">
-                            <div class="game-img-box">
-                                <img src="Assests/game 1.webp" alt="Void Runner Cyber Visor Character">
-                                <div class="game-tag tag-cyan">ACTION FPS</div>
-                            </div>
-                            <div class="game-info">
-                                <h3>VOID RUNNER</h3>
-                                <p>Infiltrate neon metropolis corridors as a cybernetic shadow agent. Hack security nodes and outmaneuver security grids in low-gravity combat.</p>
-                                <div class="game-footer">
-                                    <span class="game-server-stat">Ping: <strong>12ms</strong></span>
-<button class="btn-play-card"
-        onclick="window.location.href='404.html'">
-    DEPLOY &rarr;
-</button>                                </div>
-                            </div>
+                
+                <div class="hero-widget glass-card animate-on-scroll delay-200">
+                    <h3>Municipal Integration Status</h3>
+                    <div class="widget-item">
+                        <div class="widget-icon"><i data-lucide="network"></i></div>
+                        <div class="widget-text">
+                            <h4>Connected Sensors</h4>
+                            <p>847,203 IoT Nodes Active</p>
                         </div>
                     </div>
-                    <!-- Game Card 2: Quantum Clash -->
-                    <div class="game-card" data-category="rts" id="card-quantum-clash">
-                        <div class="card-glow-border"></div>
-                        <div class="card-inner">
-                            <div class="game-img-box">
-                                <img src="Assests/game 2.webp" alt="Quantum Clash space battleships">
-                                <div class="game-tag tag-purple">STRATEGY RTS</div>
-                            </div>
-                            <div class="game-info">
-                                <h3>QUANTUM CLASH</h3>
-                                <p>Command dreadnought fleets warping through hostile nebulae. Mine celestial resources, construct orbital shields, and control the galactic quadrant.</p>
-                                <div class="game-footer">
-                                    <span class="game-server-stat">Ping: <strong>24ms</strong></span>
-                                    <button class="btn-play-card"
-        onclick="window.location.href='404.html'">
-    DEPLOY &rarr;
-</button>
-                                </div>
-                            </div>
+                    <div class="widget-item">
+                        <div class="widget-icon" style="color: #10b981; background: rgba(16,185,129,0.1);"><i data-lucide="shield-check"></i></div>
+                        <div class="widget-text">
+                            <h4>Public Safety Alert Index</h4>
+                            <p>Optimal Stability Level</p>
                         </div>
                     </div>
-                    <!-- Game Card 3: Neon Grid Outrun -->
-                    <div class="game-card" data-category="racing" id="card-neon-grid">
-                        <div class="card-glow-border"></div>
-                        <div class="card-inner">
-                            <div class="game-img-box">
-                                <!-- Reusing game3.png with CSS hue shift to represent a distinct racer -->
-                                <img src="Assests/gam3.webp" alt="Neon Grid arcade car racing" class="hue-shifted-racer">
-                                <div class="game-tag tag-gold">GRID RACING</div>
-                            </div>
-                            <div class="game-info">
-                                <h3>NEON GRID: OUTRUN</h3>
-                                <p>Drift customized hypercars across synthwave light racetracks. Evade drone cruisers, trigger EMP overrides, and climb speed records.</p>
-                                <div class="game-footer">
-                                    <span class="game-server-stat">Ping: <strong>16ms</strong></span>
-<button class="btn-play-card"
-        onclick="window.location.href='404.html'">
-    DEPLOY &rarr;
-</button>                                </div>
-                            </div>
+                    <div class="widget-item">
+                        <div class="widget-icon" style="color: #7000ff; background: rgba(112,0,255,0.1);"><i data-lucide="gauge"></i></div>
+                        <div class="widget-text">
+                            <h4>Carbon Offset rate</h4>
+                            <p>Save 4,502 Metric Tons Daily</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- SECTION 4: LIVE ESPORT LEADERBOARD & SCHEDULE -->
-        <section class="esports-section" id="esports">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Esports Hub</h2>
-                    <p>Observe live operational squads competing in ongoing championships across Stackly grids.</p>
-                </div>
-                <div class="esports-layout">
-                    <!-- Left: Tournament Matches Schedule -->
-                    <div class="schedule-panel">
-                        <h3>TACTICAL MATCH LOG</h3>
-                        <div class="match-list">
-                            <!-- Match 1 -->
-                            <div class="match-item active">
-                                <div class="match-meta">
-                                    <span class="match-status live"><span class="dot-blink"></span> LIVE NOW</span>
-                                    <span class="match-sector">Sector 4 Arena</span>
-                                </div>
-                                <div class="match-teams">
-                                    <div class="team">
-                                        <span class="team-avatar">🔴</span>
-                                        <span class="team-name">APEX ASSASSINS</span>
-                                        <span class="team-score">02</span>
-                                    </div>
-                                    <div class="vs">VS</div>
-                                    <div class="team">
-                                        <span class="team-avatar">🔵</span>
-                                        <span class="team-name">CHRONO RAIDERS</span>
-                                        <span class="team-score">01</span>
-                                    </div>
-                                </div>
-                                <div class="match-viewers">👀 14.8K Watching Stream</div>
-                            </div>
-                            <!-- Match 2 -->
-                            <div class="match-item">
-                                <div class="match-meta">
-                                    <span class="match-status scheduled">15:00 GMT</span>
-                                    <span class="match-sector">Sector 1 Core</span>
-                                </div>
-                                <div class="match-teams">
-                                    <div class="team">
-                                        <span class="team-avatar">🟢</span>
-                                        <span class="team-name">CYBER CRUSADERS</span>
-                                        <span class="team-score">-</span>
-                                    </div>
-                                    <div class="vs">VS</div>
-                                    <div class="team">
-                                        <span class="team-avatar">🟡</span>
-                                        <span class="team-name">VOID STALKERS</span>
-                                        <span class="team-score">-</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Match 3 -->
-                            <div class="match-item">
-                                <div class="match-meta">
-                                    <span class="match-status scheduled">18:30 GMT</span>
-                                    <span class="match-sector">Sector 3 Valley</span>
-                                </div>
-                                <div class="match-teams">
-                                    <div class="team">
-                                        <span class="team-avatar">🟣</span>
-                                        <span class="team-name">ECHO SQUADRON</span>
-                                        <span class="team-score">-</span>
-                                    </div>
-                                    <div class="vs">VS</div>
-                                    <div class="team">
-                                        <span class="team-avatar">🟠</span>
-                                        <span class="team-name">NEON SPECTRES</span>
-                                        <span class="team-score">-</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Right: Live Leaderboard -->
-                    <div class="leaderboard-panel">
-                        <h3>LEADERBOARD CORE</h3>
-                        <p class="panel-subtitle">Neural ratings computed dynamically from tournament wins.</p>
-                        
-                        <div class="leaderboard-filter-box">
-                            <input type="text" id="player-search" placeholder="Search operational codenames..." aria-label="Search codenames">
-                        </div>
-                        <div class="leaderboard-list" id="leaderboard-container">
-                            <!-- Populated dynamically by JS -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- SECTION 5: SYSTEM TELEMETRY DASHBOARD (IoT SERVER HEALTH) -->
-        <section class="telemetry-section" id="telemetry">
-            <div class="container">
-                <div class="telemetry-banner">
-                    <div class="banner-text">
-                        <span class="telemetry-status-badge"><span class="pulse-dot green"></span> TELEMETRY GRID STABLE</span>
-                        <h2>Server Health Telemetry</h2>
-                        <p>Real-time physical diagnostic nodes monitoring latency, tick rate, and processing loads across regional server nodes.</p>
-                    </div>
-                    <div class="telemetry-timer">
-                        CYCLE PULSE: <span id="telemetry-countdown">2</span>s
-                    </div>
-                </div>
-                <div class="telemetry-grid">
-                    <!-- Node 1: Latency -->
-                    <div class="telemetry-card">
-                        <div class="t-card-header">
-                            <span>GRID LATENCY</span>
-                            <span class="t-icon">📡</span>
-                        </div>
-                        <div class="t-val-box">
-                            <span class="t-value" id="tel-ping">12</span>
-                            <span class="t-unit">MS</span>
-                        </div>
-                        <div class="t-bar-track"><div class="t-bar-fill cyan" id="tel-ping-bar" style="width: 12%;"></div></div>
-                        <p class="t-desc">Status: Low Jitter &bull; Node 14 Active</p>
-                    </div>
-                    <!-- Node 2: Tickrate -->
-                    <div class="telemetry-card">
-                        <div class="t-card-header">
-                            <span>GRID TICKRATE</span>
-                            <span class="t-icon">⚡</span>
-                        </div>
-                        <div class="t-val-box">
-                            <span class="t-value" id="tel-ticks">128.0</span>
-                            <span class="t-unit">Hz</span>
-                        </div>
-                        <div class="t-bar-track"><div class="t-bar-fill emerald" id="tel-ticks-bar" style="width: 100%;"></div></div>
-                        <p class="t-desc">Status: Stable Frequency &bull; Virtual Sync</p>
-                    </div>
-                    <!-- Node 3: Server Load -->
-                    <div class="telemetry-card">
-                        <div class="t-card-header">
-                            <span>SERVER CPU LOAD</span>
-                            <span class="t-icon">🎛️</span>
-                        </div>
-                        <div class="t-val-box">
-                            <span class="t-value" id="tel-cpu">42.5</span>
-                            <span class="t-unit">%</span>
-                        </div>
-                        <div class="t-bar-track"><div class="t-bar-fill purple" id="tel-cpu-bar" style="width: 42.5%;"></div></div>
-                        <p class="t-desc">Reserves: 57.5% &bull; Intel Xeon Matrix</p>
-                    </div>
-                    <!-- Node 4: Active Players -->
-                    <div class="telemetry-card">
-                        <div class="t-card-header">
-                            <span>OPERATIONAL ACTIVE PILOTS</span>
-                            <span class="t-icon">👥</span>
-                        </div>
-                        <div class="t-val-box">
-                            <span class="t-value" id="tel-players">14,832</span>
-                            <span class="t-unit">ONLINE</span>
-                        </div>
-                        <div class="t-bar-track"><div class="t-bar-fill gold" id="tel-players-bar" style="width: 74%;"></div></div>
-                        <p class="t-desc">Cap Limit: 20K &bull; Active matches: 840</p>
-                    </div>
-                    <!-- Node 5: Average FPS -->
-                    <div class="telemetry-card">
-                        <div class="t-card-header">
-                            <span>CLIENT FRAME RATE (AVG)</span>
-                            <span class="t-icon">🖥️</span>
-                        </div>
-                        <div class="t-val-box">
-                            <span class="t-value" id="tel-fps">144.2</span>
-                            <span class="t-unit">FPS</span>
-                        </div>
-                        <div class="t-bar-track"><div class="t-bar-fill cyan" id="tel-fps-bar" style="width: 96%;"></div></div>
-                        <p class="t-desc">Optimal refresh &bull; G-Sync link active</p>
-                    </div>
-                    <!-- Node 6: GPU Core Temperature -->
-                    <div class="telemetry-card">
-                        <div class="t-card-header">
-                            <span>GRID GPU TEMP</span>
-                            <span class="t-icon">🔥</span>
-                        </div>
-                        <div class="t-val-box">
-                            <span class="t-value" id="tel-temp">62.8</span>
-                            <span class="t-unit">°C</span>
-                        </div>
-                        <div class="t-bar-track"><div class="t-bar-fill red" id="tel-temp-bar" style="width: 62.8%;"></div></div>
-                        <p class="t-desc">Status: Liquid Cooled &bull; Cap: 90°C</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- SECTION 6: GEAR STORE & DIGITAL LOOT -->
-        <section class="store-section" id="store">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Gear Store</h2>
-                    <p>Calibrate your hardware interface. Purchase official Stackly peripherals and virtual tokens.</p>
-                </div>
-                <div class="store-grid">
-                    <!-- Store Item 1 -->
-                    <div class="store-card">
-                        <div class="store-img-box">
-                            <div class="store-item-glow-bg cyan"></div>
-                            <span class="item-category">HARDWARE</span>
-                            <!-- Virtual SVG Graphic of Keyboard -->
-                            <svg class="store-svg-graphic" viewBox="0 0 100 60" width="120" height="80">
-                                <rect x="10" y="15" width="80" height="30" rx="3" fill="#0c1220" stroke="var(--accent-cyan)" stroke-width="2"/>
-                                <rect x="15" y="20" width="10" height="5" rx="1" fill="var(--accent-cyan)"/>
-                                <rect x="28" y="20" width="10" height="5" rx="1" fill="#1e293b"/>
-                                <rect x="41" y="20" width="30" height="5" rx="1" fill="#1e293b"/>
-                                <rect x="15" y="28" width="50" height="5" rx="1" fill="#1e293b"/>
-                                <rect x="68" y="28" width="15" height="11" rx="1" fill="var(--accent-cyan)"/>
-                                <rect x="15" y="36" width="45" height="5" rx="1" fill="var(--accent-cyan)"/>
-                            </svg>
-                        </div>
-                        <div class="store-info">
-                            <h3>STACKLY APEX PRO KEYBOARD</h3>
-                            <p>Magnetic mechanical switches featuring customizable travel thresholds (0.1mm - 4.0mm) and per-key RGB glow.</p>
-                            <div class="store-footer">
-                                <span class="item-price">$189.99</span>
-                               <button class="btn-add-cart"
-        data-item="5,000 Credits"
-        data-price="45.00"
-        onclick="window.location.href='404.html'">
-    ADD GEAR
-</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Store Item 2 -->
-                    <div class="store-card">
-                        <div class="store-img-box">
-                            <div class="store-item-glow-bg purple"></div>
-                            <span class="item-category">HARDWARE</span>
-                            <!-- Virtual SVG Graphic of Mouse -->
-                            <svg class="store-svg-graphic" viewBox="0 0 100 60" width="120" height="80">
-                                <path d="M50 10 C35 10 30 25 30 40 C30 50 38 55 50 55 C62 55 70 50 70 40 C70 25 65 10 50 10 Z" fill="#0c1220" stroke="var(--accent-purple)" stroke-width="2"/>
-                                <line x1="50" y1="10" x2="50" y2="30" stroke="var(--accent-purple)" stroke-width="1.5"/>
-                                <rect x="47" y="18" width="6" height="8" rx="1" fill="var(--accent-purple)"/>
-                            </svg>
-                        </div>
-                        <div class="store-info">
-                            <h3>STACKLY REFLEX MOUSE</h3>
-                            <p>Ultralight 48g gaming mouse boasting an 8,000Hz polling rate and ultra-precise 32,000 DPI tracking sensor.</p>
-                            <div class="store-footer">
-                                <span class="item-price">$89.99</span>
-                                <button class="btn-add-cart"
-        data-item="5,000 Credits"
-        data-price="45.00"
-        onclick="window.location.href='404.html'">
-    ADD GEAR
-</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Store Item 3 -->
-                    <div class="store-card">
-                        <div class="store-img-box">
-                            <div class="store-item-glow-bg gold"></div>
-                            <span class="item-category">LOOT CRATE</span>
-                            <!-- Virtual SVG Graphic of Coins -->
-                            <svg class="store-svg-graphic" viewBox="0 0 100 60" width="120" height="80">
-                                <ellipse cx="50" cy="35" rx="22" ry="12" fill="#0c1220" stroke="var(--accent-gold)" stroke-width="3"/>
-                                <ellipse cx="50" cy="27" rx="22" ry="12" fill="#0c1220" stroke="var(--accent-gold)" stroke-width="3"/>
-                                <ellipse cx="50" cy="19" rx="22" ry="12" fill="#0c1220" stroke="var(--accent-gold)" stroke-width="3"/>
-                                <polygon points="46,14 54,14 56,22 44,22" fill="var(--accent-gold)"/>
-                            </svg>
-                        </div>
-                        <div class="store-info">
-                            <h3>5,000 STACKLY CREDITS</h3>
-                            <p>Premium digital tokens used to unlock cosmetic operational skins, player card borders, and clan titles.</p>
-                            <div class="store-footer">
-                                <span class="item-price">$45.00</span>
-                               <button class="btn-add-cart"
-        data-item="5,000 Credits"
-        data-price="45.00"
-        onclick="window.location.href='404.html'">
-    ADD LOOT
-</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- SECTION 7: NEXUS CLAN CHAT & STREAM OVERLAY -->
-        <section class="chat-section" id="chat-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Clan Communication Hub</h2>
-                    <p>Syndicate with your team. Observe ongoing match telemetry streams while chatting in real-time.</p>
-                </div>
-                <div class="chat-layout">
-                    <!-- Left: Stream Simulator -->
-                    <div class="stream-container">
-                        <div class="stream-header-bar">
-                            <div class="stream-indicator"><span class="dot-blink"></span> GRID STREAMING</div>
-                            <div class="stream-viewer-count">🔴 LIVE // SPECTATING: APEX VS CHRONO</div>
-                        </div>
-                        <div class="stream-video-box">
-                            <!-- Stylized animated vector representation of a cyber map grid with telemetry lines -->
-                            <div class="stream-vector-animation">
-                                <div class="hud-circle-outer"></div>
-                                <div class="hud-circle-inner"></div>
-                                <div class="radar-line"></div>
-                                <div class="target-node target-1"></div>
-                                <div class="target-node target-2"></div>
-                                <div class="target-node target-3"></div>
-                                <div class="hud-data-lines">
-                                    <span>SYS: OK</span>
-                                    <span>FPS: 144</span>
-                                    <span>ZOOM: 2.5X</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stream-footer-bar">
-                            <span>Map: <strong>Sector 4 Outpost</strong></span>
-                            <span>Match Duration: <strong>14:22</strong></span>
-                        </div>
-                    </div>
-                    <!-- Right: Clan Live Chat -->
-                    <div class="chat-lobby-box">
-                        <div class="chat-lobby-header">
-                            <h3>LOBBY CLAN CHAT</h3>
-                            <span class="active-users-count">● 142 Active Members</span>
-                        </div>
-                        <div class="chat-messages-area" id="chat-scroller">
-                            <!-- populates via JS -->
-                        </div>
-                        <form class="chat-input-bar" id="chat-form">
-                            <label for="chat-input" class="sr-only">Type message</label>
-                            <input type="text" id="chat-input" placeholder="Transmit neural comms..." autocomplete="off">
-                            <button type="submit" class="btn-send-chat">SEND</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- SECTION 8: TACTICAL FOOTER & SUPPORT MATRIX -->
-        <footer class="tactical-footer" id="contact">
-            <div class="footer-top">
-                <div class="container footer-grid">
-                    <!-- About column -->
-                    <div class="footer-col about-col">
-                        <div class="footer-logo">
-    <img src="Assests/logo.webp" alt="Stackly Play">
-</div>
-                        <p>Stackly Nexus is the official cybernetic gaming portal. Access distributed multiplayer arenas, real-time telemetry diagnostics, and neural client software.</p>
-                        <div class="social-links">
-                            <a href="404.html" aria-label="Join Discord">💬 Discord</a>
-                            <a href="404.html" aria-label="Twitch channel">🎮 Twitch</a>
-                            <a href="404.html" aria-label="YouTube Channel">📺 YouTube</a>
-                        </div>
-                    </div>
-                    <!-- Quick Links directory -->
-                    <div class="footer-col">
-                        <h4>MEMBER HUD</h4>
-                        <ul class="footer-links">
-                            <li><a href="index.html#games">Games Arsenal</a></li>
-                            <li><a href="about.html">About Operations</a></li>
-                            <li><a href="blog.html">Tactical Blog</a></li>
-                            <li><a href="contact.html">Contact Hub</a></li>
-                            <li><a href="signup.html">Sign Up Cadet</a></li>
+
+        <!-- 2. Company Introduction -->
+        <section class="intro animate-on-scroll" id="intro">
+            <div class="intro-grid">
+                <div class="intro-visual">
+                    <div class="intro-glow-bg"></div>
+                    <div class="intro-card glass-card">
+                        <h3>A Smarter Way to Live, Move, and Conserve</h3>
+                        <p>At stackly, we build the digital nervous system for modern municipalities. By uniting disparate civic utilities into a singular, cohesive dashboard, we empower leaders to make decisions grounded in real-time predictive analytics.</p>
+                        <p>Our technologies reduce grid outages, ease traffic bottlenecks, and optimize resource deployment automatically.</p>
+                        <ul class="intro-features">
+                            <li><i data-lucide="check-circle-2"></i> Real-time AI Incident detection</li>
+                            <li><i data-lucide="check-circle-2"></i> Zero-emission microgrid management</li>
+                            <li><i data-lucide="check-circle-2"></i> Decentralized civic service networks</li>
                         </ul>
                     </div>
-                    <!-- Support and APIs -->
-                    <div class="footer-col">
-                        <h4>TACTICAL LINKS</h4>
-                        <ul class="footer-links">
-                            <li><a href="#main-content">Developer API Docs</a></li>
-                            <li><a href="#main-content">Hardware Calibrations</a></li>
-                            <li><a href="#main-content">Fair Play Standards</a></li>
-                            <li><a href="#main-content">Privacy Protocols</a></li>
-                            <li><a href="#main-content">System Accessibility</a></li>
-                        </ul>
-                    </div>
-                    <!-- Newsletter Form and Accessibility -->
-                    <div class="footer-col matrix-col">
-                        <h4>COMM SECURE SUBSCRIPTION</h4>
-                        <p class="sub-desc">Subscribe to acquire alpha deployment codes and item drop alerts.</p>
-                        <form class="footer-sub-form" onsubmit="event.preventDefault(); alert('Subscribed to operations newsletter (Simulation)'); this.reset();">
-                            <input type="email" placeholder="agent@neural.net" required aria-label="Email Address">
-                            <button type="submit">SUBSCRIBE</button>
-                        </form>
-                        
-                        <div class="footer-accessibility-row">
-                            <span class="acc-title">HUD SCALE:</span>
-                            <button class="scale-btn" id="hud-scale-down">A-</button>
-                            <button class="scale-btn" id="hud-scale-reset">A</button>
-                            <button class="scale-btn" id="hud-scale-up">A+</button>
-                            <button class="contrast-btn" id="hud-contrast-toggle" title="Toggle High Contrast HUD">🌓</button>
+                </div>
+                
+                <div class="intro-content">
+                    <span class="section-tag">Urban Innovations</span>
+                    <h2 class="section-title">The Foundation for Next-Gen Metropolitan Infrastructure</h2>
+                    <p class="section-desc" style="margin-bottom: 2rem;">Urban centers face unprecedented growth. Our modular suite of civic applications helps administrations scale services without expanding their carbon footprint.</p>
+                    
+                    <div class="intro-stats-compact">
+                        <div class="intro-stat-box glass-card">
+                            <h4>99.9%</h4>
+                            <p>System Reliability</p>
+                        </div>
+                        <div class="intro-stat-box glass-card">
+                            <h4>-35%</h4>
+                            <p>Energy Waste</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="container footer-bottom-content">
-                    <p>&copy; 2026 Stackly Systems Corporation. All operational systems online. Neural encryption active.</p>
-                    <div class="bottom-links">
-                        <a href="#main-content">OPERATIONS POLICY</a>
-                        <a href="#main-content">EULA CODES</a>
-                        <a href="#main-content">ZONING COMPLIANCE</a>
+        </section>
+
+        <!-- 3. Services -->
+        <section class="services" id="services">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Core Offerings</span>
+                <h2 class="section-title">Our Connected Solutions Suite</h2>
+                <p class="section-desc">Modular, secure, and energy-conscious platforms built for modern municipal utilities.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card glass-card animate-on-scroll">
+                    <div class="service-icon-box"><i data-lucide="car"></i></div>
+                    <h3>Intelligent Traffic Flow</h3>
+                    <p>Dynamic signal timing and transit prioritization powered by edge AI camera networks. Reduce wait times by up to 28%.</p>
+                    <a href="#" class="service-link">View Tech Specs <i data-lucide="arrow-right"></i></a>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card glass-card animate-on-scroll delay-100">
+                    <div class="service-icon-box" style="color: #7000ff; background: rgba(112,0,255,0.1);"><i data-lucide="plug-zap"></i></div>
+                    <h3>Green Smart Grid</h3>
+                    <p>Decentralized energy distribution system allocating solar, wind, and battery power on-demand across residential grids.</p>
+                    <a href="#" class="service-link" style="color: #7000ff;">View Tech Specs <i data-lucide="arrow-right"></i></a>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card glass-card animate-on-scroll delay-200">
+                    <div class="service-icon-box" style="color: #ff007a; background: rgba(255,0,122,0.1);"><i data-lucide="shield-alert"></i></div>
+                    <h3>AI-Driven Public Safety</h3>
+                    <p>Privacy-first incident detection analytics informing rescue squads instantly of fires, crashes, or structural failures.</p>
+                    <a href="#" class="service-link" style="color: #ff007a;">View Tech Specs <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Features Section -->
+        <section class="features" id="features">
+            <div class="features-grid">
+                <div class="features-visual animate-on-scroll">
+                    <div class="features-visual-inner">
+                        <i data-lucide="cpu"></i>
+                        <h2>Edge Processing Core</h2>
+                        <p style="color: var(--text-muted); margin-top: 1rem;">Decentralized computation at the node level ensures low latency and offline resilience.</p>
+                    </div>
+                </div>
+
+                <div class="features-list animate-on-scroll delay-200">
+                    <span class="section-tag">Key Innovations</span>
+                    <h2 class="section-title">Why Administrations Choose stackly</h2>
+                    
+                    <div class="feature-item glass-card">
+                        <div class="feature-icon-wrapper"><i data-lucide="eye"></i></div>
+                        <div class="feature-info">
+                            <h3>Privacy-By-Design Analytics</h3>
+                            <p>All video feed data is anonymized directly on edge devices prior to cloud storage, preserving individual passenger privacy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item glass-card">
+                        <div class="feature-icon-wrapper" style="color: var(--primary); background: rgba(0,240,255,0.1);"><i data-lucide="activity"></i></div>
+                        <div class="feature-info">
+                            <h3>Predictive Structural Health</h3>
+                            <p>Real-time vibrations analysis monitors bridge, tunnel, and aqueduct wear to prevent catastrophies before they develop.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item glass-card">
+                        <div class="feature-icon-wrapper" style="color: #10b981; background: rgba(16,185,129,0.1);"><i data-lucide="leaf"></i></div>
+                        <div class="feature-info">
+                            <h3>Carbon Offset Credits Tracking</h3>
+                            <p>Automatic auditing of municipal energy savings, translated directly into tradeable green credits on open markets.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </section>
+
+        <!-- 5. Statistics / Counter Section -->
+        <section class="stats" id="stats">
+            <div class="stats-grid">
+                <div class="stat-card glass-card animate-on-scroll">
+                    <div class="stat-number">14+</div>
+                    <div class="stat-label">Municipal Partners</div>
+                </div>
+                <div class="stat-card glass-card animate-on-scroll delay-100">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-label">Congestion Reduction</div>
+                </div>
+                <div class="stat-card glass-card animate-on-scroll delay-200">
+                    <div class="stat-number">2.4M</div>
+                    <div class="stat-label">Citizens Impacted</div>
+                </div>
+                <div class="stat-card glass-card animate-on-scroll delay-300">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Grid Reliability</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Projects / Portfolio -->
+        <section class="portfolio" id="portfolio">
+            <div class="portfolio-container">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-tag">Active Deployments</span>
+                    <h2 class="section-title">Case Studies & Deployments</h2>
+                    <p class="section-desc">Proof-of-concept projects delivering tangible efficiency gains in global metropolises.</p>
+                </div>
+
+                <div class="portfolio-filters animate-on-scroll">
+                    <button class="filter-btn active">All Projects</button>
+                    <button class="filter-btn">Smart Grid</button>
+                    <button class="filter-btn">Mobility</button>
+                    <button class="filter-btn">IoT Networks</button>
+                </div>
+
+                <div class="portfolio-grid">
+                    <!-- Project 1 -->
+                    <div class="portfolio-card animate-on-scroll">
+                        <div class="portfolio-img-wrapper">
+                            <img src="Assests/hero_bg_.webp" alt="Smart Intersection">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Mobility</span>
+                            <h3 class="portfolio-title">Intelligent Intersection Crossings</h3>
+                            <p class="portfolio-desc">Adaptive flow signals reducing daily vehicle idle times in Metro Manila corridor.</p>
+                            <a href="#" class="btn btn-secondary btn-outline">Read Case Study</a>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="portfolio-card animate-on-scroll delay-100">
+                        <div class="portfolio-img-wrapper">
+                            <img src="Assests/OIP (2).webp" alt="Clean Energy Microgrid">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Smart Grid</span>
+                            <h3 class="portfolio-title">Neo-District Solar microgrid</h3>
+                            <p class="portfolio-desc">Connecting 4,000 residential solar setups into a community microgrid battery array.</p>
+                            <a href="#" class="btn btn-secondary btn-outline">Read Case Study</a>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="portfolio-card animate-on-scroll delay-200">
+                        <div class="portfolio-img-wrapper">
+                            <img src="Assests/OIP (1).webp" alt="Connected Utilities">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">IoT Networks</span>
+                            <h3 class="portfolio-title">Aqueous Leak Detection</h3>
+                            <p class="portfolio-desc">Acoustic pressure sensors pinpointing water leaks across historical metropolitan pipes.</p>
+                            <a href="#" class="btn btn-secondary btn-outline">Read Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Testimonials -->
+        <section class="testimonials" id="testimonials">
+            <div class="testimonials-container">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-tag">Testimonials</span>
+                    <h2 class="section-title">Trusted By Civic Leaders</h2>
+                    <p class="section-desc">Hear what municipal directors and technology officers have to say about the stackly platform.</p>
+                </div>
+
+                <div class="testimonials-slider glass-card animate-on-scroll">
+                    <div class="testimonial-track">
+                        <!-- Slide 1 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote-icon"><i data-lucide="quote"></i></div>
+                                <p class="testimonial-text">"Implementing UrbanNexus's Smart Traffic grid cut down response times for our emergency services by 6 minutes, and carbon emissions in our central business zone fell by 14% in the first quarter alone."</p>
+                                <div class="testimonial-user">
+                                    <img src="Assests/team_member_3.webp" alt="Raymond Vance" class="testimonial-avatar">
+                                    <div class="testimonial-name">Commissioner Raymond Vance</div>
+                                    <div class="testimonial-role">Department of Urban Transit</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote-icon"><i data-lucide="quote"></i></div>
+                                <p class="testimonial-text">"The decentralized energy grid integration was seamless. We went from a model highly dependent on neighboring energy networks to a district that is 82% self-sufficient on renewables."</p>
+                                <div class="testimonial-user">
+                                    <img src="Assests/team_member2.webp" alt="Aisha Patel" class="testimonial-avatar">
+                                    <div class="testimonial-name">Dr. Aisha Patel</div>
+                                    <div class="testimonial-role">Director of Sustainable Power Grid</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-controls">
+                        <button class="slider-arrow prev" aria-label="Previous Testimonial"><i data-lucide="chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next Testimonial"><i data-lucide="chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Latest News/Blog Preview -->
+        <section class="news" id="news">
+            <div class="portfolio-container">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-tag">Latest Research</span>
+                    <h2 class="section-title">News from the Frontlines</h2>
+                    <p class="section-desc">Access our whitepapers, articles, and smart city implementation reviews.</p>
+                </div>
+
+                <div class="news-grid">
+                    <!-- Article 1 -->
+                    <div class="blog-card glass-card animate-on-scroll">
+                        <div class="blog-card-img">
+                            <img src="Assests/team_member_3.webp" alt="IoT Streetlights">
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span><i data-lucide="calendar"></i> June 12, 2026</span>
+                                <span><i data-lucide="user"></i> Dr. Liam Carter</span>
+                            </div>
+                            <h3 class="blog-title">How 5G Edge Sensors are Revitalizing Transit Networks</h3>
+                            <p class="blog-desc">Explore the technology behind decentralized computation nodes installed in streetlight modules.</p>
+                            <a href="blog.html" class="btn btn-secondary" style="margin-top: 1rem;">Read Article</a>
+                        </div>
+                    </div>
+                    <!-- Article 2 -->
+                    <div class="blog-card glass-card animate-on-scroll delay-100">
+                        <div class="blog-card-img">
+                            <img src="Assests/senior-product-manager.webp" alt="Drone over Smart Grid">
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span><i data-lucide="calendar"></i> June 08, 2026</span>
+                                <span><i data-lucide="user"></i> Sarah Jenkins</span>
+                            </div>
+                            <h3 class="blog-title">Shoring Up Energy Microgrids Against Climatic Events</h3>
+                            <p class="blog-desc">A review of protective autonomous routing algorithms within regional electrical substation networks.</p>
+                            <a href="blog.html" class="btn btn-secondary" style="margin-top: 1rem;">Read Article</a>
+                        </div>
+                    </div>
+                    <!-- Article 3 -->
+                    <div class="blog-card glass-card animate-on-scroll delay-200">
+                        <div class="blog-card-img">
+                            <img src="Assests/team_member_.webp" alt="Autonomous shuttle">
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span><i data-lucide="calendar"></i> May 29, 2026</span>
+                                <span><i data-lucide="user"></i> stackly Lab</span>
+                            </div>
+                            <h3 class="blog-title">Anonymizing Public Feeds: Trust and Smart Cities</h3>
+                            <p class="blog-desc">Detailing the software protocols that replace high-res camera captures with vector pathing markers.</p>
+                            <a href="blog.html" class="btn btn-secondary" style="margin-top: 1rem;">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Call to Action -->
+        <section class="cta-section">
+            <div class="cta-container glass-card animate-on-scroll">
+                <h2 class="cta-title">Bring <span>stackly</span> to Your Municipality</h2>
+                <p class="cta-desc">Partner with us to reduce emissions, improve public safety metrics, and transition your local utilities into a high-performance grid.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                    <a href="signup.html" class="btn btn-secondary">Request Demo Key</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="Assests/logo.webp" alt="UrbanNexus Logo">
+                    
+                </a>
+                <p>Empowering city administrations with high-performance, decentralized IoT solutions to achieve sustainability targets and maximize resource efficiency.</p>
+                
+                <div class="social-links">
+                    <a href="404.html" class="social-icon" aria-label="Stackly Smart City Twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="404.html" class="social-icon" aria-label="Stackly Smart City Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="404.html" class="social-icon" aria-label="Stackly Smart City LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="404.html" class="social-icon" aria-label="Stackly Smart City GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-nav">
+                <h4>Solutions</h4>
+                <ul class="footer-nav-links">
+                    <li><a href="404.html">Traffic Systems</a></li>
+                    <li><a href="404.html">Green Energy Grid</a></li>
+                    <li><a href="404.html">Edge Processing</a></li>
+                    <li><a href="404.html">Civic Deployments</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-nav">
+                <h4>Company</h4>
+                <ul class="footer-nav-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Resources & Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="404.html">Security Shield</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i data-lucide="map-pin"></i>
+                        <span>100 Technology Parkway, Suite 400,Stackly Innovation District, Hyderabad</span>
+                    </li>
+                    <li>
+                        <i data-lucide="phone"></i>
+                        <span>9876543210</span>
+                    </li>
+                    <li>
+                        <i data-lucide="mail"></i>
+                        <span>support@stackly.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; 2026 stackly All rights reserved.</div>
+            <ul class="footer-policy">
+                <li><a href="404.html">Terms of Service</a></li>
+                <li><a href="404.html">Privacy Policy</a></li>
+                <li><a href="404.html">GDPR Compliance</a></li>
+            </ul>
+        </div>
+    </footer>
+
     <!-- Main JavaScript Logic -->
-    <script src="app.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

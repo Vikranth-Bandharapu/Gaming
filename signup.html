@@ -3,59 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Register Stackly Gaming Account - Select your starting sector and create your neural cadet credentials.">
-    <title>STACKLY PLAY // Operational Cadet Registration</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Register an account on the UrbanNexus Smart Infrastructure platform.">
+    <title>Sign Up | UrbanNexus Municipal Console</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="cyber-dark-theme" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background-color:#02050a; padding: 2rem;">
-    <!-- Background Particles -->
-    <div class="preloader-particles" style="pointer-events: none; opacity: 0.25;"></div>
-    <div class="login-card-container" style="position: relative; width: 100%; max-width: 500px; z-index: 10;">
-        <div class="card-glow-border" style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));"></div>
-        <div class="card-inner" style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: 3rem; box-shadow: var(--shadow-lg);">
+<body class="auth-page">
+
+
+    <div class="auth-card glass-card">
+        <div class="auth-header">
+            <img src="Assests/logo.webp" alt="UrbanNexus Logo">
+            <h2>Create Account</h2>
+            <p>Access the smart city telemetry console</p>
+        </div>
+
+        <!-- Alert messages box -->
+        <div class="auth-message" id="auth-message"></div>
+
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" placeholder="John Doe" required>
+            </div>
             
-            <div class="login-header" style="text-align: center; margin-bottom: 2rem;">
-                <a href="index.html" class="nav-logo" style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">
-                    <img src="Assests/logo.webp" alt="Stackly Play Logo">
-                </a>
-                <span class="panel-tag" style="color: var(--accent-purple)">REGISTER OPERATIONAL CADET</span>
+            <div class="form-group">
+                <label for="email">Municipal / Business Email</label>
+                <input type="email" id="email" placeholder="j.doe@citygov.org" required>
             </div>
-            <!-- Form -->
-            <form id="cyber-signup-form" onsubmit="event.preventDefault(); const btn = this.querySelector('button'); btn.textContent='TRANSMITTING PROFILE...'; btn.style.color='var(--accent-gold)'; setTimeout(() => { alert('Account created successfully! Sector deployment codes generated.'); window.location.href='login.html'; }, 1800);">
-                <div class="form-group" style="margin-bottom: 1.25rem;">
-                    <label for="cadet-codename" style="font-family: var(--font-cyber-console); font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: block;">DESIRED CODENAME / AGENT ID *</label>
-                    <input type="text" id="cadet-codename" placeholder="e.g. AGENT_NEON" required style="width: 100%; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.95rem;">
+
+            <div class="form-group">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <label for="password" style="margin-bottom: 0.5rem;">Password</label>
+                    <a href="404.html" class="forgot-password-link" style="font-size: 0.8rem; color: var(--primary); text-decoration: none; margin-bottom: 0.5rem;">Forgot Password?</a>
                 </div>
-                <div class="form-group" style="margin-bottom: 1.25rem;">
-                    <label for="cadet-email" style="font-family: var(--font-cyber-console); font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: block;">NEURAL EMAIL ADDRESS *</label>
-                    <input type="email" id="cadet-email" placeholder="cadet@neural.net" required style="width: 100%; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.95rem;">
+                <div style="position: relative;">
+                    <input type="password" id="password" placeholder="At least 6 characters" required style="padding-right: 2.75rem;">
+                    <button type="button" class="password-toggle" aria-label="Toggle Password Visibility" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; outline: none; z-index: 10;">
+                        <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+                    </button>
                 </div>
-                <div class="form-group" style="margin-bottom: 1.25rem;">
-                    <label for="cadet-sector" style="font-family: var(--font-cyber-console); font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: block;">STARTING CORE ZONE / SECTOR *</label>
-                    <select id="cadet-sector" required style="width: 100%; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.95rem; cursor: pointer;">
-                        <option value="" disabled selected>Select starting quadrant...</option>
-                        <option value="Sector 1 NA">STK-NODE-01 (North America Core)</option>
-                        <option value="Sector 2 EU">STK-NODE-02 (Europe Hub)</option>
-                        
-                    </select>
-                </div>
-                <div class="form-group" style="margin-bottom: 1.75rem;">
-                    <label for="cadet-key" style="font-family: var(--font-cyber-console); font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: block;">CREATE ACCESS KEY *</label>
-                    <input type="password" id="cadet-key" placeholder="••••••••••••" required style="width: 100%; background-color: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.95rem;">
-                </div>
-                <button type="submit" class="btn-primary-neon" style="width: 100%; text-align: center; border: none; padding: 1rem; font-size: 0.9rem; letter-spacing: 0.08em; cursor: pointer; display: block;">COMMENCE DEPLOYMENT</button>
-            </form>
-            <div class="login-footer" style="text-align: center; margin-top: 2rem; font-size: 0.875rem; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.03); padding-top: 1.25rem;">
-                Already logged in the roster? <a href="login.html" style="color: var(--accent-purple); font-weight: 700;">Establish Link &rarr;</a>
-                <br><br>
-                <a href="index.html" style="font-family: var(--font-cyber-console); font-size: 0.75rem; color: var(--text-muted);">&larr; Return to Node Core</a>
             </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <div style="position: relative;">
+                    <input type="password" id="confirm-password" placeholder="Re-enter password" required style="padding-right: 2.75rem;">
+                    <button type="button" class="password-toggle" aria-label="Toggle Confirm Password Visibility" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; outline: none; z-index: 10;">
+                        <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="auth-signup-submit" style="width: 100%; margin-top: 1rem;">Sign Up</button>
+        </form>
+
+        <div class="auth-footer">
+            Already have a console account? <a href="login.html">Log in here</a>
         </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script src="auth.js"></script>
 </body>
 </html>

@@ -3,291 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Stackly Gaming Nexus - Learn about our neural grid systems, operational team, and regional server nodes.">
-    <title>STACKLY PLAY // About Operational Core</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Learn about UrbanNexus, our mission to build sustainable, efficient, and AI-connected municipal infrastructure, and meet our lead engineers.">
+    <title>About Us | stackly Smart City Solutions</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="cyber-dark-theme">
-    
-    <!-- Short entrance loader to fade-in subpages smoothly -->
-    <div class="main-layout revealed" id="main-content">
+<body>
+
+    <!-- Sticky Header & Navbar -->
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="index.html" class="logo" aria-label="UrbanNexus Home">
+                <img src="Assests/logo.webp" alt="UrbanNexus Logo">
+            </a>
+            
+            <ul class="nav-links">
+                                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Mobile only links -->
+                <li class="mobile-only-btn"><a href="login.html" class="btn btn-secondary" id="nav-login-btn-mobile">Login</a></li>
+                <li class="mobile-only-btn"><a href="signup.html" class="btn btn-primary" id="nav-signup-btn-mobile">Sign Up</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-link" id="nav-login-btn">Login</a>
+                <a href="signup.html" class="btn btn-primary" id="nav-signup-btn">Sign Up</a>
+            </div>
+
+            <button class="hamburger" aria-expanded="false" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Header Hero -->
+    <section class="page-hero">
+        <span class="section-tag">Who We Are</span>
+        <h1 class="page-hero-title">Pioneering Urban Modernization</h1>
+        <p class="page-hero-desc">We connect civic data to automated grid utilities to help municipalities navigate growth cleanly, safely, and cost-effectively.</p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
         
-        <!-- SECTION 1: HEADER & NAVIGATION -->
-        <header class="tactical-header">
-            <nav class="tactical-navbar">
-                <div class="container navbar-content">
-                    <a href="about.html" class="nav-logo">
-                      <img src="Assests/logo.webp" alt="Stackly Play Logo">
-                    </a>
-                    
-                    <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
-                        <span class="hamburger"></span>
-                    </button>
-                    
-                    <ul class="nav-menu" id="nav-menu">
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="about.html" class="nav-link active">About</a></li>
-                        <li><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li><a href="login.html" class="nav-link">Login</a></li>
-                        <li><a href="signup.html" class="nav-link">Sign Up</a></li>
-                        <li>
-                            <button class="cart-trigger-btn" id="cart-btn" aria-label="View Cart">
-                                <span class="cart-icon">🛒</span>
-                                <span class="cart-badge" id="cart-count">0</span>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="hero-section subpage-hero">
-                <div class="hero-overlay"></div>
-                <div class="container hero-content text-center">
-                    <div class="hero-text-area" style="grid-column: span 2; max-width: 800px; margin: 0 auto;">
-                        <span class="cyber-badge"><span class="pulse-dot green"></span> NODE INTEL LOADED</span>
-                        <h1 class="glitch-title" data-text="ABOUT SYSTEM OPERATIONS">ABOUT SYSTEM OPERATIONS</h1>
-                        <p class="hero-desc">Discover the neural architectures, developers, and regional server nodes powering Stackly's gaming infrastructure.</p>
-                    </div>
-                </div>
+        <!-- 1. Company Story Timeline -->
+        <section class="story-section">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Our Growth</span>
+                <h2 class="section-title">Evolution of Stackly</h2>
+                <p class="section-desc">From a green energy research group to a global smart city platform developer.</p>
             </div>
-        </header>
-        <!-- SECTION 2: TACTICAL SYSTEM OVERVIEW -->
-        <section class="about-overview-section" id="mission">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-details">
-                        <span class="panel-tag">OPERATIONAL PARADIGM</span>
-                        <h3>Neural Gaming Architecture</h3>
-                        <p>Stackly Nexus is engineered to minimize latency and maximize global gaming connectivity. Utilizing distributed Edge Nodes, we synchronize input states at the molecular level, delivering lag-free competitive environments.</p>
-                        <ul class="pane-stats" style="margin-top: 1.5rem;">
-                            <li><strong>8,000Hz</strong> Mouse Input Polling Sync</li>
-                            <li><strong>128-tick</strong> Server Precision Rate</li>
-                            <li><strong>16 Regional</strong> Operational Nodes Active</li>
-                        </ul>
+
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Foundation & First Research Lab</h3>
+                        <p>Stackly was established in Boston as an academic spin-off focused on smart electrical grid routers and localized energy grids.</p>
                     </div>
-                    <div class="about-visual">
-                        <div class="grid-simulator">
-                            <div class="sim-header">
-                                <span>Neural Grid Alignment</span>
-                                <span class="pulse-dot"></span>
-                            </div>
-                            <div class="sim-bars">
-                                <div class="sim-bar-item">
-                                    <span class="bar-label">Node Sync Accuracy</span>
-                                    <div class="bar-track"><div class="bar-fill" style="width: 99.4%; background: var(--accent-cyan);"></div></div>
-                                    <span class="bar-val">99.4%</span>
-                                </div>
-                                <div class="sim-bar-item">
-                                    <span class="bar-label">Input Interpolation</span>
-                                    <div class="bar-track"><div class="bar-fill" style="width: 12%; background: var(--accent-emerald);"></div></div>
-                                    <span class="bar-val">12% avg</span>
-                                </div>
-                            </div>
-                            <div class="sim-status">
-                                Current Status: <span class="status-green">Optimal Core Alignment</span>
-                            </div>
-                        </div>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item animate-on-scroll delay-100">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Initial Municipal Pilot</h3>
+                        <p>Deployed our first dynamic traffic sensor matrix across 12 main junctions in Newark, cutting fuel idling metrics by 18%.</p>
+                    </div>
+                </div>
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item animate-on-scroll delay-200">
+                    <div class="timeline-date">2026</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Global Expansion</h3>
+                        <p>Secured municipal contracts in 14 international metro zones. Launch of our unified Smart City Edge Operating System.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- SECTION 3: OPERATIONAL DEVELOPMENT SQUAD -->
-        <section class="team-section" id="team">
-            <div class="container">
-                <div class="section-header">
-                    <h2>DEVELOPER SQUAD</h2>
-                    <p>Meet the primary architectural minds behind Stackly's gaming networks.</p>
+
+        <!-- 2. Mission & Vision -->
+        <section class="mission-section">
+            <div class="mission-grid">
+                <div class="mission-card glass-card animate-on-scroll">
+                    <i data-lucide="target"></i>
+                    <h3>Our Mission</h3>
+                    <p>To deliver resilient, privacy-first, and zero-carbon digital infrastructure platforms that enable metropolitan administrations to maximize community wellbeing while meeting aggressive carbon-neutral targets.</p>
                 </div>
-                <div class="team-grid">
-                    <!-- Member 1 -->
-                    <div class="team-card">
-                        <div class="team-img-wrapper">
-                            <span class="team-role-tag">SYSTEM ARCHITECT</span>
-                            <!-- Virtual SVG avatar -->
-                            <svg class="team-avatar-svg" viewBox="0 0 100 100" width="100%" height="180">
-                                <circle cx="50" cy="50" r="45" fill="#0c1220" stroke="var(--accent-cyan)" stroke-width="2"/>
-                                <path d="M30 80 Q50 45 70 80" fill="none" stroke="var(--accent-cyan)" stroke-width="3"/>
-                                <circle cx="50" cy="35" r="14" fill="none" stroke="var(--accent-cyan)" stroke-width="3"/>
-                                <line x1="38" y1="35" x2="62" y2="35" stroke="var(--accent-cyan)" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <div class="team-info-box">
-                            <h3>XOR_COMMANDER</h3>
-                            <p>Directs the server cluster distribution systems and neural tickrate optimizers.</p>
-                        </div>
-                    </div>
-                    <!-- Member 2 -->
-                    <div class="team-card">
-                        <div class="team-img-wrapper">
-                            <span class="team-role-tag">HUD DESIGNER</span>
-                            <!-- Virtual SVG avatar -->
-                            <svg class="team-avatar-svg" viewBox="0 0 100 100" width="100%" height="180">
-                                <circle cx="50" cy="50" r="45" fill="#0c1220" stroke="var(--accent-purple)" stroke-width="2"/>
-                                <path d="M30 80 Q50 50 70 80" fill="none" stroke="var(--accent-purple)" stroke-width="3"/>
-                                <circle cx="50" cy="38" r="12" fill="none" stroke="var(--accent-purple)" stroke-width="3"/>
-                                <polygon points="45,34 55,34 50,44" fill="var(--accent-purple)"/>
-                            </svg>
-                        </div>
-                        <div class="team-info-box">
-                            <h3>CYBER_MATRIX</h3>
-                            <p>Spearheads 3D tilting layouts and high-performance glitched UI structures.</p>
-                        </div>
-                    </div>
-                    <!-- Member 3 -->
-                    <div class="team-card">
-                        <div class="team-img-wrapper">
-                            <span class="team-role-tag">NET SECURITY</span>
-                            <!-- Virtual SVG avatar -->
-                            <svg class="team-avatar-svg" viewBox="0 0 100 100" width="100%" height="180">
-                                <circle cx="50" cy="50" r="45" fill="#0c1220" stroke="var(--accent-gold)" stroke-width="2"/>
-                                <path d="M30 80 Q50 48 70 80" fill="none" stroke="var(--accent-gold)" stroke-width="3"/>
-                                <circle cx="50" cy="36" r="13" fill="none" stroke="var(--accent-gold)" stroke-width="3"/>
-                                <path d="M42 34 L46 38 L54 30" fill="none" stroke="var(--accent-gold)" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <div class="team-info-box">
-                            <h3>BUFFER_SHIELD</h3>
-                            <p>Monitors DDoS mitigation filters, ticket database indexing, and user encryption keys.</p>
-                        </div>
-                    </div>
+                
+                <div class="mission-card glass-card animate-on-scroll delay-100">
+                    <i data-lucide="eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To establish the global software standard for urban operating systems, turning every streetlight, substation, and water artery into an automated, self-healing, and sustainable asset.</p>
                 </div>
             </div>
         </section>
-        <!-- SECTION 4: REGIONAL SERVER GRID -->
-        <section class="server-grid-section" id="servers">
-            <div class="container">
-                <div class="section-header">
-                    <h2>REGIONAL SERVER NODES</h2>
-                    <p>Current latency diagnostics across regional Stackly Edge connection grids.</p>
-                </div>
-                <div class="server-table-container">
-                    <table class="server-status-table">
-                        <thead>
-                            <tr>
-                                <th>NODE CODE</th>
-                                <th>LOCATION</th>
-                                <th>PING</th>
-                                <th>CAPACITY LOAD</th>
-                                <th>SECURITY STATUS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code class="node-id">STK-NODE-01</code></td>
-                                <td>North America Core (Virginia)</td>
-                                <td class="stat-green">14ms</td>
-                                <td>
-                                    <div class="table-progress"><div class="table-progress-fill cyan" style="width: 42%"></div></div>
-                                    <span class="pct-lbl">42%</span>
-                                </td>
-                                <td><span class="sec-ok">🛡️ ENCRYPTED</span></td>
-                            </tr>
-                            <tr>
-                                <td><code class="node-id">STK-NODE-02</code></td>
-                                <td>Europe Central Hub (Frankfurt)</td>
-                                <td class="stat-green">22ms</td>
-                                <td>
-                                    <div class="table-progress"><div class="table-progress-fill purple" style="width: 78%"></div></div>
-                                    <span class="pct-lbl">78%</span>
-                                </td>
-                                <td><span class="sec-ok">🛡️ ENCRYPTED</span></td>
-                            </tr>
-                            <tr>
-                                <td><code class="node-id">STK-NODE-03</code></td>
-                                <td>Asia East Array (Tokyo)</td>
-                                <td class="stat-green">38ms</td>
-                                <td>
-                                    <div class="table-progress"><div class="table-progress-fill gold" style="style: width: 61%"></div></div>
-                                    <span class="pct-lbl">61%</span>
-                                </td>
-                                <td><span class="sec-ok">🛡️ ENCRYPTED</span></td>
-                            </tr>
-                            <tr>
-                                <td><code class="node-id">STK-NODE-04</code></td>
-                                <td>Australia Grid (Sydney)</td>
-                                <td class="stat-gold">72ms</td>
-                                <td>
-                                    <div class="table-progress"><div class="table-progress-fill red" style="width: 15%"></div></div>
-                                    <span class="pct-lbl">15%</span>
-                                </td>
-                                <td><span class="sec-warn">⚠️ SHIELD REGENERATING</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+        <!-- 3. Our Team -->
+        <section class="team-section">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Leadership</span>
+                <h2 class="section-title">The Innovators Behind the Platform</h2>
+                <p class="section-desc">A team of software engineers, electrical architects, and municipal policy advisors.</p>
             </div>
-        </section>
-        <!-- SECTION 5: TACTICAL FOOTER -->
-        <footer class="tactical-footer">
-            <div class="footer-top">
-                <div class="container footer-grid">
-                    <div class="footer-col about-col">
-                          <div class="footer-logo">
-    <img src="Assests/logo.webp" alt="Stackly Play">
+
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card glass-card animate-on-scroll">
+                    <div class="team-img-wrapper">
+                        <img src="Assests/Bryan-Swaim.webp" alt="Marcus Sterling">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Marcus Sterling</h3>
+                        <div class="team-role">Chief Executive Officer</div>
+                        <div class="team-socials">
+    <a href="#" class="social-icon">
+        <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="#" class="social-icon">
+        <i class="fa-brands fa-github"></i>
+    </a>
 </div>
-                        <p>Stackly Nexus is the official cybernetic gaming portal. Access distributed multiplayer arenas, real-time telemetry diagnostics, and neural client software.</p>
-                        <div class="social-links">
-                            <a href="404.html" aria-label="Join Discord">💬 Discord</a>
-                            <a href="404.html" aria-label="Twitch channel">🎮 Twitch</a>
-                            <a href="404.html" aria-label="YouTube Channel">📺 YouTube</a>
-                        </div>
                     </div>
-                    <div class="footer-col">
-                        <h4>MEMBER HUD</h4>
-                        <ul class="footer-links">
-                            <li><a href="index.html#games">Games Arsenal</a></li>
-                            <li><a href="about.html">About Operations</a></li>
-                            <li><a href="blog.html">Tactical Blog</a></li>
-                            <li><a href="contact.html">Contact Hub</a></li>
-                            <li><a href="signup.html">Sign Up Cadet</a></li>
-                        </ul>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="team-card glass-card animate-on-scroll delay-100">
+                    <div class="team-img-wrapper">
+                        <img src="Assests/senior-product-manager.webp" alt="Dr. Elena Rostova">
                     </div>
-                    <div class="footer-col">
-                        <h4>TACTICAL LINKS</h4>
-                        <ul class="footer-links">
-                            <li><a href="about.html">Developer API Docs</a></li>
-                            <li><a href="about.html">Hardware Calibrations</a></li>
-                            <li><a href="about.html">Fair Play Standards</a></li>
-                            <li><a href="about.html">Privacy Protocols</a></li>
-                            <li><a href="about.html">System Accessibility</a></li>
-                        </ul>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Elena Rostova</h3>
+                        <div class="team-role">Chief Technology Officer</div>
+                       <div class="team-socials">
+    <a href="#" class="social-icon">
+        <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="#" class="social-icon">
+        <i class="fa-brands fa-github"></i>
+    </a>
+</div>
                     </div>
-                    <div class="footer-col matrix-col">
-                        <h4>COMM SECURE SUBSCRIPTION</h4>
-                        <p class="sub-desc">Subscribe to acquire alpha deployment codes and item drop alerts.</p>
-                        <form class="footer-sub-form" onsubmit="event.preventDefault(); alert('Subscribed to operations newsletter (Simulation)'); this.reset();">
-                            <input type="email" placeholder="agent@neural.net" required aria-label="Email Address">
-                            <button type="submit">SUBSCRIBE</button>
-                        </form>
-                        
-                        <div class="footer-accessibility-row">
-                            <span class="acc-title">HUD SCALE:</span>
-                            <button class="scale-btn" id="hud-scale-down">A-</button>
-                            <button class="scale-btn" id="hud-scale-reset">A</button>
-                            <button class="scale-btn" id="hud-scale-up">A+</button>
-                            <button class="contrast-btn" id="hud-contrast-toggle" title="Toggle High Contrast HUD">🌓</button>
-                        </div>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="team-card glass-card animate-on-scroll delay-200">
+                    <div class="team-img-wrapper">
+                        <img src="Assests/team_member2.webp" alt="Devon Lane">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Devon Lane</h3>
+                        <div class="team-role">Head of Energy Grids</div>
+                       <div class="team-socials">
+    <a href="#" class="social-icon">
+        <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="#" class="social-icon">
+        <i class="fa-brands fa-github"></i>
+    </a>
+</div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="container footer-bottom-content">
-                    <p>&copy; 2026 Stackly Systems Corporation. All operational systems online. Neural encryption active.</p>
-                    <div class="bottom-links">
-                        <a href="about.html">OPERATIONS POLICY</a>
-                        <a href="about.html">EULA CODES</a>
-                        <a href="about.html">ZONING COMPLIANCE</a>
+        </section>
+
+        <!-- 4. Why Choose Us -->
+        <section class="features" style="padding-top: 4rem;">
+            <div class="features-grid">
+                <div class="features-list animate-on-scroll">
+                    <span class="section-tag">Why Stackly</span>
+                    <h2 class="section-title">A Higher Caliber of Civic Software</h2>
+                    
+                    <div class="feature-item glass-card">
+                        <div class="feature-icon-wrapper"><i data-lucide="git-branch"></i></div>
+                        <div class="feature-info">
+                            <h3>Open API Architectures</h3>
+                            <p>We avoid legacy vendor lock-in. Our software interfaces with pre-existing telemetry standards, including SCADA and regional traffic relays.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item glass-card">
+                        <div class="feature-icon-wrapper" style="color: var(--primary); background: rgba(0,240,255,0.1);"><i data-lucide="shield-check"></i></div>
+                        <div class="feature-info">
+                            <h3>Mil-Spec Cryptography</h3>
+                            <p>All communication between edge relays and the cloud core utilizes peer-to-peer military encryption, safeguarding public utility control centers from cyber threats.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-visual animate-on-scroll delay-200">
+                    <div class="features-visual-inner">
+                        <i data-lucide="check-square" style="color: #10b981; filter: drop-shadow(0 0 20px rgba(16,185,129,0.3));"></i>
+                        <h2>Compliance Certified</h2>
+                        <p style="color: var(--text-muted); margin-top: 1rem;">ISO 27001 Security Standard & GDPR Privacy Compliance across all data nodes.</p>
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="Assests/logo.webp" alt="UrbanNexus Logo">
+                </a>
+                <p>Empowering city administrations with high-performance, decentralized IoT solutions to achieve sustainability targets and maximize resource efficiency.</p>
+              <div class="social-links">
+                    <a href="404.html" class="social-icon" aria-label="Stackly Smart City Twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="404.html" class="social-icon" aria-label="Stackly Smart City Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="404.html" class="social-icon" aria-label="Stackly Smart City LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="404.html" class="social-icon" aria-label="Stackly Smart City GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-nav">
+                <h4>Solutions</h4>
+                <ul class="footer-nav-links">
+                    <li><a href="404.html">Traffic Systems</a></li>
+                    <li><a href="404.html">Green Energy Grid</a></li>
+                    <li><a href="404.html">Edge Processing</a></li>
+                    <li><a href="404.html">Civic Deployments</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-nav">
+                <h4>Company</h4>
+                <ul class="footer-nav-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Resources & Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="404.html">Security Shield</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i data-lucide="map-pin"></i>
+                        <span>100 Technology Parkway, Suite 400, stackly Innovation District,  Hyderabad</span>
+                    </li>
+                    <li>
+                        <i data-lucide="phone"></i>
+                        <span>9876543210</span>
+                    </li>
+                    <li>
+                        <i data-lucide="mail"></i>
+                        <span>support@stackly.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; 2026 Stackly All rights reserved.</div>
+            <ul class="footer-policy">
+                <li><a href="404.html">Terms of Service</a></li>
+                <li><a href="404.html">Privacy Policy</a></li>
+                <li><a href="404.html">GDPR Compliance</a></li>
+            </ul>
+        </div>
+    </footer>
+
     <!-- Main JavaScript Logic -->
-    <script src="app.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

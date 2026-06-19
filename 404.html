@@ -1,218 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 - Stackly Play</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Orbitron',sans-serif;
-}
-
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    background:
-    radial-gradient(circle at top left,#18002d,#050510),
-    radial-gradient(circle at bottom right,#00122e,#050510);
-    position:relative;
-}
-
-/* Cyber Grid */
-body::before{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:
-        linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
-    background-size:50px 50px;
-    animation:gridMove 8s linear infinite;
-}
-
-@keyframes gridMove{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(50px);
-    }
-}
-
-/* Glowing Orbs */
-.orb{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(120px);
-}
-
-.orb1{
-    width:300px;
-    height:300px;
-    background:#00f7ff55;
-    top:-100px;
-    left:-100px;
-}
-
-.orb2{
-    width:300px;
-    height:300px;
-    background:#a200ff55;
-    bottom:-100px;
-    right:-100px;
-}
-
-/* Glass Card */
-.container{
-    width:90%;
-    max-width:850px;
-    text-align:center;
-    padding:60px;
-    border-radius:30px;
-    background:rgba(255,255,255,0.06);
-    backdrop-filter:blur(25px);
-    border:1px solid rgba(255,255,255,0.15);
-    box-shadow:
-        0 0 40px rgba(0,255,255,.25),
-        inset 0 0 20px rgba(255,255,255,.05);
-    z-index:1;
-}
-
-/* 404 Text */
-.glitch{
-    position:relative;
-    display:inline-block;
-    font-size:8rem;
-    color:#fff;
-    text-shadow:
-        0 0 20px #00f7ff,
-        0 0 40px #00f7ff;
-}
-
-.glitch::before,
-.glitch::after{
-    content:attr(data-text);
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    overflow:hidden;
-}
-
-.glitch::before{
-    color:#00f7ff;
-    transform:translate(-4px);
-    opacity:.4;
-}
-
-.glitch::after{
-    color:#ff00ff;
-    transform:translate(4px);
-    opacity:.4;
-}
-
-h2{
-    color:#00f7ff;
-    letter-spacing:3px;
-    margin-top:20px;
-    margin-bottom:25px;
-}
-
-.error{
-    color:#ffffff;
-    margin-bottom:20px;
-    font-size:18px;
-}
-
-p{
-    color:#d7d7d7;
-    line-height:1.8;
-    margin-bottom:40px;
-    font-size:17px;
-}
-
-/* Buttons */
-.btn-box{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    text-decoration:none;
-    color:#fff;
-    padding:15px 35px;
-    border-radius:40px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.2);
-    transition:0.4s;
-}
-
-.btn:hover{
-    background:#00f7ff;
-    color:#000;
-    transform:translateY(-5px);
-    box-shadow:
-        0 0 20px #00f7ff,
-        0 0 40px #00f7ff;
-}
-
-/* Responsive */
-@media(max-width:768px){
-
-    .container{
-        padding:40px 25px;
-    }
-
-    .glitch{
-        font-size:5rem;
-    }
-
-    h2{
-        font-size:22px;
-    }
-
-    p{
-        font-size:15px;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found |stackly</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
+<body class="error-page">
 
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-
-<div class="container">
-
-    <h1 class="glitch" data-text="404">404</h1>
-
-    <h2>CONNECTION TO THE STACKLY GRID LOST</h2>
-
-    <div class="error">ERROR CODE : 404</div>
-
-    <p>
-        The requested sector cannot be found in the Stackly Gaming Nexus.
-        The server node may have been removed, destroyed, or never existed.
-    </p>
-
-    <div class="btn-box">
-        <a href="index.html" class="btn">🏠 Return Home</a>
-        <a href="#" onclick="history.back()" class="btn">⬅ Go Back</a>
+    <div class="error-container glass-card" style="padding: 4rem 3rem;">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-message">Oops! The page you're looking for doesn't exist.</p>
+        
+        <div style="margin-top: 1rem;">
+            <a href="index.html" class="btn btn-primary go-home-btn" id="home-btn"><i data-lucide="home"></i> Go to Home</a>
+        </div>
     </div>
 
-</div>
-
+    <!-- Scripts -->
+    <script src="main.js"></script>
 </body>
 </html>
