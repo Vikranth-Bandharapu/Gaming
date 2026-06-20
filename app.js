@@ -790,6 +790,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', () => {
             localStorage.removeItem('currentAgentEmail');
+            localStorage.removeItem('currentAgentFullName');
+            localStorage.removeItem('currentAgentCodename');
+            localStorage.removeItem('currentAgentPhone');
+            localStorage.removeItem('currentAgentRole');
             window.location.href = 'index.html';
         });
     }
@@ -799,12 +803,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedEmail = localStorage.getItem('currentAgentEmail');
     if (savedEmail) {
         if (userDisplayNameEl) {
-            const parts = savedEmail.split('@');
-            userDisplayNameEl.textContent = parts[0].toUpperCase();
+            const savedCodename = localStorage.getItem('currentAgentCodename');
+            if (savedCodename) {
+                userDisplayNameEl.textContent = savedCodename.toUpperCase();
+            } else {
+                const parts = savedEmail.split('@');
+                userDisplayNameEl.textContent = parts[0].toUpperCase();
+            }
         }
         if (userDisplayEmailEl) {
             userDisplayEmailEl.textContent = savedEmail;
         }
+    }
+
+    // Pre-populate Cadet Profile form inputs if elements exist
+    const profEmail = document.getElementById('prof-email');
+    if (profEmail && savedEmail) {
+        profEmail.value = savedEmail;
+    }
+    const profFullName = document.getElementById('prof-fullname');
+    const savedFullName = localStorage.getItem('currentAgentFullName');
+    if (profFullName && savedFullName) {
+        profFullName.value = savedFullName;
+    }
+    const profCodename = document.getElementById('prof-codename');
+    const savedCodename = localStorage.getItem('currentAgentCodename');
+    if (profCodename && savedCodename) {
+        profCodename.value = savedCodename;
+    }
+    const profPhone = document.getElementById('prof-phone');
+    const savedPhone = localStorage.getItem('currentAgentPhone');
+    if (profPhone && savedPhone) {
+        profPhone.value = savedPhone;
     }
 
     // 13. Interactive User Calibrator Coordinates Grid
@@ -1039,6 +1069,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             
+            const rememberCheckbox = document.getElementById('remember-terminal');
+            if (rememberCheckbox) {
+                setupAutoClear(rememberCheckbox);
+                if (!rememberCheckbox.checked) {
+                    showInlineError(rememberCheckbox, 'Terminal authorization confirmation is required.');
+                    hasError = true;
+                }
+            }
+            
             if (hasError) return;
             
             const submitBtn = loginForm.querySelector('button[type="submit"]');
@@ -1047,6 +1086,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.style.color = 'var(--accent-gold)';
             }
             
+            const previousEmail = localStorage.getItem('currentAgentEmail');
+            if (previousEmail !== emailValue) {
+                localStorage.removeItem('currentAgentFullName');
+                localStorage.removeItem('currentAgentCodename');
+                localStorage.removeItem('currentAgentPhone');
+            }
             localStorage.setItem('currentAgentEmail', emailValue);
             if (roleValue) {
                 localStorage.setItem('currentAgentRole', roleValue);
@@ -1140,6 +1185,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             
+            const agreeCheckbox = document.getElementById('agree-protocol');
+            if (agreeCheckbox) {
+                setupAutoClear(agreeCheckbox);
+                if (!agreeCheckbox.checked) {
+                    showInlineError(agreeCheckbox, 'You must accept the Cadet Protocol to proceed.');
+                    hasError = true;
+                }
+            }
+            
             if (hasError) return;
             
             const submitBtn = signupForm.querySelector('button[type="submit"]');
@@ -1147,6 +1201,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.textContent = 'TRANSMITTING PROFILE...';
                 submitBtn.style.color = 'var(--accent-gold)';
             }
+            
+            // Save registered details to localStorage so they populate the dashboard
+            if (fullNameInput) localStorage.setItem('currentAgentFullName', fullNameInput.value.trim());
+            if (usernameInput) localStorage.setItem('currentAgentCodename', usernameInput.value.trim());
+            if (emailInput) localStorage.setItem('currentAgentEmail', emailInput.value.trim());
+            if (phoneInput) localStorage.setItem('currentAgentPhone', phoneInput.value.trim());
             
             setTimeout(() => {
                 window.location.href = 'login.html';
@@ -1218,8 +1278,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.style.color = 'var(--accent-gold)';
             }
 
+            if (fullNameInput) {
+                localStorage.setItem('currentAgentFullName', fullNameInput.value.trim());
+            }
+            if (usernameInput) {
+                localStorage.setItem('currentAgentCodename', usernameInput.value.trim());
+            }
             if (emailInput) {
                 localStorage.setItem('currentAgentEmail', emailInput.value.trim());
+            }
+            if (phoneInput) {
+                localStorage.setItem('currentAgentPhone', phoneInput.value.trim());
             }
 
             setTimeout(() => {

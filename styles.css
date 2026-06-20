@@ -644,7 +644,7 @@ section::after {
 }
 .games-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     perspective: 1000px; /* Essential for 3D tilts */
 }
@@ -1022,7 +1022,7 @@ section::after {
 }
 .telemetry-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 .telemetry-card {
@@ -1099,7 +1099,7 @@ section::after {
    ========================================================================== */
 .store-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 3rem;
 }
 .store-card {
@@ -1848,6 +1848,23 @@ section::after {
     .team:last-child {
         justify-content: center !important;
     }
+    
+    /* Countdown Panel overrides on mobile/tablet */
+    .countdown-panel {
+        padding: 1.5rem;
+    }
+    .timer-grid {
+        gap: 0.5rem;
+    }
+    .timer-val {
+        font-size: 1.75rem;
+    }
+    .timer-lbl {
+        font-size: 0.65rem;
+    }
+    .tournament-info {
+        font-size: 0.85rem;
+    }
 }
 /* Small Mobile screens (480px) */
 @media (max-width: 480px) {
@@ -1904,6 +1921,23 @@ section::after {
     }
     .leader-rating {
         font-size: 0.9rem;
+    }
+    
+    /* Small mobile tweaks for text size and countdown panel */
+    .hero-content h1.glitch-title {
+        font-size: 2rem;
+    }
+    .countdown-panel {
+        padding: 1.25rem 1rem;
+    }
+    .timer-grid {
+        gap: 0.4rem;
+    }
+    .timer-val {
+        font-size: 1.5rem;
+    }
+    .timer-lbl {
+        font-size: 0.6rem;
     }
 }
 /* ==========================================================================
@@ -2255,7 +2289,7 @@ section::after {
    ========================================================================== */
 .news-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     margin-top: 2rem;
 }
