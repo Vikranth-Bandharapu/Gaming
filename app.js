@@ -110,6 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Navbar links & Logo
         const isLogo = target.classList.contains('nav-logo') || target.closest('.nav-logo') || target.classList.contains('footer-logo') || target.closest('.footer-logo');
         const isNavbarLink = target.closest('#nav-menu') && target.tagName === 'A';
+        
+        // 1.5. Footer member / tactical links
+        const isFooterLink = target.closest('.footer-links') && target.tagName === 'A';
 
         // 2. Auth Page submits & links
         const isAuthSubmit = target.closest('#cyber-login-form') || target.closest('#cyber-signup-form');
@@ -150,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (
             isLogo ||
             isNavbarLink ||
+            isFooterLink ||
             isAuthSubmit ||
             isAuthToggle ||
             isSubscribeSubmit ||

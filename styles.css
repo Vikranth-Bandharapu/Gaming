@@ -310,6 +310,7 @@ section::after {
     transition: opacity var(--transition-slow) ease-out;
     overflow-x: hidden;
     width: 100%;
+    padding-top: 80px;
 }
 .main-layout.revealed {
     opacity: 1;
@@ -321,9 +322,11 @@ section::after {
 .tactical-navbar {
     background-color: var(--bg-glass);
     border-bottom: 2px solid var(--border-color);
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     padding: 1.25rem 0;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(16px);
