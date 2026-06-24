@@ -2,13 +2,22 @@
    Stackly Gaming Portal - App Script (Multi-Page & Page-Safe)
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize AOS Scroll Animations
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 1000,
-            once: true,
-            easing: 'ease-out-cubic'
-        });
+    // 1. Initialize AOS Scroll Animations (Deferred if preloader exists to ensure correct offset calculations)
+    const hasPreloader = document.getElementById('preloader');
+    
+    function initAOS() {
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                easing: 'ease-out-cubic'
+            });
+            AOS.refresh();
+        }
+    }
+
+    if (!hasPreloader) {
+        initAOS();
     }
 
     // 2. Sticky Scrolled Navbar Transition
@@ -221,6 +230,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Force a small reflow, then apply revealed class for fade transition
                         void mainContent.offsetWidth;
                         mainContent.classList.add('revealed');
+                        
+                        // Initialize AOS now that elements are displayed and offsets are correct
+                        initAOS();
                     }
                 }, 600); // Wait for zoom-out keyframe to execute
             }
@@ -248,6 +260,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mainContent) {
             mainContent.classList.remove('hidden');
             mainContent.classList.add('revealed');
+            
+            // Refresh AOS to calculate offsets now that elements are displayed
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
         }
     }
     /* ==========================================================================
